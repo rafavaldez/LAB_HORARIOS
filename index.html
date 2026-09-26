@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c90032">
+  <meta name="description" content="Consulta el cronograma de laboratorios por fecha, semana y ambiente.">
+  <title>Cronograma de Laboratorios · UTP</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/xlsx.full.min.js"></script>
+  <script defer src="excel.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#cronograma">Ir al cronograma</a>
+  <div class="app-shell" id="inicio">
+    <header class="site-header">
+      <button class="icon-button menu-toggle" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#menu"/></svg></button>
+      <a class="brand" href="#inicio" aria-label="UTP · Inicio"><span class="brand-letters" aria-hidden="true"><b>U</b><b>T</b><b>P</b></span><span class="brand-name">Universidad<br>Tecnológica<br>del Perú</span></a>
+      <nav id="mainNav" class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#home"/></svg>Inicio</a>
+        <a href="#cronograma" class="active" aria-current="page"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg>Cronograma</a>
+        <button type="button" class="help-trigger"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#help"/></svg>Ayuda</button>
+      </nav>
+      <button class="icon-button help-trigger header-help" aria-label="Ayuda sobre el cronograma"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#help"/></svg></button>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="pageTitle">
+        <div class="hero-photo" aria-hidden="true"></div>
+        <div class="hero-copy"><p class="eyebrow">UTP · Consulta rápida</p><h1 id="pageTitle">Cronograma de Laboratorios</h1><p class="hero-description">Consulta las clases por fecha, semana, día y ambiente.<br class="desktop-only"> Todos los horarios del Excel, en un solo lugar.</p></div>
+        <button id="refreshBtn" class="primary-button" type="button"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#refresh"/></svg><span>Actualizar horarios</span></button>
+      </section>
+      <div class="page-content">
+        <section class="filters card" aria-label="Filtros del cronograma">
+          <fieldset id="filterFields" disabled>
+            <div class="field"><label for="dateInput">Fecha</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><input id="dateInput" type="date" required></div></div>
+            <div class="field"><label for="weekSelect">Semana</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><select id="weekSelect"></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
+            <div class="field"><label for="daySelect">Día</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#sun"/></svg><select id="daySelect"></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
+            <div class="field"><label for="envSelect">Ambiente</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#layers"/></svg><select id="envSelect"><option value="">Todos</option></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
+            <div class="date-actions"><button id="prevDay" class="icon-button" aria-label="Día anterior"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#left"/></svg></button><button id="todayBtn" class="today-button">Hoy</button><button id="nextDay" class="icon-button" aria-label="Día siguiente"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#right"/></svg></button></div>
+          </fieldset>
+        </section>
+        <p id="loadStatus" class="load-status" role="status">Consultando el Excel publicado…</p>
+        <div id="errorBox" class="error-box" role="alert" hidden></div>
+        <section id="cronograma" class="schedule card" aria-labelledby="dateTitle" aria-busy="true">
+          <div class="date-heading"><span class="date-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg></span><div class="date-copy"><h2 id="dateTitle">Cargando cronograma…</h2><p id="dateSub">Los horarios aparecerán aquí.</p></div><span class="week-badge"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><span id="weekBadge">Semana —</span></span></div>
+          <div class="stats" aria-label="Resumen del día">
+            <div class="stat stat-red"><span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#layers"/></svg></span><div><strong id="statClasses">—</strong><span>clases<span class="desktop-only"> programadas</span></span></div></div>
+            <div class="stat stat-slate"><span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#building"/></svg></span><div><strong id="statEnvs">—</strong><span>ambientes<span class="desktop-only"> en uso</span></span></div></div>
+            <div class="stat stat-green"><span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#clock"/></svg></span><div><strong id="statHours">—</strong><span>horas<span class="desktop-only"> programadas</span></span></div></div>
+          </div>
+          <div class="search-row"><span id="resultCount">Programación del día</span><div class="search-box"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"/></svg><input id="searchInput" type="search" placeholder="Buscar curso o docente" aria-label="Buscar curso o docente" disabled></div></div>
+          <div id="results" class="results" aria-live="polite"></div>
+          <p id="dataWarnings" class="data-warnings" hidden></p>
+        </section>
+        <footer class="page-footer"><span>Laboratorios · Consulta de horarios</span><span id="sourceInfo">Datos del Excel publicado</span></footer>
+      </div>
+    </main>
+  </div>
+  <dialog id="helpDialog" aria-labelledby="helpTitle">
+    <div class="dialog-heading"><h2 id="helpTitle">Consulta tu cronograma</h2><button id="closeHelp" class="icon-button" aria-label="Cerrar ayuda"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></button></div>
+    <p>Elige una fecha o combina semana y día. Puedes filtrar por ambiente y buscar un curso o docente.</p>
+    <p>Pulsa el nombre de un ambiente para desplegar o cerrar sus clases. El botón <strong>Hoy</strong> vuelve a la fecha actual.</p>
+    <p><strong>Actualizar horarios</strong> consulta nuevamente el archivo publicado. No necesitas cargar ningún documento.</p>
+    <p>Las fechas marcadas como calculadas se deducen del inicio del ciclo porque faltan en la hoja correspondiente.</p>
+  </dialog>
+  <noscript><p class="error-box">Activa JavaScript para leer el Excel y consultar los horarios.</p></noscript>
+</body>
+</html>
