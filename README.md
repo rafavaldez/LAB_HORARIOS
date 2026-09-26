@@ -1,3 +1,5 @@
+GitHub Pages deployment
+
 # Cronograma de laboratorios · UTP
 
 Sitio estático compatible con GitHub Pages. El navegador descarga y lee directamente el Excel mediante JavaScript. No hay Python, base de datos, servidor de aplicación, pasos de conversión ni botón para subir archivos.
