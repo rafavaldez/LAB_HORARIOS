@@ -126,6 +126,12 @@
       }
     }
     if (!weeks.length) throw new Error('No hay semanas con fechas utilizables. Revisa las filas SEMANA y sus fechas en el Excel.');
+    const dateOwner = new Map();
+    for (const week of weeks) for (const date of week.dates) {
+      const owner = dateOwner.get(date);
+      if (owner && owner !== week.sheet) throw new Error(`${owner} y ${week.sheet} tienen la misma fecha (${date}). Corrige las fechas del Excel antes de publicarlo.`);
+      dateOwner.set(date, week.sheet);
+    }
     const available = new Set(weeks.map(w => w.number));
     const missing = [];
     for (let i = Math.min(...available); i <= Math.max(...available); i++) if (!available.has(i)) missing.push(`W${pad(i)}`);

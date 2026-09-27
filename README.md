@@ -1,8 +1,6 @@
-GitHub Pages deployment
-
 # Cronograma de laboratorios · UTP
 
-Sitio estático compatible con GitHub Pages. El navegador descarga y lee directamente el Excel mediante JavaScript. No hay Python, base de datos, servidor de aplicación, pasos de conversión ni botón para subir archivos.
+Sitio estático compatible con GitHub Pages. **Inicio** reúne los documentos frecuentes para verlos o descargarlos; **Cronograma** lee directamente el Excel mediante JavaScript. No hay Python, base de datos, servidor de aplicación, pasos de conversión ni botón para subir archivos.
 
 ## Publicar por primera vez
 
@@ -12,10 +10,18 @@ Sitio estático compatible con GitHub Pages. El navegador descarga y lee directa
 
 Todos los recursos usan rutas relativas: funciona tanto en `usuario.github.io/` como en `usuario.github.io/nombre-del-repositorio/`.
 
+## Añadir documentos a Inicio
+
+1. Coloca cada PDF nuevo en `documentos/` con un nombre de archivo estable, preferiblemente sin espacios ni tildes.
+2. Añade un objeto en `documents.js` con `title`, `description`, `category`, `detail`, `file` y `downloadName`. Usa como `file` la ruta relativa al PDF dentro de la carpeta; las tarjetas y el contador se generan automáticamente.
+3. Publica ambos archivos en el repositorio y espera el despliegue de GitHub Pages. La pestaña Inicio mostrará el nuevo documento con botones **Ver PDF** y **Descargar**.
+
+El primer documento es `documentos/registro-asistencia-induccion-seguridad-laboratorios-utp.pdf`, el registro de asistencia a la inducción de seguridad. El navegador sirve el PDF directamente desde GitHub Pages, sin conversión. Como se publica para descarga, cualquier persona con acceso al sitio podrá obtenerlo.
+
 ## Actualizar o cambiar de temporada
 
 1. Descarga el Excel nuevo.
-2. Reemplaza en el repositorio el archivo `data/GUIAS X SEMANA Y HORARIOS.xlsx`, conservando exactamente su nombre y ubicación.
+2. Reemplaza en el repositorio el archivo `data/actual/GUIAS X SEMANA Y HORARIOS.xlsx`, conservando exactamente su nombre y ubicación.
 3. Confirma el cambio (commit) y espera a que termine la publicación de GitHub Pages.
 4. Abre el visor o pulsa **Actualizar horarios**. El navegador vuelve a descargar el Excel y extrae sus semanas, fechas, ambientes y clases. No tienes que modificar código ni ejecutar un script.
 
@@ -25,9 +31,13 @@ La consulta evita la caché del navegador. La nueva versión debe haber terminad
 
 ## Archivos del sitio
 
-- `index.html`, `styles.css`, `app.js`: interfaz y navegación.
+- `index.html`, `styles.css`, `styles-extra.css`, `app.js`: interfaz, vista de lista y vista en paralelo.
+- `documents.js` y `site.js`: catálogo de documentos y navegación entre Inicio y Cronograma.
+- `documentos/`: archivos descargables que deben publicarse junto al sitio.
 - `excel.js`: interpretación de las hojas semanales.
-- `data/GUIAS X SEMANA Y HORARIOS.xlsx`: fuente que debes reemplazar.
+- `message.js`: texto para copiar con la hora peruana calculada desde el reloj del dispositivo.
+- `timeline.js`: distribución horaria de las clases simultáneas.
+- `data/actual/GUIAS X SEMANA Y HORARIOS.xlsx`: fuente vigente que debes reemplazar. El archivo con el mismo nombre directamente en `data/` es una copia anterior que el visor ya no consulta; estaba abierto y bloqueado al actualizar este proyecto.
 - `vendor/`: lector SheetJS 0.20.3 y su licencia. Se sirve desde el mismo sitio; no depende de un CDN durante la consulta.
 - `assets/`: iconos e imagen del campus.
 - `.nojekyll`: publicación de archivos estáticos sin procesamiento Jekyll.
@@ -36,7 +46,7 @@ La consulta evita la caché del navegador. La nueva versión debe haber terminad
 
 ## Detalles de la plantilla actual
 
-Falta W04. W16 no tiene su fila SEMANA 16; su fecha se calcula cuando las otras semanas definen un inicio de ciclo coherente. El visor señala esa condición. Si el calendario es ambiguo, la semana sin fecha no se presenta como confirmada.
+Falta W04. En el Excel nuevo, W16 ya tiene la fecha correcta (23–29 de noviembre de 2026) y W17 comienza el 30 de noviembre. El visor detecta fechas repetidas entre semanas y muestra un error claro si aparecen en una futura copia.
 
 Como el navegador descarga el Excel, **el archivo completo publicado será accesible**, incluso las hojas que no se muestran en el visor. La copia actual contiene correos institucionales en la hoja `Docentes`; puedes quitar esa hoja de la copia que publiques sin afectar el cronograma.
 

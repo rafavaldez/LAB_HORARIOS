@@ -1,7 +1,9 @@
 (() => {
   'use strict';
-  const SOURCE = 'data/GUIAS X SEMANA Y HORARIOS.xlsx';
+  const SOURCE = 'data/actual/GUIAS X SEMANA Y HORARIOS.xlsx';
   const { parseWorkbook, normalize, addDays, minute } = window.HorariosExcel;
+  const { buildMessage } = window.HorariosMessage;
+  const { bounds, lanes } = window.HorariosTimeline;
   const $ = id => document.getElementById(id);
   const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
   const pad = n => String(n).padStart(2, '0');
@@ -20,7 +22,7 @@
     SOFTWARE: ['Software', 'purple', 'laptop'], GESELL: ['Sala Gesell', 'amber', 'people'],
     SME: ['SME', 'teal', 'people'], GEOLOGIA: ['Geología', 'amber', 'layers'], BIBLIOTECA: ['Biblioteca', 'slate', 'building'],
   }[normalize(value)] || [value, 'slate', 'building']);
-  const state = { data: null, weeks: new Map(), dates: new Map(), events: new Map(), loading: false };
+  const state = { data: null, weeks: new Map(), dates: new Map(), events: new Map(), loading: false, view: 'list', selectedEvent: null };
   function option(value, label) { const node = el('option', label); node.value = value; return node; }
   function dateFormat(iso, short = false) {
     const value = new Intl.DateTimeFormat('es-PE', short ? { day: '2-digit', month: '2-digit', year: 'numeric' } : { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(parseDate(iso));
@@ -34,11 +36,46 @@
     $('daySelect').value = String(week ? week.dates.indexOf(value) : weekday(value));
     render();
   }
+  async function copyClass(event, button) {
+    const week = state.weeks.get(event.week)?.sheet || `W${pad(event.week)}`;
+    const message = buildMessage(event, week, new Date(), environmentStyle(event.environment)[0]);
+    const fallbackCopy = () => {
+      const field = document.createElement('textarea');
+      field.value = message; field.style.cssText = 'position:fixed;left:-9999px;top:0';
+      document.body.append(field); field.select();
+      const copied = document.execCommand('copy'); field.remove();
+      if (!copied) throw new Error('El portapapeles no está disponible.');
+    };
+    try {
+      if (navigator.clipboard?.writeText) {
+        try { await navigator.clipboard.writeText(message); }
+        catch { fallbackCopy(); }
+      } else fallbackCopy();
+      $('copyStatus').textContent = 'Texto de la clase copiado al portapapeles.';
+      const label = button.querySelector('span');
+      const original = label.textContent;
+      label.textContent = 'Copiado'; button.classList.add('is-copied');
+      setTimeout(() => { label.textContent = original; button.classList.remove('is-copied'); }, 1800);
+    } catch {
+      $('copyStatus').textContent = 'No se pudo copiar el texto. Comprueba el permiso del portapapeles.';
+      const label = button.querySelector('span');
+      const original = label.textContent;
+      label.textContent = 'Error';
+      setTimeout(() => { label.textContent = original; }, 1800);
+    }
+  }
+  function copyButton(event) {
+    const button = el('button', undefined, 'copy-button');
+    button.type = 'button'; button.setAttribute('aria-label', `Copiar texto de ${event.course}`);
+    button.append(icon('copy'), el('span', 'Copiar'));
+    button.onclick = () => copyClass(event, button);
+    return button;
+  }
   function renderEmpty(title, message, clear = false) {
     const panel = el('div', undefined, 'empty');
     panel.append(icon('calendar'), el('h3', title), el('p', message));
     if (clear) { const button = el('button', 'Limpiar filtros', 'today-button'); button.onclick = () => { $('searchInput').value = ''; $('envSelect').value = ''; render(); }; panel.append(button); }
-    $('results').append(panel);
+    $(state.view === 'parallel' ? 'parallelView' : 'results').append(panel);
   }
   function render() {
     if (!state.data) return;
@@ -60,10 +97,17 @@
     $('dataWarnings').hidden = !warnings.length;
     $('dataWarnings').textContent = warnings.join(' ');
     $('results').replaceChildren();
+    $('parallelView').replaceChildren();
+    $('results').hidden = state.view !== 'list';
+    $('parallelView').hidden = state.view !== 'parallel';
+    $('parallelHint').hidden = state.view !== 'parallel';
+    $('listViewBtn').setAttribute('aria-pressed', String(state.view === 'list'));
+    $('parallelViewBtn').setAttribute('aria-pressed', String(state.view === 'parallel'));
     if (!items.length) {
       renderEmpty('Sin clases para mostrar', !week ? 'Selecciona una semana disponible para consultar sus horarios.' : all.length ? 'Ninguna clase coincide con los filtros seleccionados.' : 'No hay clases registradas para este día en el Excel.', all.length > 0);
       return;
     }
+    if (state.view === 'parallel') { renderParallel(items); return; }
     const groups = new Map();
     for (const event of items) { if (!groups.has(event.environment)) groups.set(event.environment, []); groups.get(event.environment).push(event); }
     let groupIndex = 0;
@@ -83,10 +127,65 @@
         article.append(time, info);
         const code = [event.courseCode, event.section].filter(Boolean).join(' · ');
         if (code) article.append(el('span', code, 'event-code'));
+        article.append(copyButton(event));
         body.append(article);
       }
       group.append(summary, body); $('results').append(group);
     }
+  }
+  function renderParallel(items) {
+    const board = el('div', undefined, 'parallel-scroll');
+    const grid = el('div', undefined, 'parallel-grid');
+    const environments = [...new Set(items.map(event => event.environment))];
+    grid.style.setProperty('--column-count', environments.length);
+    const range = bounds(items);
+    const hourHeight = window.matchMedia('(max-width: 600px)').matches ? 39 : 65;
+    const trackHeight = (range.end - range.start) / 60 * hourHeight;
+    const hours = el('div', undefined, 'parallel-hours');
+    hours.append(el('div', 'Hora', 'parallel-head parallel-hour-head'));
+    const labels = el('div', undefined, 'parallel-hour-body');
+    labels.style.height = `${trackHeight}px`;
+    for (let time = range.start; time <= range.end; time += 60) {
+      const label = el('span', `${pad(Math.floor(time / 60))}:00`, 'parallel-hour-label');
+      label.style.top = `${(time - range.start) / 60 * hourHeight}px`;
+      labels.append(label);
+    }
+    hours.append(labels); grid.append(hours);
+    for (const environment of environments) {
+      const [name, color, symbol] = environmentStyle(environment);
+      const column = el('div', undefined, 'parallel-column'); column.dataset.color = color;
+      const head = el('div', undefined, 'parallel-head');
+      const heading = el('div', undefined, 'parallel-head-title'); heading.append(icon(symbol), el('strong', name));
+      head.append(heading, el('span', `${items.filter(event => event.environment === environment).length} ${items.filter(event => event.environment === environment).length === 1 ? 'clase' : 'clases'}`));
+      const track = el('div', undefined, 'parallel-track');
+      track.style.height = `${trackHeight}px`;
+      track.style.backgroundSize = `100% ${hourHeight}px`;
+      for (const entry of lanes(items.filter(event => event.environment === environment))) {
+        const event = entry.event;
+        const card = el('button', undefined, 'parallel-event'); card.type = 'button';
+        card.setAttribute('aria-label', `${event.start} a ${event.end}, ${event.course}, ${event.teacher || 'docente no consignado'}. Abrir detalle.`);
+        card.style.top = `${(minute(event.start) - range.start) / 60 * hourHeight + 2}px`;
+        card.style.height = `${Math.max(24, (minute(event.end) - minute(event.start)) / 60 * hourHeight - 4)}px`;
+        card.style.left = `calc(${entry.lane * 100 / entry.laneCount}% + 3px)`;
+        card.style.width = `calc(${100 / entry.laneCount}% - 6px)`;
+        card.append(el('span', `${event.start} – ${event.end}`, 'parallel-event-time'), el('strong', event.course, 'parallel-event-course'));
+        if (event.teacher) card.append(el('span', event.teacher, 'parallel-event-teacher'));
+        card.onclick = () => {
+          state.selectedEvent = event;
+          $('eventDialogTitle').textContent = event.course;
+          $('eventDialogDetails').textContent = `${event.start} – ${event.end} · Semana ${state.weeks.get(event.week)?.sheet || `W${pad(event.week)}`} · ${name} · ${event.teacher || 'Docente no consignado'}`;
+          $('eventDialog').showModal();
+        };
+        track.append(card);
+      }
+      column.append(head, track); grid.append(column);
+    }
+    board.append(grid); $('parallelView').append(board);
+  }
+  function setView(view) {
+    if (view !== 'list' && view !== 'parallel') return;
+    state.view = view;
+    render();
   }
   function installData(data) {
     const selectedDate = $('dateInput').value;
@@ -142,6 +241,11 @@
   $('prevDay').onclick = () => setDate(addDays($('dateInput').value, -1));
   $('nextDay').onclick = () => setDate(addDays($('dateInput').value, 1));
   $('todayBtn').onclick = () => setDate(today()); $('refreshBtn').onclick = loadExcel;
+  $('listViewBtn').onclick = () => setView('list');
+  $('parallelViewBtn').onclick = () => setView('parallel');
+  $('closeEventDialog').onclick = () => $('eventDialog').close();
+  $('dialogCopyBtn').onclick = () => { if (state.selectedEvent) copyClass(state.selectedEvent, $('dialogCopyBtn')); };
+  window.matchMedia('(max-width: 600px)').addEventListener('change', () => { if (state.view === 'parallel') render(); });
   $('menuBtn').onclick = () => { const open = $('mainNav').classList.toggle('is-open'); $('menuBtn').setAttribute('aria-expanded', open); };
   $('mainNav').addEventListener('click', () => { $('mainNav').classList.remove('is-open'); $('menuBtn').setAttribute('aria-expanded', 'false'); });
   document.querySelectorAll('.help-trigger').forEach(button => button.onclick = () => $('helpDialog').showModal());
