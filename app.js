@@ -4,6 +4,7 @@
   const { parseWorkbook, normalize, addDays, minute } = window.HorariosExcel;
   const { buildMessage } = window.HorariosMessage;
   const { bounds, lanes } = window.HorariosTimeline;
+  const { createCalendar } = window.HorariosCalendar;
   const $ = id => document.getElementById(id);
   const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
   const pad = n => String(n).padStart(2, '0');
@@ -187,9 +188,40 @@
     state.view = view;
     render();
   }
+  function reminderCalendar() {
+    return createCalendar(state.data.events, {
+      now: new Date(), environment: $('reminderEnvironment').value,
+      environmentName: value => environmentStyle(value)[0],
+    });
+  }
+  function updateReminderCount() {
+    if (!state.data) return;
+    const { count } = reminderCalendar();
+    $('downloadCalendar').disabled = !count || state.loading;
+    $('reminderCount').textContent = count
+      ? `${count} ${count === 1 ? 'clase próxima' : 'clases próximas'} del Excel publicado. Cada una incluye 2 avisos.`
+      : 'No hay clases próximas en este ambiente. Descarga el calendario cuando se publique una nueva temporada.';
+  }
+  function downloadReminders() {
+    if (!state.data) return;
+    try {
+      const { content, count } = reminderCalendar();
+      if (!count) { updateReminderCount(); return; }
+      const blob = new Blob([content], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url; link.download = `laboratorios-utp-avisos${$('reminderEnvironment').value ? `-${$('reminderEnvironment').value.toLowerCase()}` : ''}.ics`;
+      document.body.append(link); link.click(); link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 60000);
+      $('reminderCount').textContent = `Archivo .ics generado para ${count} ${count === 1 ? 'clase' : 'clases'}. Impórtalo en tu calendario para activar los avisos.`;
+    } catch (error) {
+      $('reminderCount').textContent = `No se pudo preparar el calendario: ${error.message}`;
+    }
+  }
   function installData(data) {
     const selectedDate = $('dateInput').value;
     const selectedEnvironment = $('envSelect').value;
+    const selectedReminderEnvironment = $('reminderEnvironment').value;
     state.data = data; state.weeks.clear(); state.dates.clear(); state.events.clear();
     for (const week of data.weeks) { state.weeks.set(week.number, week); for (const date of week.dates) state.dates.set(date, week); }
     for (const event of data.events) { if (!state.events.has(event.date)) state.events.set(event.date, []); state.events.get(event.date).push(event); }
@@ -198,6 +230,10 @@
     const environments = [...new Set(data.events.map(e => e.environment))].sort((a, b) => environmentStyle(a)[0].localeCompare(environmentStyle(b)[0], 'es'));
     $('envSelect').replaceChildren(option('', 'Todos'), ...environments.map(env => option(env, environmentStyle(env)[0])));
     if (environments.includes(selectedEnvironment)) $('envSelect').value = selectedEnvironment;
+    $('reminderEnvironment').replaceChildren(option('', 'Todos los ambientes'), ...environments.map(env => option(env, environmentStyle(env)[0])));
+    if (environments.includes(selectedReminderEnvironment)) $('reminderEnvironment').value = selectedReminderEnvironment;
+    $('reminderEnvironment').disabled = false;
+    updateReminderCount();
     $('filterFields').disabled = false; $('searchInput').disabled = false;
     const dates = [...state.dates.keys()].sort();
     const initial = state.dates.has(selectedDate) ? selectedDate : state.dates.has(today()) ? today() : dates.find(date => date >= today()) || dates.at(-1);
@@ -208,6 +244,7 @@
     if (state.loading) return;
     state.loading = true;
     $('refreshBtn').disabled = true; $('refreshBtn').setAttribute('aria-busy', 'true');
+    $('downloadCalendar').disabled = true;
     $('cronograma').setAttribute('aria-busy', 'true'); $('errorBox').hidden = true;
     $('loadStatus').textContent = 'Consultando el Excel publicado…';
     const controller = new AbortController();
@@ -228,10 +265,12 @@
       $('errorBox').textContent = error.name === 'AbortError' ? 'La consulta tardó demasiado. Reintenta con Actualizar horarios.' : error.message;
       $('loadStatus').textContent = state.data ? 'No se pudo actualizar. Se conserva la última lectura de esta sesión.' : 'No se han cargado horarios.';
       if (!state.data) { $('dateTitle').textContent = 'Cronograma no disponible'; $('dateSub').textContent = 'Revisa el mensaje y vuelve a intentar.'; }
+      if (!state.data) $('reminderCount').textContent = 'No se pudo leer el Excel. Abre Cronograma y pulsa Actualizar horarios para reintentar.';
     } finally {
       clearTimeout(timeout); state.loading = false;
       $('refreshBtn').disabled = false; $('refreshBtn').setAttribute('aria-busy', 'false');
       $('cronograma').setAttribute('aria-busy', 'false');
+      if (state.data) updateReminderCount();
     }
   }
   $('dateInput').addEventListener('change', () => { if ($('dateInput').value) setDate($('dateInput').value); });
@@ -243,6 +282,8 @@
   $('todayBtn').onclick = () => setDate(today()); $('refreshBtn').onclick = loadExcel;
   $('listViewBtn').onclick = () => setView('list');
   $('parallelViewBtn').onclick = () => setView('parallel');
+  $('reminderEnvironment').addEventListener('change', updateReminderCount);
+  $('downloadCalendar').onclick = downloadReminders;
   $('closeEventDialog').onclick = () => $('eventDialog').close();
   $('dialogCopyBtn').onclick = () => { if (state.selectedEvent) copyClass(state.selectedEvent, $('dialogCopyBtn')); };
   window.matchMedia('(max-width: 600px)').addEventListener('change', () => { if (state.view === 'parallel') render(); });

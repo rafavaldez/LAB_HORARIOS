@@ -13,6 +13,7 @@
   <script defer src="excel.js"></script>
   <script defer src="message.js"></script>
   <script defer src="timeline.js"></script>
+  <script defer src="calendar.js"></script>
   <script defer src="documents.js"></script>
   <script defer src="site.js"></script>
   <script defer src="app.js"></script>
@@ -34,13 +35,20 @@
       <section id="inicio" class="home-page" aria-labelledby="homeTitle">
         <div class="hero home-hero">
           <div class="hero-photo" aria-hidden="true"></div>
-          <div class="hero-copy"><p class="eyebrow">UTP · Acceso rápido</p><h1 id="homeTitle">Documentos de Laboratorio</h1><p class="hero-description">Los formatos que utilizas habitualmente, listos para consultar y descargar.</p></div>
+          <div class="hero-copy"><p class="eyebrow">UTP · Acceso rápido</p><h1 id="homeTitle">Recursos de Laboratorio</h1><p class="hero-description">Documentos frecuentes y avisos de clases, al alcance de todos.</p></div>
           <a href="#cronograma" class="primary-button home-schedule-link"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg>Ver cronograma</a>
         </div>
         <div class="home-content">
           <section class="document-section card" aria-labelledby="documentsTitle">
             <div class="document-section-heading"><div><p class="eyebrow">Biblioteca de formatos</p><h2 id="documentsTitle">Documentos frecuentes</h2><p>Abre un documento para revisarlo o descárgalo para usarlo cuando lo necesites.</p></div><span id="documentCount" class="document-count"></span></div>
             <div id="documentList" class="document-grid"></div>
+          </section>
+          <section class="reminder-section card" aria-labelledby="remindersTitle">
+            <div class="reminder-heading"><span class="reminder-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#clock"/></svg></span><div><p class="eyebrow">Avisos de clases</p><h2 id="remindersTitle">Lleva el cronograma a tu calendario</h2><p>Prepara dos avisos por clase: <strong>30 minutos</strong> y <strong>15 minutos</strong> antes de comenzar.</p></div></div>
+            <div class="reminder-controls"><div class="field"><label for="reminderEnvironment">Ambiente</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#layers"/></svg><select id="reminderEnvironment" disabled><option value="">Todos los ambientes</option></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div><button id="downloadCalendar" class="primary-button" type="button" disabled><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#download"/></svg><span>Descargar avisos (.ics)</span></button></div>
+            <p id="reminderCount" class="reminder-count" role="status">Leyendo las clases del Excel publicado…</p>
+            <div class="reminder-steps"><span class="reminder-step"><b>1</b> Descarga el archivo</span><span class="reminder-step"><b>2</b> Impórtalo en tu calendario</span><span class="reminder-step"><b>3</b> Activa los avisos de esa app</span></div>
+            <details class="reminder-details"><summary>Cómo recibir los avisos y actualizar el cronograma</summary><p>Después de descargar el archivo, impórtalo en una app de calendario compatible con archivos .ics y permite sus notificaciones en tu teléfono. Google Calendar importa archivos desde su versión web en una computadora. En otros calendarios, puedes abrir o compartir el archivo desde el teléfono. La entrega de las alarmas depende de los ajustes de esa app; si una clase empieza en menos de 30 minutos, el primer aviso ya habrá pasado.</p><p>Cuando cambie el Excel publicado, descarga e importa el calendario otra vez. Los eventos ya importados no se actualizan solos; para evitar duplicados, quita primero los eventos de la temporada anterior o utiliza un calendario exclusivo para estas clases.</p></details>
           </section>
           <footer class="page-footer"><span>Laboratorios · Documentos de acceso rápido</span><span>UTP</span></footer>
         </div>
@@ -94,6 +102,7 @@
     <p>Pulsa el nombre de un ambiente para desplegar o cerrar sus clases. El botón <strong>Hoy</strong> vuelve a la fecha actual.</p>
     <p>Cambia entre <strong>Lista</strong> y <strong>En paralelo</strong> para ver las clases por ambiente y hora. En la lista, pulsa <strong>Copiar</strong> en una clase. En la vista en paralelo, pulsa la clase y luego <strong>Copiar texto</strong>. La hora del mensaje se toma del reloj del dispositivo y se expresa en horario de Perú.</p>
     <p><strong>Actualizar horarios</strong> consulta nuevamente el archivo publicado. No necesitas cargar ningún documento.</p>
+    <p>En <strong>Inicio</strong> puedes descargar un calendario .ics con dos avisos por clase, a 30 y 15 minutos. Impórtalo en tu app de calendario y activa sus notificaciones. Si cambia el Excel, vuelve a descargarlo e importarlo.</p>
     <p>Las fechas marcadas como calculadas se deducen del inicio del ciclo porque faltan en la hoja correspondiente.</p>
   </dialog>
   <dialog id="eventDialog" aria-labelledby="eventDialogTitle">

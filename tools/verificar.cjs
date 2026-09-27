@@ -6,6 +6,7 @@ const XLSX = require('../vendor/xlsx.full.min.js');
 const { parseWorkbook, classText } = require('../excel.js');
 const { peruTime, buildMessage } = require('../message.js');
 const { lanes } = require('../timeline.js');
+const { createCalendar, peruToUtc } = require('../calendar.js');
 
 const source = fs.readFileSync(path.join(__dirname, '../data/actual/GUIAS X SEMANA Y HORARIOS.xlsx'));
 const real = parseWorkbook(source, XLSX);
@@ -44,4 +45,18 @@ assert.equal(buildMessage({ course: 'Química', teacher: 'Ana Pérez', environme
 assert.match(buildMessage({ course: 'Física', teacher: 'Ana Pérez', environment: 'FISICA' }, 'W16', instant, 'Física'), /Semana 16,/);
 const overlapping = lanes([{ start: '08:00', end: '09:30' }, { start: '08:15', end: '09:00' }, { start: '09:30', end: '10:00' }]);
 assert.deepEqual(overlapping.map(entry => [entry.lane, entry.laneCount]), [[0, 2], [1, 2], [0, 1]]);
-console.log(`OK: ${real.weeks.length} semanas, ${real.events.length} clases; W16, hora peruana, copia y simultaneidad verificados.`);
+assert.equal(peruToUtc('2026-09-26', '08:00').toISOString(), '2026-09-26T13:00:00.000Z');
+const calendar = createCalendar(real.events, { now: new Date('2026-09-27T12:00:00Z'), environmentName: value => value });
+assert.equal(calendar.count, real.events.filter(event => peruToUtc(event.date, event.start) > new Date('2026-09-27T12:00:00Z')).length);
+assert.equal((calendar.content.match(/BEGIN:VEVENT/g) || []).length, calendar.count);
+assert.equal((calendar.content.match(/TRIGGER:-PT30M/g) || []).length, calendar.count);
+assert.equal((calendar.content.match(/TRIGGER:-PT15M/g) || []).length, calendar.count);
+assert.ok(calendar.content.includes('DESCRIPTION:Semana 16'));
+assert.ok(calendar.content.endsWith('END:VCALENDAR\r\n'));
+assert.ok(calendar.content.split('\r\n').every(line => Buffer.byteLength(line) <= 75));
+const example = { date: '2026-09-27', start: '08:00', end: '09:30', course: 'Química, A; B', teacher: 'Ana Pérez', environment: 'QUIMICA', week: 7, sourceCell: 'W07!A1' };
+const sample = createCalendar([example], { now: new Date('2026-09-27T00:00:00Z') });
+assert.match(sample.content, /SUMMARY:Química\\, A\\; B/);
+assert.match(sample.content, /DTSTART:20260927T130000Z/);
+assert.equal(createCalendar([example], { now: new Date('2026-09-27T13:00:00Z') }).count, 0);
+console.log(`OK: ${real.weeks.length} semanas, ${real.events.length} clases; W16, hora peruana, copia, simultaneidad y calendario verificados.`);

@@ -2,6 +2,14 @@
 
 Sitio estático compatible con GitHub Pages. **Inicio** reúne los documentos frecuentes para verlos o descargarlos; **Cronograma** lee directamente el Excel mediante JavaScript. No hay Python, base de datos, servidor de aplicación, pasos de conversión ni botón para subir archivos.
 
+## Avisos antes de cada clase
+
+En **Inicio**, elige un ambiente (o todos) y pulsa **Descargar avisos (.ics)**. El navegador genera un archivo de calendario a partir de las clases futuras del Excel publicado. Cada evento tiene dos alarmas `VALARM`: 30 y 15 minutos antes de su hora de inicio en Perú. Al importarlo, el calendario convierte la hora a la zona horaria del dispositivo. No se necesita cuenta, token ni servicio adicional para generar el archivo.
+
+Cada compañero debe **importar el .ics en su app de calendario** y permitir las notificaciones de esa app. La compatibilidad con las alarmas depende del calendario elegido y de su configuración. Google Calendar permite importar el archivo desde su versión web en una computadora; otros calendarios pueden abrirlo o recibirlo desde el teléfono. La web por sí sola no puede entregar avisos cuando está cerrada en GitHub Pages.
+
+Cuando reemplaces el Excel, cada compañero deberá volver a descargar e importar el calendario. Los eventos importados no se actualizan solos. Conviene usar un calendario dedicado a estas clases y quitar la temporada anterior antes de importar una nueva, para evitar duplicados. El archivo incluye solo clases cuyo inicio todavía no ha ocurrido al pulsar el botón; si una comienza en menos de 30 minutos, el primer aviso ya habrá pasado.
+
 ## Publicar por primera vez
 
 1. Sube el contenido de esta carpeta a la raíz de tu repositorio. Incluye `data`, `assets`, `vendor` y `.nojekyll`.
@@ -37,6 +45,7 @@ La consulta evita la caché del navegador. La nueva versión debe haber terminad
 - `excel.js`: interpretación de las hojas semanales.
 - `message.js`: texto para copiar con la hora peruana calculada desde el reloj del dispositivo.
 - `timeline.js`: distribución horaria de las clases simultáneas.
+- `calendar.js`: generación local del archivo .ics con los avisos de 30 y 15 minutos.
 - `data/actual/GUIAS X SEMANA Y HORARIOS.xlsx`: fuente vigente que debes reemplazar. El archivo con el mismo nombre directamente en `data/` es una copia anterior que el visor ya no consulta; estaba abierto y bloqueado al actualizar este proyecto.
 - `vendor/`: lector SheetJS 0.20.3 y su licencia. Se sirve desde el mismo sitio; no depende de un CDN durante la consulta.
 - `assets/`: iconos e imagen del campus.
