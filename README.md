@@ -6,7 +6,7 @@ Sitio estático compatible con GitHub Pages. **Inicio** reúne los documentos fr
 
 En **Inicio**, elige un ambiente (o todos) y pulsa **Descargar avisos (.ics)**. El navegador genera un archivo de calendario a partir de las clases futuras del Excel publicado. Cada evento tiene dos alarmas `VALARM`: 30 y 15 minutos antes de su hora de inicio en Perú. Al importarlo, el calendario convierte la hora a la zona horaria del dispositivo. No se necesita cuenta, token ni servicio adicional para generar el archivo.
 
-Cada compañero debe **importar el .ics en su app de calendario** y permitir las notificaciones de esa app. La compatibilidad con las alarmas depende del calendario elegido y de su configuración. Google Calendar permite importar el archivo desde su versión web en una computadora; otros calendarios pueden abrirlo o recibirlo desde el teléfono. La web por sí sola no puede entregar avisos cuando está cerrada en GitHub Pages.
+Cada compañero debe **importar el .ics en su app de calendario** y permitir las notificaciones de esa app. La compatibilidad con las alarmas depende del calendario elegido y de su configuración. Google Calendar permite importar el archivo desde su versión web en una computadora; otros calendarios pueden abrirlo o recibirlo desde el teléfono. La web por sí sola no puede entregar avisos cuando está cerrada en GitHub Pages. Las clases con horas contradictorias en el Excel se excluyen del .ics para evitar avisos a una hora no confirmada.
 
 Cuando reemplaces el Excel, cada compañero deberá volver a descargar e importar el calendario. Los eventos importados no se actualizan solos. Conviene usar un calendario dedicado a estas clases y quitar la temporada anterior antes de importar una nueva, para evitar duplicados. El archivo incluye solo clases cuyo inicio todavía no ha ocurrido al pulsar el botón; si una comienza en menos de 30 minutos, el primer aviso ya habrá pasado.
 
@@ -37,6 +37,12 @@ El archivo nuevo debe conservar la estructura de la plantilla: hojas `W01`, `W02
 
 La consulta evita la caché del navegador. La nueva versión debe haber terminado de publicarse en GitHub antes de verse; un commit todavía en despliegue no actualiza inmediatamente el sitio.
 
+## Validación de horarios
+
+El lector comprueba cada hora escrita dentro de una clase contra su posición vertical en la columna **HORA** y el tamaño de la celda combinada. La grilla usa divisiones de 15 minutos; diferencias pequeñas de alineación son normales. Cuando una hora difiere en más de 45 minutos, la clase aparece en la posición que indica la grilla con una nota que muestra ambos horarios. El sitio la marca como **hora por confirmar** y la excluye de los avisos. Corrige el texto o mueve la celda en el Excel original y vuelve a publicarlo para quitar la advertencia.
+
+En el archivo del 29 de septiembre de 2026 se detectaron diez discrepancias. Por ejemplo, `W08!I37` dice `08:30–10:00` dentro de la celda, pero está ubicada en `14:00–15:30`. También se interpretan las celdas que comienzan con `AULA-...` como una ubicación de aula, seguida del curso y docente.
+
 ## Archivos del sitio
 
 - `index.html`, `styles.css`, `styles-extra.css`, `app.js`: interfaz, vista de lista y vista en paralelo.
@@ -49,6 +55,8 @@ La consulta evita la caché del navegador. La nueva versión debe haber terminad
 - `data/actual/GUIAS X SEMANA Y HORARIOS.xlsx`: fuente vigente que debes reemplazar. El archivo con el mismo nombre directamente en `data/` es una copia anterior que el visor ya no consulta; estaba abierto y bloqueado al actualizar este proyecto.
 - `vendor/`: lector SheetJS 0.20.3 y su licencia. Se sirve desde el mismo sitio; no depende de un CDN durante la consulta.
 - `assets/`: iconos e imagen del campus.
+- `assets/utp-laboratorios.png`: emblema generado a partir del logo UTP suministrado; se usa en la cabecera.
+- `assets/utp-laboratorios-prompt.txt`: instrucción usada para generar el emblema con la herramienta integrada de imágenes.
 - `.nojekyll`: publicación de archivos estáticos sin procesamiento Jekyll.
 - `tools/verificar.cjs`: comprobación opcional de desarrollo (`node tools/verificar.cjs`); no se ejecuta en Pages.
 - `tools/preview.cjs`: servidor de vista previa local opcional, sin dependencias.

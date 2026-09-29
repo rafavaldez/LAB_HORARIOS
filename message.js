@@ -13,7 +13,8 @@
     const teacher = event.teacher?.trim() || 'no consignado';
     const weekMatch = /^W?0*(\d+)$/i.exec(String(week).trim());
     const weekNumber = weekMatch ? Number(weekMatch[1]) : week;
-    return `Siendo las ${peruTime(now)} horas se da inicio al curso ${event.course} - Semana ${weekNumber}, en el laboratorio ${environment}, a cargo del docente ${teacher}.`;
+    const location = event.room ? `en el ${event.room.toLowerCase().startsWith('aula ') ? 'aula' : 'ambiente'} ${event.room.replace(/^Aula\s+/i, '')}` : `en el laboratorio ${environment}`;
+    return `Siendo las ${peruTime(now)} horas se da inicio al curso ${event.course} - Semana ${weekNumber}, ${location}, a cargo del docente ${teacher}.`;
   }
   return { peruTime, buildMessage };
 });

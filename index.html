@@ -8,22 +8,22 @@
   <title>Laboratorios UTP · Inicio</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="styles-extra.css?v=avisos-1">
+  <link rel="stylesheet" href="styles-extra.css?v=auditoria-1">
   <script defer src="vendor/xlsx.full.min.js"></script>
-  <script defer src="excel.js"></script>
-  <script defer src="message.js"></script>
+  <script defer src="excel.js?v=auditoria-1"></script>
+  <script defer src="message.js?v=auditoria-1"></script>
   <script defer src="timeline.js"></script>
-  <script defer src="calendar.js?v=avisos-1"></script>
+  <script defer src="calendar.js?v=auditoria-1"></script>
   <script defer src="documents.js"></script>
   <script defer src="site.js"></script>
-  <script defer src="app.js?v=avisos-1"></script>
+  <script defer src="app.js?v=auditoria-1"></script>
 </head>
 <body>
   <a class="skip-link" href="#mainContent">Ir al contenido</a>
   <div class="app-shell">
     <header class="site-header">
       <button class="icon-button menu-toggle" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#menu"/></svg></button>
-      <a class="brand" href="#inicio" aria-label="UTP · Inicio"><span class="brand-letters" aria-hidden="true"><b>U</b><b>T</b><b>P</b></span><span class="brand-name">Universidad<br>Tecnológica<br>del Perú</span></a>
+      <a class="brand" href="#inicio" aria-label="UTP Laboratorios · Inicio"><img class="brand-logo" src="assets/utp-laboratorios.png" alt="" width="2132" height="737"><span class="brand-name">Área de<br>Laboratorios</span></a>
       <nav id="mainNav" class="main-nav" aria-label="Navegación principal">
         <a href="#inicio" data-page="inicio" class="active" aria-current="page"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#home"/></svg>Inicio</a>
         <a href="#cronograma" data-page="cronograma"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg>Cronograma</a>
@@ -70,6 +70,7 @@
           </fieldset>
         </section>
         <p id="loadStatus" class="load-status" role="status">Consultando el Excel publicado…</p>
+        <p id="anomalyBanner" class="anomaly-banner" role="status" hidden></p>
         <div id="errorBox" class="error-box" role="alert" hidden></div>
         <section class="schedule card" aria-labelledby="dateTitle" aria-busy="true">
           <div class="date-heading"><span class="date-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg></span><div class="date-copy"><h2 id="dateTitle">Cargando cronograma…</h2><p id="dateSub">Los horarios aparecerán aquí.</p></div><span class="week-badge"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><span id="weekBadge">Semana —</span></span></div>

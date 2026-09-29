@@ -44,7 +44,9 @@
   }
 
   function createCalendar(events, { now = new Date(), environment = '', environmentName = value => value } = {}) {
-    const upcoming = events.filter(event => (!environment || event.environment === environment) && peruToUtc(event.date, event.start) > now)
+    const future = events.filter(event => (!environment || event.environment === environment) && peruToUtc(event.date, event.start) > now);
+    const excluded = future.filter(event => event.timeConflict).length;
+    const upcoming = future.filter(event => !event.timeConflict)
       .sort((a, b) => a.date.localeCompare(b.date) || a.start.localeCompare(b.start) || a.sourceCell.localeCompare(b.sourceCell));
     const lines = [
       'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Laboratorios UTP//Horarios//ES',
@@ -52,7 +54,7 @@
     ];
     const stamp = compact(now);
     for (const event of upcoming) {
-      const location = environmentName(event.environment);
+      const location = event.room || environmentName(event.environment);
       const summary = `${event.course} · ${location}`;
       const description = [`Semana ${event.week}`, event.teacher ? `Docente: ${event.teacher}` : '', event.section ? `Sección: ${event.section}` : '', event.program || ''].filter(Boolean).join('\n');
       const uid = `${event.date.replace(/-/g, '')}-${event.sourceCell.replace(/[^A-Za-z0-9]/g, '-')}-${event.start.replace(':', '')}@laboratorios-utp.local`;
@@ -66,7 +68,7 @@
         'END:VEVENT');
     }
     lines.push('END:VCALENDAR');
-    return { content: lines.map(fold).join('\r\n') + '\r\n', count: upcoming.length };
+    return { content: lines.map(fold).join('\r\n') + '\r\n', count: upcoming.length, excluded };
   }
 
   return { createCalendar, peruToUtc };

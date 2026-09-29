@@ -16,6 +16,28 @@
   const timePattern = /\b(\d{1,2}:\d{2})\s*[-–]\s*(\d{1,2}:\d{2})\b/;
   const justTime = /^\s*\d{1,2}:\d{2}\s*[-–]\s*\d{1,2}:\d{2}\s*$/;
   const minute = value => { const [h, m] = value.split(':').map(Number); return h * 60 + m; };
+  const clock = value => `${pad(Math.floor(value / 60))}:${pad(value % 60)}`;
+  const slotPattern = /^\s*(\d{1,2}:\d{2})\s*[-–]\s*(\d{1,2}:\d{2})\s*$/;
+
+  function rowWindows(grid, header, hourColumn) {
+    const windows = new Map();
+    for (let row = header + 2; row < grid.length;) {
+      const value = String(grid[row]?.[hourColumn] ?? '').trim();
+      const match = value.match(slotPattern);
+      if (!match || minute(match[2]) <= minute(match[1])) { row++; continue; }
+      let end = row + 1;
+      while (end < grid.length && String(grid[end]?.[hourColumn] ?? '').trim() === value) end++;
+      const duration = minute(match[2]) - minute(match[1]);
+      for (let index = 0; index < end - row; index++) {
+        windows.set(row + index, {
+          start: minute(match[1]) + Math.round(duration * index / (end - row)),
+          end: minute(match[1]) + Math.round(duration * (index + 1) / (end - row)),
+        });
+      }
+      row = end;
+    }
+    return windows;
+  }
 
   function classText(value) {
     const lines = value.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
@@ -25,6 +47,8 @@
     const end = times[2].padStart(5, '0');
     if ([start, end].some(t => Number(t.slice(0, 2)) > 23 || Number(t.slice(3)) > 59) || minute(end) <= minute(start)) return null;
     const detail = lines.filter(line => !justTime.test(line));
+    const room = detail[0]?.match(/^AULA\s*-\s*(.+)$/i);
+    if (room) detail.shift();
     const first = detail[0] || '';
     const code = first.match(/^([A-Z0-9]+)\s*-\s*(.+)$/i);
     const second = detail[1] || '';
@@ -32,7 +56,7 @@
     return {
       start, end, courseCode: code ? code[1] : '', course: code ? code[2].trim() : first,
       section: teacher ? teacher[1] : '', teacher: teacher ? teacher[2].trim() : second,
-      program: detail.slice(2).join(' · '),
+      program: detail.slice(2).join(' · '), room: room ? `Aula ${room[1].trim()}` : '',
     };
   }
 
@@ -88,7 +112,9 @@
           if (parsed) { dates[day] = parsed; break; }
         }
       }
-      sheets.push({ number, sheet: name, grid, header, columns, dates });
+      const hourColumn = grid[header].findIndex(value => normalize(value) === 'HORA');
+      const merges = new Map((book.Sheets[name]['!merges'] || []).map(merge => [`${merge.s.r}:${merge.s.c}`, merge.e.r]));
+      sheets.push({ number, sheet: name, grid, header, columns, dates, windows: rowWindows(grid, header, hourColumn), merges });
     }
     sheets.sort((a, b) => a.number - b.number);
     if (!sheets.length) throw new Error('No se encontraron hojas semanales válidas (W01, W02, etc.). Mantén la estructura de la plantilla.');
@@ -120,8 +146,18 @@
             if (timePattern.test(value)) warnings.push(`${sheet.sheet}!${XLSX.utils.encode_cell({ r: row, c: column.col })}: horario inválido; no se muestra.`);
             continue;
           }
-          events.push({ ...event, week: sheet.number, date: dates[column.day], environment: column.environment,
-            sourceCell: `${sheet.sheet}!${XLSX.utils.encode_cell({ r: row, c: column.col })}` });
+          const sourceCell = `${sheet.sheet}!${XLSX.utils.encode_cell({ r: row, c: column.col })}`;
+          const endRow = sheet.merges.get(`${row}:${column.col}`) ?? row;
+          const gridStart = sheet.windows.get(row)?.start;
+          const gridEnd = sheet.windows.get(endRow)?.end;
+          if (gridStart !== undefined && gridEnd !== undefined && gridEnd > gridStart &&
+              Math.max(Math.abs(minute(event.start) - gridStart), Math.abs(minute(event.end) - gridEnd)) > 45) {
+            const textStart = event.start, textEnd = event.end;
+            event.start = clock(gridStart); event.end = clock(gridEnd);
+            event.timeConflict = { textStart, textEnd };
+            warnings.push(`${sheet.sheet}: ${sourceCell.split('!')[1]} tiene horas distintas: texto ${textStart}–${textEnd}, posición ${event.start}–${event.end}. Confirmar antes de enviar avisos.`);
+          }
+          events.push({ ...event, week: sheet.number, date: dates[column.day], environment: column.environment, sourceCell });
         }
       }
     }

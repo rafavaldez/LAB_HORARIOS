@@ -16,7 +16,7 @@
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('class', `icon ${extra}`); svg.setAttribute('aria-hidden', 'true');
     const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-    use.setAttribute('href', `assets/icons.svg#${name}`); svg.append(use); return svg;
+    use.setAttribute('href', `assets/icons.svg?v=auditoria-1#${name}`); svg.append(use); return svg;
   }
   const environmentStyle = value => ({
     FISICA: ['Física', 'red', 'flask'], QUIMICA: ['Química', 'blue', 'flask'],
@@ -94,7 +94,9 @@
     const minutes = items.reduce((sum, e) => sum + minute(e.end) - minute(e.start), 0);
     $('statHours').textContent = `${Math.floor(minutes / 60)} h${minutes % 60 ? ` ${minutes % 60} m` : ''}`;
     $('resultCount').textContent = `${items.length} ${items.length === 1 ? 'clase programada' : 'clases programadas'}`;
-    const warnings = state.data.warnings.filter(w => w.startsWith('Semanas no incluidas') || (week && w.startsWith(`${week.sheet}:`)));
+    const warnings = state.data.warnings.filter(w => w.startsWith('Semanas no incluidas') || (week && w.startsWith(`${week.sheet}:`) && !w.includes('tiene horas distintas')));
+    const dayConflicts = all.filter(event => event.timeConflict);
+    if (dayConflicts.length) warnings.push(`${dayConflicts.length} ${dayConflicts.length === 1 ? 'clase de este día tiene' : 'clases de este día tienen'} la hora por confirmar. Consulta la nota debajo de cada curso.`);
     $('dataWarnings').hidden = !warnings.length;
     $('dataWarnings').textContent = warnings.join(' ');
     $('results').replaceChildren();
@@ -125,6 +127,13 @@
         const info = el('div', undefined, 'event-body'); info.append(el('div', event.course, 'event-course'));
         if (event.teacher) { const meta = el('div', undefined, 'event-meta'); meta.append(icon('user'), el('span', event.teacher)); info.append(meta); }
         if (event.program) info.append(el('p', event.program, 'event-program'));
+        if (event.room) info.append(el('p', event.room, 'event-program'));
+        if (event.timeConflict) {
+          article.classList.add('has-time-conflict');
+          const note = el('p', `Hora por confirmar · texto ${event.timeConflict.textStart}–${event.timeConflict.textEnd}; posición ${event.start}–${event.end}`, 'event-time-warning');
+          note.prepend(icon('alert'));
+          info.append(note);
+        }
         article.append(time, info);
         const code = [event.courseCode, event.section].filter(Boolean).join(' · ');
         if (code) article.append(el('span', code, 'event-code'));
@@ -164,17 +173,18 @@
       for (const entry of lanes(items.filter(event => event.environment === environment))) {
         const event = entry.event;
         const card = el('button', undefined, 'parallel-event'); card.type = 'button';
-        card.setAttribute('aria-label', `${event.start} a ${event.end}, ${event.course}, ${event.teacher || 'docente no consignado'}. Abrir detalle.`);
+        card.setAttribute('aria-label', `${event.start} a ${event.end}, ${event.course}, ${event.teacher || 'docente no consignado'}${event.timeConflict ? `. Hora por confirmar: el texto indica ${event.timeConflict.textStart} a ${event.timeConflict.textEnd}` : ''}. Abrir detalle.`);
         card.style.top = `${(minute(event.start) - range.start) / 60 * hourHeight + 2}px`;
         card.style.height = `${Math.max(24, (minute(event.end) - minute(event.start)) / 60 * hourHeight - 4)}px`;
         card.style.left = `calc(${entry.lane * 100 / entry.laneCount}% + 3px)`;
         card.style.width = `calc(${100 / entry.laneCount}% - 6px)`;
         card.append(el('span', `${event.start} – ${event.end}`, 'parallel-event-time'), el('strong', event.course, 'parallel-event-course'));
         if (event.teacher) card.append(el('span', event.teacher, 'parallel-event-teacher'));
+        if (event.timeConflict) { card.classList.add('has-time-conflict'); card.append(el('span', 'Revisar hora', 'parallel-conflict')); }
         card.onclick = () => {
           state.selectedEvent = event;
           $('eventDialogTitle').textContent = event.course;
-          $('eventDialogDetails').textContent = `${event.start} – ${event.end} · Semana ${state.weeks.get(event.week)?.sheet || `W${pad(event.week)}`} · ${name} · ${event.teacher || 'Docente no consignado'}`;
+          $('eventDialogDetails').textContent = `${event.start} – ${event.end} · Semana ${state.weeks.get(event.week)?.sheet || `W${pad(event.week)}`} · ${event.room || name} · ${event.teacher || 'Docente no consignado'}${event.timeConflict ? `. Hora por confirmar: el texto del Excel indica ${event.timeConflict.textStart}–${event.timeConflict.textEnd}; la celda está ubicada en ${event.start}–${event.end}.` : ''}`;
           $('eventDialog').showModal();
         };
         track.append(card);
@@ -196,16 +206,16 @@
   }
   function updateReminderCount() {
     if (!state.data) return;
-    const { count } = reminderCalendar();
+    const { count, excluded } = reminderCalendar();
     $('downloadCalendar').disabled = !count || state.loading;
     $('reminderCount').textContent = count
-      ? `${count} ${count === 1 ? 'clase próxima' : 'clases próximas'} del Excel publicado. Cada una incluye 2 avisos.`
-      : 'No hay clases próximas en este ambiente. Descarga el calendario cuando se publique una nueva temporada.';
+      ? `${count} ${count === 1 ? 'clase próxima' : 'clases próximas'} con 2 avisos cada una.${excluded ? ` ${excluded} ${excluded === 1 ? 'clase con hora por confirmar queda excluida' : 'clases con hora por confirmar quedan excluidas'}.` : ''}`
+      : excluded ? `${excluded} ${excluded === 1 ? 'clase tiene' : 'clases tienen'} la hora por confirmar y no se incluyen en los avisos.` : 'No hay clases próximas en este ambiente. Descarga el calendario cuando se publique una nueva temporada.';
   }
   function downloadReminders() {
     if (!state.data) return;
     try {
-      const { content, count } = reminderCalendar();
+      const { content, count, excluded } = reminderCalendar();
       if (!count) { updateReminderCount(); return; }
       const blob = new Blob([content], { type: 'text/calendar;charset=utf-8' });
       const url = URL.createObjectURL(blob);
@@ -213,7 +223,7 @@
       link.href = url; link.download = `laboratorios-utp-avisos${$('reminderEnvironment').value ? `-${$('reminderEnvironment').value.toLowerCase()}` : ''}.ics`;
       document.body.append(link); link.click(); link.remove();
       setTimeout(() => URL.revokeObjectURL(url), 60000);
-      $('reminderCount').textContent = `Archivo .ics generado para ${count} ${count === 1 ? 'clase' : 'clases'}. Impórtalo en tu calendario para activar los avisos.`;
+      $('reminderCount').textContent = `Archivo .ics generado para ${count} ${count === 1 ? 'clase' : 'clases'}. Impórtalo en tu calendario para activar los avisos.${excluded ? ` ${excluded} ${excluded === 1 ? 'horario dudoso fue excluido' : 'horarios dudosos fueron excluidos'}.` : ''}`;
     } catch (error) {
       $('reminderCount').textContent = `No se pudo preparar el calendario: ${error.message}`;
     }
@@ -234,6 +244,9 @@
     if (environments.includes(selectedReminderEnvironment)) $('reminderEnvironment').value = selectedReminderEnvironment;
     $('reminderEnvironment').disabled = false;
     updateReminderCount();
+    const conflicts = data.events.filter(event => event.timeConflict).length;
+    $('anomalyBanner').hidden = !conflicts;
+    $('anomalyBanner').textContent = conflicts ? `${conflicts} ${conflicts === 1 ? 'clase tiene' : 'clases tienen'} horas distintas entre el texto y la posición en el Excel. Se muestran según su posición, con una advertencia, y se excluyen de los avisos hasta confirmar la hora.` : '';
     $('filterFields').disabled = false; $('searchInput').disabled = false;
     const dates = [...state.dates.keys()].sort();
     const initial = state.dates.has(selectedDate) ? selectedDate : state.dates.has(today()) ? today() : dates.find(date => date >= today()) || dates.at(-1);

@@ -11,6 +11,14 @@ const { createCalendar, peruToUtc } = require('../calendar.js');
 const source = fs.readFileSync(path.join(__dirname, '../data/actual/GUIAS X SEMANA Y HORARIOS.xlsx'));
 const real = parseWorkbook(source, XLSX);
 assert.ok(real.weeks.length > 0);
+const conflicts = real.events.filter(event => event.timeConflict);
+assert.equal(conflicts.length, 10);
+const geology = real.events.find(event => event.sourceCell === 'W08!I37');
+assert.deepEqual([geology.start, geology.end, geology.timeConflict.textStart, geology.timeConflict.textEnd], ['14:00', '15:30', '08:30', '10:00']);
+assert.equal(real.events.find(event => event.sourceCell === 'W02!H16').timeConflict, undefined);
+const classroom = real.events.find(event => event.sourceCell === 'W06!E29');
+assert.equal(classroom.course, 'BASES BIOLÓGICAS DEL COMPORTAMIENTO');
+assert.equal(classroom.room, 'Aula A0314');
 assert.equal(real.weeks.find(w => w.number === 16).dates[0], '2026-11-23');
 assert.equal(real.weeks.find(w => w.number === 16).inferred, false);
 for (const event of real.events) {
@@ -43,11 +51,14 @@ assert.equal(peruTime(instant), '19:05');
 assert.equal(buildMessage({ course: 'Química', teacher: 'Ana Pérez', environment: 'QUIMICA' }, 'W07', instant, 'Química'),
   'Siendo las 19:05 horas se da inicio al curso Química - Semana 7, en el laboratorio Química, a cargo del docente Ana Pérez.');
 assert.match(buildMessage({ course: 'Física', teacher: 'Ana Pérez', environment: 'FISICA' }, 'W16', instant, 'Física'), /Semana 16,/);
+assert.match(buildMessage(classroom, 'W06', instant), /en el aula A0314/);
 const overlapping = lanes([{ start: '08:00', end: '09:30' }, { start: '08:15', end: '09:00' }, { start: '09:30', end: '10:00' }]);
 assert.deepEqual(overlapping.map(entry => [entry.lane, entry.laneCount]), [[0, 2], [1, 2], [0, 1]]);
 assert.equal(peruToUtc('2026-09-26', '08:00').toISOString(), '2026-09-26T13:00:00.000Z');
 const calendar = createCalendar(real.events, { now: new Date('2026-09-27T12:00:00Z'), environmentName: value => value });
-assert.equal(calendar.count, real.events.filter(event => peruToUtc(event.date, event.start) > new Date('2026-09-27T12:00:00Z')).length);
+assert.equal(calendar.count, real.events.filter(event => !event.timeConflict && peruToUtc(event.date, event.start) > new Date('2026-09-27T12:00:00Z')).length);
+assert.equal(calendar.excluded, real.events.filter(event => event.timeConflict && peruToUtc(event.date, event.start) > new Date('2026-09-27T12:00:00Z')).length);
+assert.ok(!calendar.content.includes('20260929-W08-I37-1400@laboratorios-utp.local'));
 assert.equal((calendar.content.match(/BEGIN:VEVENT/g) || []).length, calendar.count);
 assert.equal((calendar.content.match(/TRIGGER:-PT30M/g) || []).length, calendar.count);
 assert.equal((calendar.content.match(/TRIGGER:-PT15M/g) || []).length, calendar.count);
@@ -59,4 +70,4 @@ const sample = createCalendar([example], { now: new Date('2026-09-27T00:00:00Z')
 assert.match(sample.content, /SUMMARY:Química\\, A\\; B/);
 assert.match(sample.content, /DTSTART:20260927T130000Z/);
 assert.equal(createCalendar([example], { now: new Date('2026-09-27T13:00:00Z') }).count, 0);
-console.log(`OK: ${real.weeks.length} semanas, ${real.events.length} clases; W16, hora peruana, copia, simultaneidad y calendario verificados.`);
+console.log(`OK: ${real.weeks.length} semanas, ${real.events.length} clases, ${conflicts.length} horarios por confirmar; W16, hora peruana, copia, simultaneidad y calendario verificados.`);
