@@ -56,6 +56,7 @@ En el archivo del 29 de septiembre de 2026 se detectaron diez discrepancias. Por
 - `vendor/`: lector SheetJS 0.20.3 y su licencia. Se sirve desde el mismo sitio; no depende de un CDN durante la consulta.
 - `assets/`: iconos e imagen del campus.
 - `assets/utp-laboratorios.png`: emblema generado a partir del logo UTP suministrado; se usa en la cabecera.
+- `assets/utp-laboratorios-favicon.png`: versión cuadrada del emblema para el icono de la pestaña del navegador.
 - `assets/utp-laboratorios-prompt.txt`: instrucción usada para generar el emblema con la herramienta integrada de imágenes.
 - `.nojekyll`: publicación de archivos estáticos sin procesamiento Jekyll.
 - `tools/verificar.cjs`: comprobación opcional de desarrollo (`node tools/verificar.cjs`); no se ejecuta en Pages.
