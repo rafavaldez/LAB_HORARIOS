@@ -94,9 +94,10 @@
     const minutes = items.reduce((sum, e) => sum + minute(e.end) - minute(e.start), 0);
     $('statHours').textContent = `${Math.floor(minutes / 60)} h${minutes % 60 ? ` ${minutes % 60} m` : ''}`;
     $('resultCount').textContent = `${items.length} ${items.length === 1 ? 'clase programada' : 'clases programadas'}`;
+    const conflicts = all.filter(event => event.timeConflict).length;
+    $('anomalyBanner').hidden = !conflicts;
+    $('anomalyBanner').textContent = conflicts ? `${conflicts} ${conflicts === 1 ? 'clase de este día tiene' : 'clases de este día tienen'} horas distintas entre el texto y la posición en el Excel. Se muestran según su posición, con una advertencia, y se excluyen de los avisos hasta confirmar la hora.` : '';
     const warnings = state.data.warnings.filter(w => w.startsWith('Semanas no incluidas') || (week && w.startsWith(`${week.sheet}:`) && !w.includes('tiene horas distintas')));
-    const dayConflicts = all.filter(event => event.timeConflict);
-    if (dayConflicts.length) warnings.push(`${dayConflicts.length} ${dayConflicts.length === 1 ? 'clase de este día tiene' : 'clases de este día tienen'} la hora por confirmar. Consulta la nota debajo de cada curso.`);
     $('dataWarnings').hidden = !warnings.length;
     $('dataWarnings').textContent = warnings.join(' ');
     $('results').replaceChildren();
@@ -244,9 +245,6 @@
     if (environments.includes(selectedReminderEnvironment)) $('reminderEnvironment').value = selectedReminderEnvironment;
     $('reminderEnvironment').disabled = false;
     updateReminderCount();
-    const conflicts = data.events.filter(event => event.timeConflict).length;
-    $('anomalyBanner').hidden = !conflicts;
-    $('anomalyBanner').textContent = conflicts ? `${conflicts} ${conflicts === 1 ? 'clase tiene' : 'clases tienen'} horas distintas entre el texto y la posición en el Excel. Se muestran según su posición, con una advertencia, y se excluyen de los avisos hasta confirmar la hora.` : '';
     $('filterFields').disabled = false; $('searchInput').disabled = false;
     const dates = [...state.dates.keys()].sort();
     const initial = state.dates.has(selectedDate) ? selectedDate : state.dates.has(today()) ? today() : dates.find(date => date >= today()) || dates.at(-1);
