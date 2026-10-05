@@ -1,0 +1,6620 @@
+{
+  "version": 1,
+  "source": "C7 260823 F08L01 - Tacna.xlsx",
+  "nameSource": "CONSOLIDADO_GENERAL_AGOSTO26.xlsx",
+  "environments": [
+    {
+      "code": "F08L01LA01",
+      "name": "GABINETE DE TOPOGRAFÍA",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA01",
+      "entries": [
+        {
+          "quantity": 5,
+          "name": "BRUJULA",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 5,
+          "name": "DISTANCIOMETRO",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 8,
+          "name": "ESTACION TOTAL",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 5,
+          "name": "GPS",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 5,
+          "name": "NIVEL AUTOMATICO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 5,
+          "name": "ODOMETRO",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "VEHICULO AEREO NO TRIPULADO (DRONE)",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 8,
+          "name": "BASTON CON OJO DE POLLO",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 10,
+          "name": "CINTA METRICA",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 5,
+          "name": "COMBA PUNTA DE GOMA",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 5,
+          "name": "ECLIMETRO",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 10,
+          "name": "JALON",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE LLAVE ALLEN MILIMETRICA Y PULGADA",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 10,
+          "name": "MIRA CON OJO DE POLLO",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 5,
+          "name": "PLOMADA CON CORDON",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 8,
+          "name": "PORTA PRISMA",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 8,
+          "name": "PRISMA",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 13,
+          "name": "TRIPODE",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 5,
+          "name": "WINCHA",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 3,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 27
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA02",
+      "name": "GABINETE DE GEOLOGÍA",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA02",
+      "entries": [
+        {
+          "quantity": 1,
+          "name": "COLECCION DE ROCAS Y MINERALES",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "ESCALA DE DUREZA DE MOHS",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 5,
+          "name": "CINCEL PUNTA CONICA",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 5,
+          "name": "CINCEL PUNTA PLANA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 5,
+          "name": "COMBA",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 10,
+          "name": "ESTUCHE PORTAPICO",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 5,
+          "name": "LUPA",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "MAPA DE GEOLOGIA",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "MAQUETA DIDACTICA DE FORMACION GEOLOGICA DEL SUELO",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 1,
+          "name": "MOCHILA PORTA HERRAMIENTAS",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 10,
+          "name": "PICOTA DE MANGO CORTO",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 10,
+          "name": "PLATO DE CERAMICA",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 10,
+          "name": "REGLA PROTRACTOR W 43",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 10,
+          "name": "REGLA PROTRACTOR W 44",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 3,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 22
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA03",
+      "name": "LABORATORIO DE QUÍMICA",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA03",
+      "entries": [
+        {
+          "quantity": 2,
+          "name": "BALANZA ELECTRONICA",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 2,
+          "name": "BALANZA MECANICA",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "CABINA EXTRACTORA DE GASES",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 8,
+          "name": "CALORIMETRO",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 1,
+          "name": "DESTILADOR DE AGUA",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "ESTUFA ELECTRICA",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 8,
+          "name": "FUENTE DE ALIMENTACION",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 8,
+          "name": "LABQUEST",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 8,
+          "name": "MULTIMETRO DIGITAL",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 4,
+          "name": "PLANCHA DE CALENTAMIENTO",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 8,
+          "name": "SENSOR DE CONDUCTIVIDAD",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 8,
+          "name": "SENSOR DE PH",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 8,
+          "name": "BAGUETA DE VIDRIO",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 8,
+          "name": "BURETA DE VIDRIO",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 16,
+          "name": "CAPSULA DE PORCELANA",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 8,
+          "name": "CONECTOR COCODRILO CON CHAQUETA NEGRA",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 8,
+          "name": "CONECTOR COCODRILO CON CHAQUETA ROJA",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 16,
+          "name": "CRISOL DE PORCELANA",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 8,
+          "name": "CRONOMETRO",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 1,
+          "name": "CUCHARA DE COMBUSTION",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 1,
+          "name": "DENSIMETRO",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 8,
+          "name": "EMBUDO VASTAGO DELGADO",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 10,
+          "name": "EMBUDO VASTAGO GRUESO",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 8,
+          "name": "ESCOBILLA PARA TUBO DE ENSAYO",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 8,
+          "name": "ESPATULA DE MANGO DE MADERA",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 8,
+          "name": "ESPATULA DE METAL DELGADA",
+          "comments": "",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 2,
+          "name": "FILTRO PARA VAPORES ORGÁNICOS Y ÁCIDOS",
+          "comments": "",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 2,
+          "name": "FIOLA 100 ML",
+          "comments": "",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 2,
+          "name": "FIOLA 1000 ML",
+          "comments": "",
+          "sourceRow": 36
+        },
+        {
+          "quantity": 2,
+          "name": "FIOLA 25 ML",
+          "comments": "",
+          "sourceRow": 37
+        },
+        {
+          "quantity": 2,
+          "name": "FIOLA 250 ML",
+          "comments": "",
+          "sourceRow": 38
+        },
+        {
+          "quantity": 2,
+          "name": "FIOLA 50 ML",
+          "comments": "",
+          "sourceRow": 39
+        },
+        {
+          "quantity": 2,
+          "name": "FIOLA 500 ML",
+          "comments": "",
+          "sourceRow": 40
+        },
+        {
+          "quantity": 30,
+          "name": "FRASCO CON TAPA",
+          "comments": "",
+          "sourceRow": 41
+        },
+        {
+          "quantity": 8,
+          "name": "GRADILLA DE MADERA PARA TUBO DE ENSAYO",
+          "comments": "",
+          "sourceRow": 42
+        },
+        {
+          "quantity": 1,
+          "name": "GRADILLA METALICA PARA PIPETAS",
+          "comments": "",
+          "sourceRow": 43
+        },
+        {
+          "quantity": 11,
+          "name": "GRADILLA METALICA PARA TUBO DE ENSAYO",
+          "comments": "",
+          "sourceRow": 44
+        },
+        {
+          "quantity": 16,
+          "name": "LUNA DE RELOJ",
+          "comments": "",
+          "sourceRow": 45
+        },
+        {
+          "quantity": 2,
+          "name": "MANGAS PROTECTORAS DE PLÁSTICO - PAR",
+          "comments": "",
+          "sourceRow": 46
+        },
+        {
+          "quantity": 1,
+          "name": "MANGUERA DE CONEXION DELGADA",
+          "comments": "",
+          "sourceRow": 47
+        },
+        {
+          "quantity": 8,
+          "name": "MATRAZ ERLENMEYER DE 125 ML",
+          "comments": "",
+          "sourceRow": 48
+        },
+        {
+          "quantity": 1,
+          "name": "MATRAZ ERLENMEYER DE 250 ML",
+          "comments": "",
+          "sourceRow": 49
+        },
+        {
+          "quantity": 8,
+          "name": "MATRAZ KITASATO",
+          "comments": "",
+          "sourceRow": 50
+        },
+        {
+          "quantity": 10,
+          "name": "MECHERO BUNSEN",
+          "comments": "",
+          "sourceRow": 51
+        },
+        {
+          "quantity": 10,
+          "name": "PINZA DE ACERO INOXIDABLE CON ARO METALICO",
+          "comments": "",
+          "sourceRow": 52
+        },
+        {
+          "quantity": 8,
+          "name": "PINZA DE ACERO INOXIDABLE CON NUEZ (2 DEDOS)",
+          "comments": "",
+          "sourceRow": 53
+        },
+        {
+          "quantity": 8,
+          "name": "PINZA DE ACERO INOXIDABLE CON RECUBIERTA DE PLASTICO",
+          "comments": "",
+          "sourceRow": 54
+        },
+        {
+          "quantity": 8,
+          "name": "PINZA DE CRISOL DOBLE CURVA",
+          "comments": "",
+          "sourceRow": 55
+        },
+        {
+          "quantity": 8,
+          "name": "PINZA DE LATON NIQUELADO CON NUEZ (3 DEDOS)",
+          "comments": "",
+          "sourceRow": 56
+        },
+        {
+          "quantity": 3,
+          "name": "PINZA DOBLE NUEZ",
+          "comments": "",
+          "sourceRow": 57
+        },
+        {
+          "quantity": 8,
+          "name": "PINZA DOBLE PARA BURETA (MARIPOSA)",
+          "comments": "",
+          "sourceRow": 58
+        },
+        {
+          "quantity": 8,
+          "name": "PINZA PARA TUBO DE ENSAYO DE ACERO INOXIDABLE",
+          "comments": "",
+          "sourceRow": 59
+        },
+        {
+          "quantity": 8,
+          "name": "PIPETA 10 ML",
+          "comments": "",
+          "sourceRow": 60
+        },
+        {
+          "quantity": 1,
+          "name": "PIPETA 25 ML",
+          "comments": "",
+          "sourceRow": 61
+        },
+        {
+          "quantity": 16,
+          "name": "PIPETA 5 ML",
+          "comments": "",
+          "sourceRow": 62
+        },
+        {
+          "quantity": 8,
+          "name": "PISETA DE PLASTICO 500 ML (FRASCO LAVADOR)",
+          "comments": "",
+          "sourceRow": 63
+        },
+        {
+          "quantity": 8,
+          "name": "PORTA MUESTRA",
+          "comments": "",
+          "sourceRow": 64
+        },
+        {
+          "quantity": 8,
+          "name": "PROBETA DE VIDRIO 10 ML",
+          "comments": "",
+          "sourceRow": 65
+        },
+        {
+          "quantity": 8,
+          "name": "PROBETA DE VIDRIO 100 ML",
+          "comments": "",
+          "sourceRow": 66
+        },
+        {
+          "quantity": 1,
+          "name": "PROBETA DE VIDRIO 1000 ML",
+          "comments": "",
+          "sourceRow": 67
+        },
+        {
+          "quantity": 8,
+          "name": "PROBETA DE VIDRIO 25 ML",
+          "comments": "",
+          "sourceRow": 68
+        },
+        {
+          "quantity": 16,
+          "name": "PROBETA DE VIDRIO 50 ML",
+          "comments": "",
+          "sourceRow": 69
+        },
+        {
+          "quantity": 8,
+          "name": "PROPIPETA 3 VALVULAS DE VENTILACION",
+          "comments": "",
+          "sourceRow": 70
+        },
+        {
+          "quantity": 8,
+          "name": "RECIPIENTE DE PLASTICO",
+          "comments": "",
+          "sourceRow": 71
+        },
+        {
+          "quantity": 16,
+          "name": "REJILLA METALICA",
+          "comments": "",
+          "sourceRow": 72
+        },
+        {
+          "quantity": 10,
+          "name": "SOPORTE UNIVERSAL",
+          "comments": "",
+          "sourceRow": 73
+        },
+        {
+          "quantity": 8,
+          "name": "TAPON CERRADO N° 00",
+          "comments": "",
+          "sourceRow": 74
+        },
+        {
+          "quantity": 1,
+          "name": "TAPON CERRADO N° 6",
+          "comments": "",
+          "sourceRow": 75
+        },
+        {
+          "quantity": 8,
+          "name": "TAPON MONOHORADADO N° 0",
+          "comments": "",
+          "sourceRow": 76
+        },
+        {
+          "quantity": 8,
+          "name": "TAPON MONOHORADADO N° 6",
+          "comments": "",
+          "sourceRow": 77
+        },
+        {
+          "quantity": 16,
+          "name": "TERMOMETRO DE MERCURIO",
+          "comments": "",
+          "sourceRow": 78
+        },
+        {
+          "quantity": 5,
+          "name": "TERMOMETRO DIGITAL",
+          "comments": "",
+          "sourceRow": 79
+        },
+        {
+          "quantity": 200,
+          "name": "TUBO DE ENSAYO 10 ML",
+          "comments": "",
+          "sourceRow": 80
+        },
+        {
+          "quantity": 100,
+          "name": "TUBO DE ENSAYO 17 ML",
+          "comments": "",
+          "sourceRow": 81
+        },
+        {
+          "quantity": 100,
+          "name": "TUBO DE ENSAYO 22 ML",
+          "comments": "",
+          "sourceRow": 82
+        },
+        {
+          "quantity": 32,
+          "name": "TUBO DE ENSAYO 3.5 ML",
+          "comments": "",
+          "sourceRow": 83
+        },
+        {
+          "quantity": 8,
+          "name": "TUBO EN U",
+          "comments": "",
+          "sourceRow": 84
+        },
+        {
+          "quantity": 8,
+          "name": "TUBO THIELE",
+          "comments": "",
+          "sourceRow": 85
+        },
+        {
+          "quantity": 16,
+          "name": "VASO DE PRECIPITADO 100 ML",
+          "comments": "",
+          "sourceRow": 86
+        },
+        {
+          "quantity": 8,
+          "name": "VASO DE PRECIPITADO 250 ML",
+          "comments": "",
+          "sourceRow": 87
+        },
+        {
+          "quantity": 32,
+          "name": "VASO DE PRECIPITADO 50 ML",
+          "comments": "",
+          "sourceRow": 88
+        },
+        {
+          "quantity": 3,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 89
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 90
+        },
+        {
+          "quantity": 1,
+          "name": "ESCALERA",
+          "comments": "",
+          "sourceRow": 91
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - ASISTENTE",
+          "comments": "",
+          "sourceRow": 92
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 93
+        },
+        {
+          "quantity": 2,
+          "name": "ESTANTE PARA MOCHILAS",
+          "comments": "",
+          "sourceRow": 94
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 95
+        },
+        {
+          "quantity": 1,
+          "name": "PC - ASISTENTE",
+          "comments": "",
+          "sourceRow": 96
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 97
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 98
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 99
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 100
+        },
+        {
+          "quantity": 39,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 101
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA / BANCA - ASISTENTE",
+          "comments": "",
+          "sourceRow": 102
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA04",
+      "name": "LABORATORIO DE FÍSICA",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA04",
+      "entries": [
+        {
+          "quantity": 7,
+          "name": "BALANZA MECANICA 311 g",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 7,
+          "name": "BALANZA MECANICA 610 g",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 7,
+          "name": "BOBINA DE HELMHOLTZ",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 7,
+          "name": "BRUJULA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 14,
+          "name": "DINAMOMETRO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 7,
+          "name": "EQUIPO OPTICA GEOMETRICA",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 7,
+          "name": "FOTOPUERTA",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 7,
+          "name": "FUENTE DE ALIMENTACION",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 7,
+          "name": "GENERADOR DE FUNCIONES",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 1,
+          "name": "HIGRO-TERMÓMETRO DIGITAL",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 7,
+          "name": "INTERFAZ",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 7,
+          "name": "INTERRUPTOR DE 3 VIAS (CHANGE-OVER SWITCH)",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 7,
+          "name": "MOTOR DE PALANCA OSCILANTE",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 14,
+          "name": "MULTIMETRO DIGITAL",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 7,
+          "name": "NUEZ CON GANCHO",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 7,
+          "name": "NUEZ UNIVERSAL",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 7,
+          "name": "PIE DE SOPORTE",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 7,
+          "name": "RECIPIENTE CON REBOSE",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 7,
+          "name": "SENSOR DE CAMPO MAGNÉTICO",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 7,
+          "name": "SENSOR DE FUERZA",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 7,
+          "name": "SENSOR DE MOVIMIENTO",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 7,
+          "name": "SENSOR DE PRESIÓN PARA GAS",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 7,
+          "name": "SISTEMA DINAMICO",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 1,
+          "name": "ALICATE DE CORTE",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 1,
+          "name": "ALICATE PINZA",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 1,
+          "name": "ALICATE UNIVERSAL",
+          "comments": "",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 1,
+          "name": "ARANDELAS - JUEGO",
+          "comments": "",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 7,
+          "name": "BANDEJA RECTANGULAR DE VIDRIO",
+          "comments": "",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 1,
+          "name": "CANICA DE CERÁMICA - JUEGO",
+          "comments": "",
+          "sourceRow": 36
+        },
+        {
+          "quantity": 1,
+          "name": "CAUTIN",
+          "comments": "",
+          "sourceRow": 37
+        },
+        {
+          "quantity": 7,
+          "name": "CLIP DE SOPORTE",
+          "comments": "",
+          "sourceRow": 38
+        },
+        {
+          "quantity": 14,
+          "name": "CONECTOR COCODRILO - ROJO Y NEGRO",
+          "comments": "",
+          "sourceRow": 39
+        },
+        {
+          "quantity": 14,
+          "name": "CONECTOR DOBLE",
+          "comments": "",
+          "sourceRow": 40
+        },
+        {
+          "quantity": 7,
+          "name": "CRONOMETRO",
+          "comments": "",
+          "sourceRow": 41
+        },
+        {
+          "quantity": 1,
+          "name": "CUCHILLA",
+          "comments": "",
+          "sourceRow": 42
+        },
+        {
+          "quantity": 7,
+          "name": "CUERPOS DE MEDICIÓN - CILINDRO",
+          "comments": "",
+          "sourceRow": 43
+        },
+        {
+          "quantity": 7,
+          "name": "CUERPOS DE MEDICIÓN - PARALELEPÍPEDO",
+          "comments": "",
+          "sourceRow": 44
+        },
+        {
+          "quantity": 7,
+          "name": "ELECTRODO CURVO",
+          "comments": "",
+          "sourceRow": 45
+        },
+        {
+          "quantity": 7,
+          "name": "ELECTRODO PLANO",
+          "comments": "",
+          "sourceRow": 46
+        },
+        {
+          "quantity": 7,
+          "name": "EMBUDO",
+          "comments": "",
+          "sourceRow": 47
+        },
+        {
+          "quantity": 7,
+          "name": "INTERRUPTOR 0 -1 (TOGGLE SWITCH)",
+          "comments": "",
+          "sourceRow": 48
+        },
+        {
+          "quantity": 7,
+          "name": "JUEGO DE CILINDRO METALICOS",
+          "comments": "",
+          "sourceRow": 49
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE DESTORNILLADORES",
+          "comments": "",
+          "sourceRow": 50
+        },
+        {
+          "quantity": 7,
+          "name": "JUEGO DE MASAS CON DOBLE GANCHO",
+          "comments": "",
+          "sourceRow": 51
+        },
+        {
+          "quantity": 3,
+          "name": "JUEGO DE RESORTES",
+          "comments": "",
+          "sourceRow": 52
+        },
+        {
+          "quantity": 7,
+          "name": "KIT DE MASAS RANURADAS N° 1",
+          "comments": "",
+          "sourceRow": 53
+        },
+        {
+          "quantity": 7,
+          "name": "KIT DE MASAS RANURADAS N° 2",
+          "comments": "",
+          "sourceRow": 54
+        },
+        {
+          "quantity": 7,
+          "name": "LETRA METALICA P",
+          "comments": "",
+          "sourceRow": 55
+        },
+        {
+          "quantity": 7,
+          "name": "LETRA METALICA T",
+          "comments": "",
+          "sourceRow": 56
+        },
+        {
+          "quantity": 7,
+          "name": "LETRA METALICA U",
+          "comments": "",
+          "sourceRow": 57
+        },
+        {
+          "quantity": 7,
+          "name": "MICROMETRO PARA EXTERIORES",
+          "comments": "",
+          "sourceRow": 58
+        },
+        {
+          "quantity": 7,
+          "name": "NUEZ DE SUJECION",
+          "comments": "",
+          "sourceRow": 59
+        },
+        {
+          "quantity": 14,
+          "name": "NUEZ DOBLE",
+          "comments": "",
+          "sourceRow": 60
+        },
+        {
+          "quantity": 7,
+          "name": "PAR DE PINES",
+          "comments": "",
+          "sourceRow": 61
+        },
+        {
+          "quantity": 7,
+          "name": "PELOTA",
+          "comments": "",
+          "sourceRow": 62
+        },
+        {
+          "quantity": 7,
+          "name": "PINZA DE MESA",
+          "comments": "",
+          "sourceRow": 63
+        },
+        {
+          "quantity": 7,
+          "name": "PINZA DE MESA CON POLEA INCORPORADA",
+          "comments": "",
+          "sourceRow": 64
+        },
+        {
+          "quantity": 1,
+          "name": "PISTOLA TERMOFUNDENTE",
+          "comments": "",
+          "sourceRow": 65
+        },
+        {
+          "quantity": 2,
+          "name": "PIZARRA PEQUEÑA",
+          "comments": "",
+          "sourceRow": 66
+        },
+        {
+          "quantity": 7,
+          "name": "PLOMADA",
+          "comments": "",
+          "sourceRow": 67
+        },
+        {
+          "quantity": 7,
+          "name": "POLEA DINAMICA",
+          "comments": "",
+          "sourceRow": 68
+        },
+        {
+          "quantity": 7,
+          "name": "PORTA SENSOR DE MOVIMIENTO",
+          "comments": "",
+          "sourceRow": 69
+        },
+        {
+          "quantity": 7,
+          "name": "PROBETA GRADUADA 250 ML",
+          "comments": "",
+          "sourceRow": 70
+        },
+        {
+          "quantity": 7,
+          "name": "PROTOBOARD",
+          "comments": "",
+          "sourceRow": 71
+        },
+        {
+          "quantity": 7,
+          "name": "REGLA METALICA",
+          "comments": "",
+          "sourceRow": 72
+        },
+        {
+          "quantity": 7,
+          "name": "REJILLA DE SENSOR DE MOVIMIENTO",
+          "comments": "",
+          "sourceRow": 73
+        },
+        {
+          "quantity": 7,
+          "name": "SET DE PUENTES DE CONEXIÓN",
+          "comments": "",
+          "sourceRow": 74
+        },
+        {
+          "quantity": 1,
+          "name": "SOPORTE PARA CAUTÍN",
+          "comments": "",
+          "sourceRow": 75
+        },
+        {
+          "quantity": 7,
+          "name": "SOPORTE UNIVERSAL",
+          "comments": "",
+          "sourceRow": 76
+        },
+        {
+          "quantity": 1,
+          "name": "SUCCIONADOR DE SOLDADURA",
+          "comments": "",
+          "sourceRow": 77
+        },
+        {
+          "quantity": 7,
+          "name": "VARILLA",
+          "comments": "",
+          "sourceRow": 78
+        },
+        {
+          "quantity": 7,
+          "name": "VARILLA 47 CM",
+          "comments": "",
+          "sourceRow": 79
+        },
+        {
+          "quantity": 7,
+          "name": "VERNIER (PIE DE REY)",
+          "comments": "",
+          "sourceRow": 80
+        },
+        {
+          "quantity": 7,
+          "name": "WINCHA",
+          "comments": "",
+          "sourceRow": 81
+        },
+        {
+          "quantity": 2,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 82
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 83
+        },
+        {
+          "quantity": 1,
+          "name": "ESCALERA",
+          "comments": "",
+          "sourceRow": 84
+        },
+        {
+          "quantity": 7,
+          "name": "ESCRITORIO / MESA - ALUMNO",
+          "comments": "",
+          "sourceRow": 85
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - ASISTENTE",
+          "comments": "",
+          "sourceRow": 86
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 87
+        },
+        {
+          "quantity": 2,
+          "name": "ESTANTE PARA MOCHILAS",
+          "comments": "",
+          "sourceRow": 88
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 89
+        },
+        {
+          "quantity": 7,
+          "name": "PC - ALUMNO",
+          "comments": "",
+          "sourceRow": 90
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 91
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 92
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 93
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 94
+        },
+        {
+          "quantity": 38,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 95
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA / BANCA - ASISTENTE",
+          "comments": "",
+          "sourceRow": 96
+        },
+        {
+          "quantity": 8,
+          "name": "SOFTWARE - LOGGER PRO",
+          "comments": "",
+          "sourceRow": 97
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA05",
+      "name": "SALA DESIGN THINKING",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA05",
+      "entries": [
+        {
+          "quantity": 5,
+          "name": "ANTIFAZ",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 5,
+          "name": "CORONA DE REY",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 2,
+          "name": "JUGUETE DE ESPADA",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 5,
+          "name": "JUGUETE MAZO",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 2,
+          "name": "KIT DE MAGO (CAPA, VARITA Y SOMBRERO)",
+          "comments": "(CAPA / VARITA / SOMBRERO)",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 2,
+          "name": "LEGO - CAJA",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 5,
+          "name": "MASCARA DE DIVERSOS TIPOS",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 5,
+          "name": "PANDERETA",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 5,
+          "name": "PELUCA",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 2,
+          "name": "RECIPIENTE DE PLUMON",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 5,
+          "name": "TAMBOR",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 5,
+          "name": "TIARA DE REINA",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 6,
+          "name": "TIJERA",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 1,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 30,
+          "name": "ESCRITORIO / MESA - ALUMNO",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 1,
+          "name": "PARED DE CORCHO",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 1,
+          "name": "PISO DE GOMA ARMABLE",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 3,
+          "name": "PORTA COLCHONETAS",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 30,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 33
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA06",
+      "name": "SALA GESELL",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA06",
+      "entries": [
+        {
+          "quantity": 1,
+          "name": "ADAPTADOR ANALOGO DE AUDIO",
+          "comments": "SALA DE OBSERVACIÓN",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "AMPLIFICADOR 100 V AMPLIFIER 60 W",
+          "comments": "SALA DE OBSERVACIÓN",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "AMPLIFICADOR DE DISTRIBUCION HDMI",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 2,
+          "name": "CAMARA CON ZOOM OPTICO",
+          "comments": "SALA DE EXPERIMENTACIÓN",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 1,
+          "name": "CONSOLA DE AUDIO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "JOYSTICK",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "MICROFONO DE CUELLO DE GANSO",
+          "comments": "SALA DE OBSERVACIÓN",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "MICROFONO DE TECHO",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "PARLANTE DE TECHO - PAR",
+          "comments": "SALA DE OBSERVACIÓN",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 1,
+          "name": "PROCESADOR MULTIMEDIA PARA STREAMING",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 1,
+          "name": "SISTEMA INALAMBRICO",
+          "comments": "SALA DE EXPERIMENTACIÓN",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 2,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "DEPÓSITO",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 1,
+          "name": "BANCO GIRATORIO",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 1,
+          "name": "MESA CON ALTURA AJUSTABLE MANUAL",
+          "comments": "SALA DE EXPERIMENTACIÓN",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 1,
+          "name": "MESA PARA CUBICULO",
+          "comments": "SALA DE EXPERIMENTACIÓN",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 1,
+          "name": "MUEBLE ESCALONADO",
+          "comments": "SALA DE OBSERVACIÓN",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 30,
+          "name": "PISO DE GOMA",
+          "comments": "DEPÓSITO",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 39,
+          "name": "SILLA BUTACA",
+          "comments": "SALA DE OBSERVACIÓN",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 3,
+          "name": "SILLA FIJA PARA ADULTO",
+          "comments": "SALA DE EXPERIMENTACIÓN",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA GIRATORIA",
+          "comments": "DEPÓSITO",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 4,
+          "name": "SILLA INFANTIL",
+          "comments": "SALA DE EXPERIMENTACIÓN",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 3,
+          "name": "SILLA PARA NIÑOS",
+          "comments": "DEPÓSITO",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 2,
+          "name": "TV",
+          "comments": "",
+          "sourceRow": 31
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA07",
+      "name": "SALA DE AUDIENCIAS",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA07",
+      "entries": [
+        {
+          "quantity": 1,
+          "name": "AMPLIFICADOR",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "CONSOLA DE AUDIO",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 4,
+          "name": "MICROFONO",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 1,
+          "name": "RACK",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 2,
+          "name": "MESA - LATERALES",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "MESA - PRINCIPAL",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 9,
+          "name": "MESA TRIPERSONAL - ALUMNO",
+          "comments": "MESA TRIPERSONAL",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 6,
+          "name": "PARLANTE DE TECHO",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 9,
+          "name": "SILLA - AUDIENCIA",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 27,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 22
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA08",
+      "name": "LABORATORIO DE CÓMPUTO - PC",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA08",
+      "entries": [
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 13,
+          "name": "ESCRITORIO / MESA - ALUMNO",
+          "comments": "BIPERSONALES = 1 / TRIPERSONALES = 12",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 38,
+          "name": "PC - ALUMNO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 38,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 39,
+          "name": "SOFTWARE - AUTODESK - AUTOCAD",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": "-",
+          "name": "SOFTWARE - CYBERRAT",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 39,
+          "name": "SOFTWARE - GEOENZO",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 39,
+          "name": "SOFTWARE - MENDELEY",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 39,
+          "name": "SOFTWARE - MICROSOFT OFFICE",
+          "comments": "",
+          "sourceRow": 22
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA09",
+      "name": "LABORATORIO DE CÓMPUTO - PC",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA09",
+      "entries": [
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 13,
+          "name": "ESCRITORIO / MESA - ALUMNO",
+          "comments": "BIPERSONALES = 1 / TRIPERSONALES = 12",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 37,
+          "name": "PC - ALUMNO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 37,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 38,
+          "name": "SOFTWARE - AUTODESK - AUTOCAD",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": "-",
+          "name": "SOFTWARE - CYBERRAT",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 25,
+          "name": "SOFTWARE - ECLIPSE",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 38,
+          "name": "SOFTWARE - GEOENZO",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 25,
+          "name": "SOFTWARE - INTELLIJ IDEA",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 37,
+          "name": "SOFTWARE - MENDELEY",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 38,
+          "name": "SOFTWARE - MICROSOFT OFFICE",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 25,
+          "name": "SOFTWARE - NETBEANS",
+          "comments": "",
+          "sourceRow": 25
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA10",
+      "name": "LABORATORIO DE CÓMPUTO - PC",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA10",
+      "entries": [
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 13,
+          "name": "ESCRITORIO / MESA - ALUMNO",
+          "comments": "BIPERSONALES = 1 / TRIPERSONALES = 12",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 37,
+          "name": "PC - ALUMNO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 37,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 38,
+          "name": "SOFTWARE - AUTODESK - AUTOCAD",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": "-",
+          "name": "SOFTWARE - CYBERRAT",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 38,
+          "name": "SOFTWARE - GEOENZO",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 38,
+          "name": "SOFTWARE - MICROSOFT OFFICE",
+          "comments": "",
+          "sourceRow": 21
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA11",
+      "name": "LABORATORIO DE CÓMPUTO - PC",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA11",
+      "entries": [
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 14,
+          "name": "ESCRITORIO / MESA - ALUMNO",
+          "comments": "BIPERSONALES = 2 / TRIPERSONALES = 12",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 39,
+          "name": "PC - ALUMNO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 39,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": "-",
+          "name": "SOFTWARE - CYBERRAT",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 40,
+          "name": "SOFTWARE - MENDELEY",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 40,
+          "name": "SOFTWARE - MICROSOFT OFFICE",
+          "comments": "",
+          "sourceRow": 20
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA12",
+      "name": "LABORATORIO DE DESARROLLO DE SOFTWARE",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA12",
+      "entries": [
+        {
+          "quantity": 6,
+          "name": "LANTESTER RJ45",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 6,
+          "name": "RACK",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 12,
+          "name": "ROUTER",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 6,
+          "name": "ROUTER INALAMBRICO",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 12,
+          "name": "SWITCH",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 13,
+          "name": "ESCRITORIO / MESA - ALUMNO",
+          "comments": "12 MESAS TRIPERSONALES + 1 MESA BIPERSONALES (1 PC)",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 37,
+          "name": "PC - ALUMNO",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 37,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 38,
+          "name": "SOFTWARE - ECLIPSE",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 38,
+          "name": "SOFTWARE - INTELLIJ IDEA",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 38,
+          "name": "SOFTWARE - NETBEANS",
+          "comments": "",
+          "sourceRow": 26
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA13",
+      "name": "SALA MÚLTIPLE DE EDUCACIÓN",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA13",
+      "entries": [
+        {
+          "quantity": 2,
+          "name": "ASPIRADOR DE SECRECIONES Y FLEMAS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 4,
+          "name": "BALANZA DIGITAL DE PIE CON PANTALLA DOBLE",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "BALANZA PEDIATRICA DIGITAL",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 2,
+          "name": "BOMBA DE INFUSION DE CANAL SIMPLE",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 1,
+          "name": "ELECTROCARDIOGRAFO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "GERI - SIMULADOR PARA CUIDADO DEL PACIENTE GERIATRICO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "HERVIDOR ELECTRICO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 2,
+          "name": "INSPIROMETRO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "KERI - CUIDADO DEL PACIENTE ADULTO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 1,
+          "name": "KIT DE REPRODUCCION Y DESARROLLO HUMANO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 1,
+          "name": "KOHARO - MANIQUI DE CUIDADO DE PERSONAS MAYORES",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 1,
+          "name": "LUCY - SIMULADOR DE PARTO MATERNO Y NEONATAL",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 1,
+          "name": "MAMANATALIE - SIMULADOR DE PARTO PORTABLE",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 1,
+          "name": "MODELOS PARA BAÑO Y CUIDADOS DEL NEONATO (Masculino y Femenino)",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 1,
+          "name": "MONITOR CARDIACO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 4,
+          "name": "NEBULIZADOR PORTATIL",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 1,
+          "name": "NURSING ANNE CON SIMPAD PLUS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 1,
+          "name": "NURSING KELLY",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 1,
+          "name": "SIMULADOR DE ANAMNESIS Y AUSCULTACION ALEX",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 1,
+          "name": "SIMULADOR DE BEBE FEMENINO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 1,
+          "name": "SIMULADOR DE BEBE MASCULINO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 1,
+          "name": "SIMULADOR DE PACIENTE ADULTO AVANZADO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 1,
+          "name": "SIMULADOR PEDIATRICO PARA CUIDADOS MEDICOS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 10,
+          "name": "ALMOHADA CON FUNDA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 1,
+          "name": "ANDADOR CON RUEDA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 6,
+          "name": "BALDE DE PLASTICO GRANDE",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 6,
+          "name": "BALDE DE PLASTICO MEDIANO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 2,
+          "name": "BALON DE OXIGENO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 8,
+          "name": "BANDEJA METALICA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 36
+        },
+        {
+          "quantity": 2,
+          "name": "BASTON DE 4 APOYOS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 37
+        },
+        {
+          "quantity": 8,
+          "name": "BOMBILLA DE ASPIRACION",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 38
+        },
+        {
+          "quantity": 8,
+          "name": "CAJA ORGANIZADORA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 39
+        },
+        {
+          "quantity": 6,
+          "name": "CAJA PARA INSTRUMENTAL QUIRURGICO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 40
+        },
+        {
+          "quantity": 4,
+          "name": "CAMPO QUIRURGICO PARA ENVOLVER EL BULTO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 41
+        },
+        {
+          "quantity": 3,
+          "name": "CINTA METRICA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 42
+        },
+        {
+          "quantity": 2,
+          "name": "CINTA OBSTETRICA OPS / OMS",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 43
+        },
+        {
+          "quantity": 8,
+          "name": "COMPRESA DE GEL",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 44
+        },
+        {
+          "quantity": 8,
+          "name": "COMPRESA DE TELA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 45
+        },
+        {
+          "quantity": 8,
+          "name": "CONTENEDOR DE ACERO INOXIDABLE QUIRURGICO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 46
+        },
+        {
+          "quantity": 10,
+          "name": "CUBRECAMA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 47
+        },
+        {
+          "quantity": 5,
+          "name": "DILATOMETRO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 48
+        },
+        {
+          "quantity": 1,
+          "name": "DISPENSADOR DE JABON",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 49
+        },
+        {
+          "quantity": 3,
+          "name": "DISPENSADOR DE JABON",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 50
+        },
+        {
+          "quantity": 1,
+          "name": "DISPENSADOR DE PAPEL TOALLA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 51
+        },
+        {
+          "quantity": 3,
+          "name": "DISPENSADOR DE PAPEL TOALLA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 52
+        },
+        {
+          "quantity": 1,
+          "name": "EMBUDO DE PLASTICO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 53
+        },
+        {
+          "quantity": 8,
+          "name": "ESFIGMOMANOMETRO ANEROIDE (TENSIOMETRO)",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 54
+        },
+        {
+          "quantity": 8,
+          "name": "ESTETOSCOPIO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 55
+        },
+        {
+          "quantity": 8,
+          "name": "ESTETOSCOPIO DE PINARD",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 56
+        },
+        {
+          "quantity": 8,
+          "name": "ESTUCHE DE CIRUGIA MENOR",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 57
+        },
+        {
+          "quantity": 16,
+          "name": "FRASCO HUMIDIFICADOR",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 58
+        },
+        {
+          "quantity": 5,
+          "name": "GESTOGRAMA DE BOLSILLO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 59
+        },
+        {
+          "quantity": 2,
+          "name": "GESTOGRAMA MURAL",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 60
+        },
+        {
+          "quantity": 2,
+          "name": "INSTRUMENTAL DE CIRUGIA COMPLETO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 61
+        },
+        {
+          "quantity": 2,
+          "name": "INSTRUMENTAL DE DIERESIS O CORTE",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 62
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DE 6 PINZAS HEMOSTATICAS",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 63
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE AEROCAMARAS (ADULTO, NEONATAL, PEDIATRICO)",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 64
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE BOWLS DE ACERO INOXIDABLE",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 65
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE CABESTRILLO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 66
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE CAMPOS QUIRURGICOS DE TELA FENESTRADO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 67
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE COJINES",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 68
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE ESPECULOS VAGINAL METALICO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 69
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE FRAZADA BLANCA HOSPITALARIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 70
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE JARRAS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 71
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MANGOS PARA BISTURI",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 72
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PINZAS DE DISECCION",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 73
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PINZAS DE DISECCION CON DIENTE Y SIN UÑA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 74
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PINZAS KELLY",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 75
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PINZAS KOCHER",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 76
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PORTA TORUNDAS",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 77
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE RIÑONERAS",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 78
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE SÁBANAS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 79
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE TERMOMETROS",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 80
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE TOALLAS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 81
+        },
+        {
+          "quantity": 5,
+          "name": "KIT DE FERULA NEUMATICA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 82
+        },
+        {
+          "quantity": 2,
+          "name": "KIT DE RESUCITACION ADULTO CON MASCARILLA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 83
+        },
+        {
+          "quantity": 3,
+          "name": "KIT DE RESUCITACION NEONATAL CON MASCARILLA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 84
+        },
+        {
+          "quantity": 3,
+          "name": "KIT DE RESUCITACION PEDIATRICO CON MASCARILLA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 85
+        },
+        {
+          "quantity": 1,
+          "name": "LARINGOSCOPIO ADULTO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 86
+        },
+        {
+          "quantity": 1,
+          "name": "LARINGOSCOPIO NEONATAL",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 87
+        },
+        {
+          "quantity": 8,
+          "name": "LAVATORIO PARA PACIENTE",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 88
+        },
+        {
+          "quantity": 8,
+          "name": "LINTERNA DE EXAMEN MEDICO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 89
+        },
+        {
+          "quantity": 8,
+          "name": "MARTILLO DE REFLEJO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 90
+        },
+        {
+          "quantity": 5,
+          "name": "PARTOGRAMA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 91
+        },
+        {
+          "quantity": 8,
+          "name": "PINZA ROCHESTER PEAN CURVA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 92
+        },
+        {
+          "quantity": 8,
+          "name": "PLATO DE ACERO INOXIDABLE",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 93
+        },
+        {
+          "quantity": 4,
+          "name": "PORTA AGUJA MAYO HEGAR",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 94
+        },
+        {
+          "quantity": 8,
+          "name": "PORTASUERO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 95
+        },
+        {
+          "quantity": 8,
+          "name": "PULSIOXIMETRO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 96
+        },
+        {
+          "quantity": 2,
+          "name": "RECIPIENTE DE ACERO INOXIDABLE",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 97
+        },
+        {
+          "quantity": 1,
+          "name": "SEPARADOR QUIRURGICO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 98
+        },
+        {
+          "quantity": 2,
+          "name": "SET DE INSTRUMENTOS DE APREHENSION",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 99
+        },
+        {
+          "quantity": 2,
+          "name": "SET DE INSTRUMENTOS DE SEPARACION",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 100
+        },
+        {
+          "quantity": 2,
+          "name": "SET DE INSTRUMENTOS DE SINTESIS",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 101
+        },
+        {
+          "quantity": 8,
+          "name": "SIMULADOR DE CABECERA HOSPITALARIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 102
+        },
+        {
+          "quantity": 12,
+          "name": "SOLERA DE TELA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 103
+        },
+        {
+          "quantity": 8,
+          "name": "SOLERA IMPERMEABLE",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 104
+        },
+        {
+          "quantity": 2,
+          "name": "TENSIOMETRO DIGITAL",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 105
+        },
+        {
+          "quantity": 4,
+          "name": "TIJERA BRAUN STADLER",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 106
+        },
+        {
+          "quantity": 4,
+          "name": "TIJERA DE CORDON UMBILICAL",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 107
+        },
+        {
+          "quantity": 4,
+          "name": "TIJERA DE MAYO RECTA ROMA",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 108
+        },
+        {
+          "quantity": 4,
+          "name": "URINARIO PORTATIL FEMENINO (CHATA)",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 109
+        },
+        {
+          "quantity": 4,
+          "name": "URINARIO PORTATIL MASCULINO (PAPAGAYO)",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 110
+        },
+        {
+          "quantity": 10,
+          "name": "VASO DE ACERO INOXIDABLE",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 111
+        },
+        {
+          "quantity": 2,
+          "name": "ARCO METALICO PARA CAMA HOSPITALARIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 112
+        },
+        {
+          "quantity": 4,
+          "name": "CAMA HOSPITALARIA DE 3 MANIVELAS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 113
+        },
+        {
+          "quantity": 4,
+          "name": "CAMA HOSPITALARIA ELECTRICA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 114
+        },
+        {
+          "quantity": 1,
+          "name": "CAMA HOSPITALARIA PEDIATRICA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 115
+        },
+        {
+          "quantity": 1,
+          "name": "CAMILLA DE TRANSPORTE CON BARANDAS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 116
+        },
+        {
+          "quantity": 2,
+          "name": "COCHE DE CURACION",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 117
+        },
+        {
+          "quantity": 1,
+          "name": "COCHE DE PARO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 118
+        },
+        {
+          "quantity": 1,
+          "name": "COCHE DE TRANSPORTE DE ROPA LIMPIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 119
+        },
+        {
+          "quantity": 1,
+          "name": "COCHE DE TRANSPORTE DE ROPA SUCIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 120
+        },
+        {
+          "quantity": 8,
+          "name": "CORTINA HOSPITALARIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 121
+        },
+        {
+          "quantity": 1,
+          "name": "CUNA HOSPITALARIA PEDIATRICA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 122
+        },
+        {
+          "quantity": 2,
+          "name": "CUNA PARA RECIÉN NACIDO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 123
+        },
+        {
+          "quantity": 4,
+          "name": "ESCALERA DE 1 PASO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 124
+        },
+        {
+          "quantity": 4,
+          "name": "ESCALERA DE 2 PASOS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 125
+        },
+        {
+          "quantity": 2,
+          "name": "ESCRITORIO DE ESTACION ENFERMERIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 126
+        },
+        {
+          "quantity": 2,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 127
+        },
+        {
+          "quantity": 2,
+          "name": "LAMPARA DE CUELLO DE GANSO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 128
+        },
+        {
+          "quantity": 1,
+          "name": "MESA - TRABAJO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 129
+        },
+        {
+          "quantity": 2,
+          "name": "MESA DE MAYO QUIRURGICO",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 130
+        },
+        {
+          "quantity": 1,
+          "name": "MESA DE RIÑON INSTRUMENTAL",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 131
+        },
+        {
+          "quantity": 8,
+          "name": "MESA PARA ALIMENTACION CON RUEDAS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 132
+        },
+        {
+          "quantity": 2,
+          "name": "MONITOR",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 133
+        },
+        {
+          "quantity": 1,
+          "name": "MUEBLE ALTO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 134
+        },
+        {
+          "quantity": 1,
+          "name": "MUEBLE BAJO",
+          "comments": "SALA DE PREPARACION HOSPITAL",
+          "sourceRow": 135
+        },
+        {
+          "quantity": 2,
+          "name": "PC DE ESTACION ENFERMERIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 136
+        },
+        {
+          "quantity": 2,
+          "name": "RELOJ DE PARED",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 137
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA DE DUCHA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 138
+        },
+        {
+          "quantity": 2,
+          "name": "SILLA DE ESTACION ENFERMERIA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 139
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA DE RUEDAS",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 140
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA DE RUEDAS PEDIATRICA",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 141
+        },
+        {
+          "quantity": 8,
+          "name": "VELADOR",
+          "comments": "HOSPITAL SIMULADO",
+          "sourceRow": 142
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA14",
+      "name": "",
+      "nameConfirmed": false,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA14",
+      "entries": [
+        {
+          "quantity": 2,
+          "name": "ATLAS Y AXIS CON LAMINA HORIZONTAL DEL OCCIPITAL",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "BICICLETA ESTACIONARIA",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 2,
+          "name": "BRAZO VASCULAR",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 3,
+          "name": "CEREBRO NEURO ANATOMICO",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 4,
+          "name": "CORAZON CLASICO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "CORAZON GRANDE",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 2,
+          "name": "CRÁNEO DESMONTABLE",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "EL SISTEMA NERVIOSO 1/2 DE SU TAMAÑO NATURAL",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 2,
+          "name": "ESQUELETO DE PIE CON LIGAMENTOS Y MUSCULOS",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 2,
+          "name": "ESQUELETO DE PIERNA CON PIE",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 3,
+          "name": "ESTOMAGO",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 1,
+          "name": "ESTRUCTURA DE LOS HUESOS AUMENTADO 80 VECES",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 2,
+          "name": "EVOLUCION EMBRIONARIA",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 2,
+          "name": "FIBRA MUSCULAR",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 8,
+          "name": "GLUCOMETRO",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 1,
+          "name": "HERVIDOR ELECTRICO",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 2,
+          "name": "HIGADO CON VESICULA BILIAR",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 2,
+          "name": "MICROESTRUCTURA DEL INTESTINO DELGADO",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO ANATOMICO DE EMBARAZO 5 MODELOS",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO ANATOMICO DE VERTEBRAS",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO DE ARTICULACION DE LA CADERA",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DE ARTICULACION DEL CODO",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO DE ARTICULACION DEL HOMBRO",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO DE ARTICULACION HOMBRO CON MANGUITO ROTADOR",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO DE ARTICULACION RODILLA",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DE COLUMNA VERTEBRAL FLEXIBLE",
+          "comments": "",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO DE CRANEO FETAL",
+          "comments": "",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DE ESQUELETO DE CUERPO HUMANO",
+          "comments": "",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DE LA PIEL",
+          "comments": "",
+          "sourceRow": 36
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DE LARINGE",
+          "comments": "",
+          "sourceRow": 37
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DE LENGUA",
+          "comments": "",
+          "sourceRow": 38
+        },
+        {
+          "quantity": 8,
+          "name": "MODELO DE MAMA DE MUJER (PAR DE MAMA)",
+          "comments": "",
+          "sourceRow": 39
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DE NARIZ",
+          "comments": "",
+          "sourceRow": 40
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DE OSTEOPOROSIS - VERTEBRAS LUMBARES",
+          "comments": "",
+          "sourceRow": 41
+        },
+        {
+          "quantity": 3,
+          "name": "MODELO DE PELVIS FEMENINA CON MUSCULOS",
+          "comments": "",
+          "sourceRow": 42
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO DE PLACENTA Y CORDON UMBILICAL",
+          "comments": "",
+          "sourceRow": 43
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO DE SISTEMA AUDITIVO",
+          "comments": "",
+          "sourceRow": 44
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO DE UTERO Y OVARIO",
+          "comments": "",
+          "sourceRow": 45
+        },
+        {
+          "quantity": 1,
+          "name": "MODELO DE VENA Y ARTERIA",
+          "comments": "",
+          "sourceRow": 46
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DEL PULMON",
+          "comments": "",
+          "sourceRow": 47
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DEL SISTEMA MUSCULAR BISEXUADO",
+          "comments": "",
+          "sourceRow": 48
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO ESQUELETO PELVIS FEMENINA",
+          "comments": "",
+          "sourceRow": 49
+        },
+        {
+          "quantity": 1,
+          "name": "MODELO ESQUELETO PELVIS MASCULINA",
+          "comments": "",
+          "sourceRow": 50
+        },
+        {
+          "quantity": 4,
+          "name": "MODELO FUNCIONAL DE CABEZA",
+          "comments": "",
+          "sourceRow": 51
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO FUNCIONAL DE EXTREMIDAD BRAZO",
+          "comments": "",
+          "sourceRow": 52
+        },
+        {
+          "quantity": 3,
+          "name": "MODELO FUNCIONAL DE EXTREMIDAD MANO",
+          "comments": "",
+          "sourceRow": 53
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO FUNCIONAL DE EXTREMIDAD PIE ARQUEADO",
+          "comments": "",
+          "sourceRow": 54
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO FUNCIONAL DE EXTREMIDAD PIE NORMAL",
+          "comments": "",
+          "sourceRow": 55
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO FUNCIONAL DE EXTREMIDAD PIE PLANO",
+          "comments": "",
+          "sourceRow": 56
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO FUNCIONAL DE EXTREMIDAD PIERNA",
+          "comments": "",
+          "sourceRow": 57
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO FUNCIONAL DE ORGANO - CRANEO CLASICO CON CEREBRO",
+          "comments": "",
+          "sourceRow": 58
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO FUNCIONAL DE ORGANO OJO",
+          "comments": "",
+          "sourceRow": 59
+        },
+        {
+          "quantity": 1,
+          "name": "MODELO SISTEMA CIRCULATORIO HUMANO",
+          "comments": "",
+          "sourceRow": 60
+        },
+        {
+          "quantity": 1,
+          "name": "MODULO DE ENSEÑANZA PARA FISIOLOGIA HUMANA",
+          "comments": "",
+          "sourceRow": 61
+        },
+        {
+          "quantity": 1,
+          "name": "PANTALLA MULTITACTIL INTERACTIVA DE FISIOLOGIA Y ANATOMIA 75\"",
+          "comments": "",
+          "sourceRow": 62
+        },
+        {
+          "quantity": 1,
+          "name": "PELVIS DE DEMOSTRACION DEL PARTO",
+          "comments": "",
+          "sourceRow": 63
+        },
+        {
+          "quantity": 2,
+          "name": "REFRACTOMETRO MANUAL",
+          "comments": "",
+          "sourceRow": 64
+        },
+        {
+          "quantity": 1,
+          "name": "SISTEMA DIGESTIVO",
+          "comments": "",
+          "sourceRow": 65
+        },
+        {
+          "quantity": 2,
+          "name": "SISTEMA URINARIO DE SEXO DUAL",
+          "comments": "",
+          "sourceRow": 66
+        },
+        {
+          "quantity": 1,
+          "name": "TORSO ASEXUADO",
+          "comments": "",
+          "sourceRow": 67
+        },
+        {
+          "quantity": 4,
+          "name": "BANDEJA METALICA",
+          "comments": "",
+          "sourceRow": 68
+        },
+        {
+          "quantity": 3,
+          "name": "CAJA LUXOR",
+          "comments": "",
+          "sourceRow": 69
+        },
+        {
+          "quantity": 3,
+          "name": "CAJA ULTRAFORTE",
+          "comments": "",
+          "sourceRow": 70
+        },
+        {
+          "quantity": 8,
+          "name": "CRONOMETRO",
+          "comments": "",
+          "sourceRow": 71
+        },
+        {
+          "quantity": 2,
+          "name": "DISPENSADOR DE JABON",
+          "comments": "",
+          "sourceRow": 72
+        },
+        {
+          "quantity": 2,
+          "name": "DISPENSADOR DE PAPEL TOALLA",
+          "comments": "",
+          "sourceRow": 73
+        },
+        {
+          "quantity": 8,
+          "name": "ESFIGMOMANOMETRO ANEROIDE (TENSIOMETRO)",
+          "comments": "",
+          "sourceRow": 74
+        },
+        {
+          "quantity": 8,
+          "name": "ESTETOSCOPIO",
+          "comments": "",
+          "sourceRow": 75
+        },
+        {
+          "quantity": 2,
+          "name": "FRASCO DE VIDRIO CON TAPA AUTOCLAVABLE",
+          "comments": "",
+          "sourceRow": 76
+        },
+        {
+          "quantity": 4,
+          "name": "GONIOMETRO DE PLASTICO",
+          "comments": "",
+          "sourceRow": 77
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE LINTERNAS DE EXAMEN MEDICO",
+          "comments": "",
+          "sourceRow": 78
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PIPETAS PASTEUR",
+          "comments": "",
+          "sourceRow": 79
+        },
+        {
+          "quantity": 8,
+          "name": "MARTILLO DE REFLEJO",
+          "comments": "",
+          "sourceRow": 80
+        },
+        {
+          "quantity": 2,
+          "name": "SOPORTE MULTIFUNCIONAL PARA COLUMNA VERTEBRAL",
+          "comments": "",
+          "sourceRow": 81
+        },
+        {
+          "quantity": 8,
+          "name": "TENSIOMETRO DIGITAL",
+          "comments": "",
+          "sourceRow": 82
+        },
+        {
+          "quantity": 4,
+          "name": "CAMILLA FIJA PLEGABLE",
+          "comments": "",
+          "sourceRow": 83
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 84
+        },
+        {
+          "quantity": 1,
+          "name": "ESCALERA PLEGABLE",
+          "comments": "",
+          "sourceRow": 85
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 86
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MUEBLES ALTOS Y/O BAJOS",
+          "comments": "",
+          "sourceRow": 87
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 88
+        },
+        {
+          "quantity": 8,
+          "name": "MESA - ALUMNO",
+          "comments": "",
+          "sourceRow": 89
+        },
+        {
+          "quantity": 8,
+          "name": "PC - ALUMNO",
+          "comments": "",
+          "sourceRow": 90
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 91
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 92
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 93
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 94
+        },
+        {
+          "quantity": 40,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 95
+        },
+        {
+          "quantity": 1,
+          "name": "VITRINA DE EXHIBICION",
+          "comments": "",
+          "sourceRow": 96
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA15",
+      "name": "",
+      "nameConfirmed": false,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA15",
+      "entries": [
+        {
+          "quantity": 1,
+          "name": "BALANZA ANALITICA",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "BALANZA DE PRECISION",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "BAÑO MARIA",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 1,
+          "name": "DESTILADOR DE AGUA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 1,
+          "name": "EQUIPO SOXHLET",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "PLANCHA DE CALENTAMIENTO Y AGITADOR",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "POTENCIOMETRO",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 3,
+          "name": "REFRIGERADOR",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "SISTEMA DE CONDUCTIVIDAD ELECTRICA CON FOCO",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 1,
+          "name": "TERMA DE AGUA",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 20,
+          "name": "ASA DE SIEMBRA KOLLE",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 32,
+          "name": "BAGUETA DE VIDRIO",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 10,
+          "name": "CAJA ACRILICA PORTA GOTAS DE VIDRIO",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 4,
+          "name": "CUCHILLO DE COCINA",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 4,
+          "name": "DIAPASON CLINICO",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 1,
+          "name": "DISPENSADOR DE JABON",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 1,
+          "name": "DISPENSADOR DE PAPEL TOALLA",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE BOWLS DE METAL",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE BURETAS DE VIDRIO",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE CAJAS ORGANIZADORAS",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE CELDAS DE CUARZO",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE CUCHARAS DE COMBUSTION",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE EMBUDOS DE VIDRIO",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE ESPATULAS",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE FRASCOS DE VIDRIO CON TAPA AUTOCLAVABLE",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE GOTERO DE VIDRIO CON FRASCO",
+          "comments": "",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE GRADILLAS PARA TUBOS, PIPETAS Y MICROTUBOS",
+          "comments": "",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE LUNAS DE RELOJ",
+          "comments": "",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MANGOS PARA BISTURI",
+          "comments": "",
+          "sourceRow": 36
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MATRACES ERLENMEYER DE VIDRIO",
+          "comments": "",
+          "sourceRow": 37
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MICROPIPETA",
+          "comments": "",
+          "sourceRow": 38
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MORTERO CON PILON DE PORCELANA",
+          "comments": "",
+          "sourceRow": 39
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PINZAS DE DISECCION",
+          "comments": "",
+          "sourceRow": 40
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PINZAS PARA TUBO DE ENSAYO DE MADERA Y METAL",
+          "comments": "",
+          "sourceRow": 41
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PIPETAS CON BULBO O VOLUMÉTRICAS",
+          "comments": "",
+          "sourceRow": 42
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PIPETAS SEROLOGICAS",
+          "comments": "",
+          "sourceRow": 43
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PISETAS DE PLASTICO",
+          "comments": "",
+          "sourceRow": 44
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PLACAS PETRI DE VIDRIO",
+          "comments": "",
+          "sourceRow": 45
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PORTA TORUNDAS",
+          "comments": "",
+          "sourceRow": 46
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PROBETAS GRADUADAS",
+          "comments": "",
+          "sourceRow": 47
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE TUBOS DE ENSAYO",
+          "comments": "",
+          "sourceRow": 48
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE TUBOS DE ENSAYO CON TAPA DE BAQUELITA AUTOCLAVABLE",
+          "comments": "",
+          "sourceRow": 49
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE VASOS DE PRECIPITADO",
+          "comments": "",
+          "sourceRow": 50
+        },
+        {
+          "quantity": 3,
+          "name": "KIT ANTIDERRAME PARA ACIDOS Y ALCALIS",
+          "comments": "",
+          "sourceRow": 51
+        },
+        {
+          "quantity": 12,
+          "name": "MECHERO DE ALCOHOL DE VIDRIO PAVONADO CON MECHA",
+          "comments": "",
+          "sourceRow": 52
+        },
+        {
+          "quantity": 10,
+          "name": "PERA DE DECANTACION DE 500 ML",
+          "comments": "",
+          "sourceRow": 53
+        },
+        {
+          "quantity": 1,
+          "name": "PIPETA DE VIDRIO PASTEUR 3 ML 500 UND",
+          "comments": "",
+          "sourceRow": 54
+        },
+        {
+          "quantity": 16,
+          "name": "PLACA PARA DETERMINACION DE GRUPO SANGUINEO",
+          "comments": "",
+          "sourceRow": 55
+        },
+        {
+          "quantity": 40,
+          "name": "PROPIPETA",
+          "comments": "",
+          "sourceRow": 56
+        },
+        {
+          "quantity": 4,
+          "name": "TABLA DE PICAR DE MADERA",
+          "comments": "",
+          "sourceRow": 57
+        },
+        {
+          "quantity": 4,
+          "name": "TAPON DE GOMA",
+          "comments": "",
+          "sourceRow": 58
+        },
+        {
+          "quantity": 8,
+          "name": "TERMOMETRO DE MERCURIO",
+          "comments": "",
+          "sourceRow": 59
+        },
+        {
+          "quantity": 8,
+          "name": "TERMOMETRO DIGITAL",
+          "comments": "",
+          "sourceRow": 60
+        },
+        {
+          "quantity": 2,
+          "name": "COCHE DE LABORATORIO",
+          "comments": "",
+          "sourceRow": 61
+        },
+        {
+          "quantity": 1,
+          "name": "ESCALERA PLEGABLE",
+          "comments": "",
+          "sourceRow": 62
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - ASISTENTE",
+          "comments": "",
+          "sourceRow": 63
+        },
+        {
+          "quantity": 1,
+          "name": "MUEBLE BAJO",
+          "comments": "",
+          "sourceRow": 64
+        },
+        {
+          "quantity": 2,
+          "name": "MUEBLE CON BARANDA ANTICAIDA PARA SALA DE REACTIVOS",
+          "comments": "",
+          "sourceRow": 65
+        },
+        {
+          "quantity": 1,
+          "name": "MUEBLE CON LLAVE",
+          "comments": "",
+          "sourceRow": 66
+        },
+        {
+          "quantity": 1,
+          "name": "PC - ASISTENTE",
+          "comments": "",
+          "sourceRow": 67
+        },
+        {
+          "quantity": 1,
+          "name": "RELOJ DE PARED",
+          "comments": "",
+          "sourceRow": 68
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA / BANCA - ASISTENTE",
+          "comments": "",
+          "sourceRow": 69
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA16",
+      "name": "",
+      "nameConfirmed": false,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA16",
+      "entries": [
+        {
+          "quantity": 6,
+          "name": "ABACO HORIZONTAL",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 6,
+          "name": "AJEDREZ",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 6,
+          "name": "ARO DE MADERA GRANDE",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 6,
+          "name": "ARO DE MADERA MEDIANO",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 6,
+          "name": "ARO DE MADERA PEQUEÑO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 6,
+          "name": "ARO DE PLASTICO GRANDE",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 6,
+          "name": "ARO DE PLASTICO MEDIANO",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 6,
+          "name": "ARO DE PLASTICO PEQUEÑO",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 3,
+          "name": "BALANCIN DE EQUILIBRIO",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 6,
+          "name": "BALANZA DE PLASTICO PARA EDUCACION PRIMARIA",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 6,
+          "name": "BALANZA MATEMATICA",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 6,
+          "name": "BALDE CON BLOQUES DE PLASTICO 100 PIEZAS CON TAPA DE RELOJ",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 1,
+          "name": "BOWL PARA LAVATORIO",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 40,
+          "name": "CAJA ORGANIZADORA",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 1,
+          "name": "CAJON PERUANO",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 6,
+          "name": "CINTA METRICA",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 6,
+          "name": "COCHE DE JUGUETE",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 10,
+          "name": "CONO GRANDE DE PLASTICO",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 6,
+          "name": "CUBO MONTESSORI",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 6,
+          "name": "CUENTAS PARA ENSARTAR",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 1,
+          "name": "CUENTO INFANTIL BLANCANIEVES Y LOS 7 ENANITOS",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 1,
+          "name": "CUENTO INFANTIL CAPERUCITA ROJA",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 1,
+          "name": "CUENTO INFANTIL EL PATITO FEO",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 1,
+          "name": "CUENTO INFANTIL LA BELLA DURMIENTE",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 1,
+          "name": "CUENTO INFANTIL LOS TRES CERDITOS",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 1,
+          "name": "CUENTO INFANTIL PINOCHO",
+          "comments": "",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 6,
+          "name": "CUERDA DE SALTAR ADULTO",
+          "comments": "",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 6,
+          "name": "DADO DE ESPUMA PARA ESTIMULACION",
+          "comments": "",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 1,
+          "name": "DISFRAZ DE BRUJA",
+          "comments": "",
+          "sourceRow": 36
+        },
+        {
+          "quantity": 1,
+          "name": "DISFRAZ DE CAPERUCITA ROJA",
+          "comments": "",
+          "sourceRow": 37
+        },
+        {
+          "quantity": 1,
+          "name": "DISPENSADOR DE JABON",
+          "comments": "",
+          "sourceRow": 38
+        },
+        {
+          "quantity": 1,
+          "name": "DISPENSADOR DE PAPEL TOALLA",
+          "comments": "",
+          "sourceRow": 39
+        },
+        {
+          "quantity": 6,
+          "name": "ESPEJO PARA NIÑOS",
+          "comments": "",
+          "sourceRow": 40
+        },
+        {
+          "quantity": 6,
+          "name": "FLAUTA DULCE",
+          "comments": "",
+          "sourceRow": 41
+        },
+        {
+          "quantity": 10,
+          "name": "HULA HULA",
+          "comments": "",
+          "sourceRow": 42
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DE BLOQUES GEOMETRICOS",
+          "comments": "",
+          "sourceRow": 43
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DE FRACCIONES CIRCULARES",
+          "comments": "",
+          "sourceRow": 44
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DE FRACCIONES RECTANGULARES",
+          "comments": "",
+          "sourceRow": 45
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DE REGLETAS CUISENAIRE GRANDE",
+          "comments": "",
+          "sourceRow": 46
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DE REGLETAS CUISENAIRE PEQUEÑO",
+          "comments": "",
+          "sourceRow": 47
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DE SERIACION DE FORMAS Y TAMAÑOS",
+          "comments": "",
+          "sourceRow": 48
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DE SOLIDOS GEOMETRICOS",
+          "comments": "",
+          "sourceRow": 49
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DE TANGRAM",
+          "comments": "",
+          "sourceRow": 50
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DIDACTICO",
+          "comments": "",
+          "sourceRow": 51
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DIDACTICO DE CUBOS ENCAJABLES",
+          "comments": "",
+          "sourceRow": 52
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGO DIDACTICO GEOPLANO",
+          "comments": "",
+          "sourceRow": 53
+        },
+        {
+          "quantity": 6,
+          "name": "JUEGOS DIDACTICOS PARA ENHEBRAR",
+          "comments": "",
+          "sourceRow": 54
+        },
+        {
+          "quantity": 6,
+          "name": "KIT DE BLOQUES DE MADERA PARA CONSTRUCCION",
+          "comments": "",
+          "sourceRow": 55
+        },
+        {
+          "quantity": 1,
+          "name": "KIT DE LEÑADOR",
+          "comments": "",
+          "sourceRow": 56
+        },
+        {
+          "quantity": 1,
+          "name": "KIT DE MAGO",
+          "comments": "",
+          "sourceRow": 57
+        },
+        {
+          "quantity": 1,
+          "name": "KIT DE PSICOMOTRICIDAD PARA NIÑOS DE 3 A 5 AÑOS",
+          "comments": "",
+          "sourceRow": 58
+        },
+        {
+          "quantity": 1,
+          "name": "KIT DE PSICOMOTRICIDAD PARA NIÑOS DE 6 AÑOS",
+          "comments": "",
+          "sourceRow": 59
+        },
+        {
+          "quantity": 1,
+          "name": "KIT DE REINA O PRINCESA",
+          "comments": "",
+          "sourceRow": 60
+        },
+        {
+          "quantity": 1,
+          "name": "KIT DE REY",
+          "comments": "",
+          "sourceRow": 61
+        },
+        {
+          "quantity": 6,
+          "name": "LIBRO DE EMOCIONES",
+          "comments": "KIT DE EXPRESIONES",
+          "sourceRow": 62
+        },
+        {
+          "quantity": 6,
+          "name": "LIBRO DE FRASES Y ORACIONES",
+          "comments": "",
+          "sourceRow": 63
+        },
+        {
+          "quantity": 6,
+          "name": "MARACAS",
+          "comments": "",
+          "sourceRow": 64
+        },
+        {
+          "quantity": 6,
+          "name": "MARIONETA",
+          "comments": "",
+          "sourceRow": 65
+        },
+        {
+          "quantity": 1,
+          "name": "MASCARA DE CERDITO",
+          "comments": "",
+          "sourceRow": 66
+        },
+        {
+          "quantity": 1,
+          "name": "MASCARA DE LOBO",
+          "comments": "",
+          "sourceRow": 67
+        },
+        {
+          "quantity": 1,
+          "name": "MODULO DE PIES Y MANOS PARA PREESCOLAR EN MOVIMIENTO",
+          "comments": "",
+          "sourceRow": 68
+        },
+        {
+          "quantity": 1,
+          "name": "MODULO DE PIES Y MANOS PARA PRIMARIA EN MOVIMIENTO",
+          "comments": "",
+          "sourceRow": 69
+        },
+        {
+          "quantity": 1,
+          "name": "MODULO DE SEÑALES VIALES Y ESCOLARES",
+          "comments": "",
+          "sourceRow": 70
+        },
+        {
+          "quantity": 1,
+          "name": "MODULO DE TEXTURAS",
+          "comments": "",
+          "sourceRow": 71
+        },
+        {
+          "quantity": 24,
+          "name": "MUÑECO DE PLASTICO",
+          "comments": "",
+          "sourceRow": 72
+        },
+        {
+          "quantity": 36,
+          "name": "PALETA PLASTICA",
+          "comments": "",
+          "sourceRow": 73
+        },
+        {
+          "quantity": 6,
+          "name": "PANDERETA",
+          "comments": "",
+          "sourceRow": 74
+        },
+        {
+          "quantity": 12,
+          "name": "PAÑUELO DE COLORES",
+          "comments": "",
+          "sourceRow": 75
+        },
+        {
+          "quantity": 2,
+          "name": "PELOTA DEPORTIVA DE BASQUET",
+          "comments": "",
+          "sourceRow": 76
+        },
+        {
+          "quantity": 2,
+          "name": "PELOTA DEPORTIVA DE FUTBOL",
+          "comments": "",
+          "sourceRow": 77
+        },
+        {
+          "quantity": 2,
+          "name": "PELOTA DEPORTIVA DE VOLEY",
+          "comments": "",
+          "sourceRow": 78
+        },
+        {
+          "quantity": 12,
+          "name": "PELOTA RECREATIVA CHICA",
+          "comments": "",
+          "sourceRow": 79
+        },
+        {
+          "quantity": 6,
+          "name": "PELOTA RECREATIVA MEDIANA",
+          "comments": "",
+          "sourceRow": 80
+        },
+        {
+          "quantity": 3,
+          "name": "PELOTA SALTARINA",
+          "comments": "",
+          "sourceRow": 81
+        },
+        {
+          "quantity": 12,
+          "name": "PELOTA SENSORIAL",
+          "comments": "",
+          "sourceRow": 82
+        },
+        {
+          "quantity": 6,
+          "name": "PELUCA",
+          "comments": "",
+          "sourceRow": 83
+        },
+        {
+          "quantity": 36,
+          "name": "PINCEL PARA PINTURA ACRILICA",
+          "comments": "",
+          "sourceRow": 84
+        },
+        {
+          "quantity": 36,
+          "name": "PINCEL PARA TEMPERA",
+          "comments": "",
+          "sourceRow": 85
+        },
+        {
+          "quantity": 6,
+          "name": "PINZA PLASTICA PARA NIÑOS",
+          "comments": "",
+          "sourceRow": 86
+        },
+        {
+          "quantity": 1,
+          "name": "PISO DE GOMA ARMABLE",
+          "comments": "",
+          "sourceRow": 87
+        },
+        {
+          "quantity": 6,
+          "name": "PLANTADO DE MADERA",
+          "comments": "",
+          "sourceRow": 88
+        },
+        {
+          "quantity": 12,
+          "name": "PUNZONES",
+          "comments": "",
+          "sourceRow": 89
+        },
+        {
+          "quantity": 6,
+          "name": "RELOJ DE ARENA",
+          "comments": "",
+          "sourceRow": 90
+        },
+        {
+          "quantity": 3,
+          "name": "RODILLO DE ESTIMULACION PARA NIÑOS DE 0-3 AÑOS",
+          "comments": "",
+          "sourceRow": 91
+        },
+        {
+          "quantity": 3,
+          "name": "ROMPECABEZAS EXTRAGRANDE",
+          "comments": "",
+          "sourceRow": 92
+        },
+        {
+          "quantity": 3,
+          "name": "ROMPECABEZAS GRANDE",
+          "comments": "",
+          "sourceRow": 93
+        },
+        {
+          "quantity": 3,
+          "name": "ROMPECABEZAS MEDIANO",
+          "comments": "",
+          "sourceRow": 94
+        },
+        {
+          "quantity": 3,
+          "name": "ROMPECABEZAS PEQUEÑO",
+          "comments": "",
+          "sourceRow": 95
+        },
+        {
+          "quantity": 6,
+          "name": "RULETA DE PROBABILIDAD",
+          "comments": "",
+          "sourceRow": 96
+        },
+        {
+          "quantity": 6,
+          "name": "SET DE ACCESORIOS DE COCINA",
+          "comments": "",
+          "sourceRow": 97
+        },
+        {
+          "quantity": 6,
+          "name": "SET DE ALFOMBRILLAS SENSORIALES",
+          "comments": "",
+          "sourceRow": 98
+        },
+        {
+          "quantity": 6,
+          "name": "SET DE ANIMALES DE JUGUETE",
+          "comments": "",
+          "sourceRow": 99
+        },
+        {
+          "quantity": 6,
+          "name": "TABLERO SENSORIAL MONTESSORI",
+          "comments": "",
+          "sourceRow": 100
+        },
+        {
+          "quantity": 6,
+          "name": "TAMBORCILLO",
+          "comments": "",
+          "sourceRow": 101
+        },
+        {
+          "quantity": 1,
+          "name": "TEATRIN DE MADERA",
+          "comments": "",
+          "sourceRow": 102
+        },
+        {
+          "quantity": 6,
+          "name": "TELEFONO DE JUGUETE",
+          "comments": "",
+          "sourceRow": 103
+        },
+        {
+          "quantity": 12,
+          "name": "TIJERA 5\"",
+          "comments": "",
+          "sourceRow": 104
+        },
+        {
+          "quantity": 6,
+          "name": "TITERE DE MANO",
+          "comments": "",
+          "sourceRow": 105
+        },
+        {
+          "quantity": 1,
+          "name": "TREN DE JUGUETE CON RIELES",
+          "comments": "",
+          "sourceRow": 106
+        },
+        {
+          "quantity": 4,
+          "name": "TUNELES PARA NIÑOS DE INICIAL",
+          "comments": "",
+          "sourceRow": 107
+        },
+        {
+          "quantity": 4,
+          "name": "TUNELES PARA NIÑOS DE PRIMARIA",
+          "comments": "",
+          "sourceRow": 108
+        },
+        {
+          "quantity": 36,
+          "name": "VASO LIMPIA PINCEL",
+          "comments": "",
+          "sourceRow": 109
+        },
+        {
+          "quantity": 9,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 110
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 111
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 112
+        },
+        {
+          "quantity": 1,
+          "name": "ESTANTE PARA MOCHILAS",
+          "comments": "",
+          "sourceRow": 113
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 114
+        },
+        {
+          "quantity": 36,
+          "name": "MESA UNIPERSONAL ABATIBLE",
+          "comments": "",
+          "sourceRow": 115
+        },
+        {
+          "quantity": 1,
+          "name": "MUEBLE PARA LAVATORIO",
+          "comments": "",
+          "sourceRow": 116
+        },
+        {
+          "quantity": 1,
+          "name": "MUEBLE PARA PELOTAS",
+          "comments": "",
+          "sourceRow": 117
+        },
+        {
+          "quantity": 1,
+          "name": "PARED DE CORCHO",
+          "comments": "",
+          "sourceRow": 118
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 119
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 120
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 121
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 122
+        },
+        {
+          "quantity": 36,
+          "name": "SILLA PLASTICA DE COLORES",
+          "comments": "",
+          "sourceRow": 123
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA17",
+      "name": "",
+      "nameConfirmed": false,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA17",
+      "entries": [
+        {
+          "quantity": 4,
+          "name": "AGITADOR DE TUBOS (VORTEX)",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "AUTOCLAVE VERTICAL",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 2,
+          "name": "BALANZA ANALITICA",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 3,
+          "name": "BALANZA DE PRECISION",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 1,
+          "name": "BAÑO MARIA",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "CAMPANA DE EXTRACCION DE VAHOS",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "CENTRIFUGA",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "CENTRIFUGA DE HEMATOCRITOS",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "CONDUCTIMETRO PORTATIL",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 1,
+          "name": "DESTILADOR DE AGUA",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 1,
+          "name": "ESPECTROFOTOMETRO",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 1,
+          "name": "ESTEREOSCOPIO BINOCULAR",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 1,
+          "name": "ESTUFA",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 1,
+          "name": "HORNO MUFLA",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 1,
+          "name": "INCUBADORA",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 15,
+          "name": "MICROSCOPIO",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 1,
+          "name": "MICROSCOPIO CON CAMARA PARA DOCENTE",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 4,
+          "name": "PLANCHA DE AGITACION",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 4,
+          "name": "PLANCHA DE CALENTAMIENTO",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 3,
+          "name": "POTENCIOMETRO",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 2,
+          "name": "REFRACTOMETRO",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 1,
+          "name": "BIDON",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 8,
+          "name": "CAPSULA DE PORCELANA",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 24,
+          "name": "CRISOL DE PORCELANA",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 4,
+          "name": "CUCHILLO DE COCINA",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 4,
+          "name": "DISPENSADOR DE PAPEL TOALLA",
+          "comments": "",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 4,
+          "name": "GRADILLA PARA PIPETAS",
+          "comments": "",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 4,
+          "name": "JUEGO DE BOWLS DE METAL",
+          "comments": "",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE BURETAS DE VIDRIO",
+          "comments": "",
+          "sourceRow": 36
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE DISPENSADORES DE LIQUIDOS",
+          "comments": "",
+          "sourceRow": 37
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE EMBUDOS DE VIDRIO",
+          "comments": "",
+          "sourceRow": 38
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE ESPATULAS",
+          "comments": "",
+          "sourceRow": 39
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE FIOLAS",
+          "comments": "",
+          "sourceRow": 40
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE FIOLAS AMBAR",
+          "comments": "",
+          "sourceRow": 41
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MICROPIPETAS",
+          "comments": "",
+          "sourceRow": 42
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MORTEROS Y PILONES DE PORCELANA",
+          "comments": "",
+          "sourceRow": 43
+        },
+        {
+          "quantity": 4,
+          "name": "KIT DE MODELOS MOLECULARES DE QUIMICA ORGANICA",
+          "comments": "",
+          "sourceRow": 44
+        },
+        {
+          "quantity": 8,
+          "name": "LACTODENSIMETRO TIPO GAY LUSAC",
+          "comments": "",
+          "sourceRow": 45
+        },
+        {
+          "quantity": 1,
+          "name": "MANGUERA DE LATEX",
+          "comments": "",
+          "sourceRow": 46
+        },
+        {
+          "quantity": 1,
+          "name": "MANGUERA DE SILICONA",
+          "comments": "",
+          "sourceRow": 47
+        },
+        {
+          "quantity": 2,
+          "name": "MANTA IGNIFUGA",
+          "comments": "",
+          "sourceRow": 48
+        },
+        {
+          "quantity": 8,
+          "name": "MECHERO BUNSEN CON MANGUERA ESPECIAL",
+          "comments": "",
+          "sourceRow": 49
+        },
+        {
+          "quantity": 8,
+          "name": "PICNOMETRO",
+          "comments": "",
+          "sourceRow": 50
+        },
+        {
+          "quantity": 10,
+          "name": "PINZA DE CRISOL DOBLE CURVA",
+          "comments": "",
+          "sourceRow": 51
+        },
+        {
+          "quantity": 10,
+          "name": "PINZA PARA BURETA",
+          "comments": "",
+          "sourceRow": 52
+        },
+        {
+          "quantity": 20,
+          "name": "PISETA DE PLASTICO",
+          "comments": "",
+          "sourceRow": 53
+        },
+        {
+          "quantity": 8,
+          "name": "PROBETA DE POLIETILENO",
+          "comments": "",
+          "sourceRow": 54
+        },
+        {
+          "quantity": 8,
+          "name": "SISTEMA INTEGRADO SOXHLET (EXTRACCION DE GRASA) CON MANTA DE CALENTAMIENTO",
+          "comments": "",
+          "sourceRow": 55
+        },
+        {
+          "quantity": 16,
+          "name": "SOPORTE UNIVERSAL",
+          "comments": "",
+          "sourceRow": 56
+        },
+        {
+          "quantity": 4,
+          "name": "TABLA DE PICAR DE MADERA",
+          "comments": "",
+          "sourceRow": 57
+        },
+        {
+          "quantity": 2,
+          "name": "COCHE DE TRASLADO DE MATERIALES",
+          "comments": "",
+          "sourceRow": 58
+        },
+        {
+          "quantity": 1,
+          "name": "DUCHA LAVAOJOS",
+          "comments": "",
+          "sourceRow": 59
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 60
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 61
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 62
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 63
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 64
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 65
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 66
+        },
+        {
+          "quantity": 40,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 67
+        },
+        {
+          "quantity": 1,
+          "name": "TV",
+          "comments": "",
+          "sourceRow": 68
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA18",
+      "name": "",
+      "nameConfirmed": false,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA18",
+      "entries": [
+        {
+          "quantity": 4,
+          "name": "BALANZA CON TALLIMETRO",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 2,
+          "name": "BALANZA CORPORAL CON IMPEDANCIA",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 8,
+          "name": "BALANZA DIGITAL DE PIE CON PANTALLA DOBLE",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 4,
+          "name": "BRAZO ENTRENADOR VENOSO AVANZADO MULTIUSOS - DERECHO",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 4,
+          "name": "BRAZO ENTRENADOR VENOSO AVANZADO MULTIUSOS - IZQUIERDO",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "ELECTROCARDIOGRAFO",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "ENTRENADOR DE CUERPO COMPLETO TRAUMAS WMD / CBRNE / DECON",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 2,
+          "name": "ENTRENADOR DE DESFIBRILACION",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 4,
+          "name": "ESTACION TOTAL PARA LA EDUCACION SOBRE EL PARTO",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 4,
+          "name": "HEMOGLOBINOMETRO PORTATIL",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 1,
+          "name": "HOLTER",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 1,
+          "name": "INFANTOMETRO",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 1,
+          "name": "INSPIROMETRO",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 2,
+          "name": "JUEGO DE MODELOS DE ULCERAS Y LLAGAS POR PRESION",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 2,
+          "name": "KIT ANTROPOMETRICO",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 2,
+          "name": "LITTLE ANNE QCPR 6 PACK",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 2,
+          "name": "MANIQUI ASFIXIA ADULTO",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 2,
+          "name": "MANIQUI ASFIXIA ADULTO OBESO",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 2,
+          "name": "MANIQUI ASFIXIA BEBE",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 2,
+          "name": "MANIQUI ASFIXIA NIÑO",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 3,
+          "name": "MANO ENTRENADORA DE VENIPUNCION",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 4,
+          "name": "MEDIDOR DE GRASA CORPORAL",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 1,
+          "name": "MODELO AJUSTABLE DE AUTOEXAMEN MAMARIO Y ESTUCHE",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 2,
+          "name": "MODELO DE ENTRENAMIENTO PARA UN CONDON MASCULINO",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 3,
+          "name": "MODELO DE PROBLEMAS AVANZADOS DEL PIE",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 1,
+          "name": "MODELO PARA EXAMEN RECTAL",
+          "comments": "",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 2,
+          "name": "SIMULADOR AVANZADO DE EXAMEN PELVICO Y GINECOLOGICO",
+          "comments": "",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 1,
+          "name": "SIMULADOR COLOCACION DISPOSITIVO INTRAUTERINO",
+          "comments": "",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 1,
+          "name": "SIMULADOR DE APLICACION DE ENEMAS",
+          "comments": "",
+          "sourceRow": 36
+        },
+        {
+          "quantity": 2,
+          "name": "SIMULADOR DE CATETERISMO VESICAL FEMENINO",
+          "comments": "",
+          "sourceRow": 37
+        },
+        {
+          "quantity": 2,
+          "name": "SIMULADOR DE CATETERISMO VESICAL MASCULINO",
+          "comments": "",
+          "sourceRow": 38
+        },
+        {
+          "quantity": 1,
+          "name": "SIMULADOR DE EXAMEN DE MAMA",
+          "comments": "",
+          "sourceRow": 39
+        },
+        {
+          "quantity": 4,
+          "name": "SIMULADOR DE INYECCION INTRAMUSCULAR DE GLUTEOS",
+          "comments": "",
+          "sourceRow": 40
+        },
+        {
+          "quantity": 2,
+          "name": "SIMULADOR DE SUTURA DE EPISIOTOMIA",
+          "comments": "",
+          "sourceRow": 41
+        },
+        {
+          "quantity": 2,
+          "name": "SIMULADOR PARA ENTRENAMIENTO EN PARTO ESTANDAR",
+          "comments": "",
+          "sourceRow": 42
+        },
+        {
+          "quantity": 1,
+          "name": "VACUOMETRO DIGITAL",
+          "comments": "",
+          "sourceRow": 43
+        },
+        {
+          "quantity": 4,
+          "name": "AROMATIZADOR",
+          "comments": "",
+          "sourceRow": 44
+        },
+        {
+          "quantity": 1,
+          "name": "BALON DE OXIGENO GRANDE",
+          "comments": "",
+          "sourceRow": 45
+        },
+        {
+          "quantity": 1,
+          "name": "BALON DE OXIGENO MEDIANO",
+          "comments": "",
+          "sourceRow": 46
+        },
+        {
+          "quantity": 1,
+          "name": "BALON DE OXIGENO PEQUEÑO",
+          "comments": "",
+          "sourceRow": 47
+        },
+        {
+          "quantity": 2,
+          "name": "BIOMBO DE 2 CUERPOS",
+          "comments": "",
+          "sourceRow": 48
+        },
+        {
+          "quantity": 2,
+          "name": "BIOMBO DE 3 CUERPOS",
+          "comments": "",
+          "sourceRow": 49
+        },
+        {
+          "quantity": 5,
+          "name": "BOLSA DE AGUA CALIENTE",
+          "comments": "",
+          "sourceRow": 50
+        },
+        {
+          "quantity": 3,
+          "name": "BOLSA PARA EL ESTUDIO DE LA MAMA",
+          "comments": "",
+          "sourceRow": 51
+        },
+        {
+          "quantity": 5,
+          "name": "BOMBILLA DE ASPIRACION",
+          "comments": "",
+          "sourceRow": 52
+        },
+        {
+          "quantity": 10,
+          "name": "CAJA ORGANIZADORA",
+          "comments": "",
+          "sourceRow": 53
+        },
+        {
+          "quantity": 8,
+          "name": "CINTA DE BOLSILLO",
+          "comments": "",
+          "sourceRow": 54
+        },
+        {
+          "quantity": 8,
+          "name": "CINTA OBSTETRICA OPS / OMS",
+          "comments": "",
+          "sourceRow": 55
+        },
+        {
+          "quantity": 3,
+          "name": "COBIJA",
+          "comments": "",
+          "sourceRow": 56
+        },
+        {
+          "quantity": 5,
+          "name": "COLLARIN CERVICAL ADULTO",
+          "comments": "",
+          "sourceRow": 57
+        },
+        {
+          "quantity": 2,
+          "name": "DISPENSADOR DE JABON",
+          "comments": "",
+          "sourceRow": 58
+        },
+        {
+          "quantity": 2,
+          "name": "DISPENSADOR DE PAPEL TOALLA",
+          "comments": "",
+          "sourceRow": 59
+        },
+        {
+          "quantity": 2,
+          "name": "DOPPLER FETAL",
+          "comments": "",
+          "sourceRow": 60
+        },
+        {
+          "quantity": 10,
+          "name": "ESFIGMOMANOMETRO ANEROIDE (TENSIOMETRO)",
+          "comments": "",
+          "sourceRow": 61
+        },
+        {
+          "quantity": 3,
+          "name": "ESPEJO DE MANO",
+          "comments": "",
+          "sourceRow": 62
+        },
+        {
+          "quantity": 10,
+          "name": "ESTETOSCOPIO",
+          "comments": "",
+          "sourceRow": 63
+        },
+        {
+          "quantity": 4,
+          "name": "ESTUCHES DE DISECCIÓN",
+          "comments": "",
+          "sourceRow": 64
+        },
+        {
+          "quantity": 4,
+          "name": "INMOVILIZADOR DE CABEZA",
+          "comments": "",
+          "sourceRow": 65
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE BANDEJAS DE ESTERILIZACION DE INSTRUMENTOS QUIRURGICOS",
+          "comments": "",
+          "sourceRow": 66
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE CABESTRILLOS",
+          "comments": "",
+          "sourceRow": 67
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE CAMPO QUIRURGICO DE TELA FENESTRADOS",
+          "comments": "",
+          "sourceRow": 68
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE CAMPOS QUIRURGICOS DE TELA",
+          "comments": "",
+          "sourceRow": 69
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE COJINES DE APOYO",
+          "comments": "",
+          "sourceRow": 70
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE ESPECULOS VAGINAL METALICO",
+          "comments": "",
+          "sourceRow": 71
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PINZAS HEMOSTATICAS DE DIFERENTES TAMAÑOS",
+          "comments": "",
+          "sourceRow": 72
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PORTA TORUNDAS",
+          "comments": "",
+          "sourceRow": 73
+        },
+        {
+          "quantity": 8,
+          "name": "KIT DE EVALUACION OBSTETRICA",
+          "comments": "",
+          "sourceRow": 74
+        },
+        {
+          "quantity": 10,
+          "name": "KIT DE FERULAS DE MADERA",
+          "comments": "",
+          "sourceRow": 75
+        },
+        {
+          "quantity": 4,
+          "name": "KIT DE INSTRUMENTOS MUSICALES PARA NIÑOS",
+          "comments": "",
+          "sourceRow": 76
+        },
+        {
+          "quantity": 5,
+          "name": "KIT DE RESUCITACION ADULTO",
+          "comments": "",
+          "sourceRow": 77
+        },
+        {
+          "quantity": 1,
+          "name": "KIT DE RESUCITACION NEONATAL",
+          "comments": "",
+          "sourceRow": 78
+        },
+        {
+          "quantity": 5,
+          "name": "KIT DE RESUCITACION PEDIATRICO",
+          "comments": "",
+          "sourceRow": 79
+        },
+        {
+          "quantity": 2,
+          "name": "LARINGOSCOPIO ADULTO",
+          "comments": "",
+          "sourceRow": 80
+        },
+        {
+          "quantity": 2,
+          "name": "LARINGOSCOPIO NIÑO",
+          "comments": "",
+          "sourceRow": 81
+        },
+        {
+          "quantity": 5,
+          "name": "LINTERNA DE MANO",
+          "comments": "",
+          "sourceRow": 82
+        },
+        {
+          "quantity": 2,
+          "name": "MALETA DE PRIMEROS AUXILIOS",
+          "comments": "",
+          "sourceRow": 83
+        },
+        {
+          "quantity": 1,
+          "name": "SET DE COMPRESAS EN FRIO / CALOR",
+          "comments": "",
+          "sourceRow": 84
+        },
+        {
+          "quantity": 8,
+          "name": "SET DE MATERIAL PARA CURACION",
+          "comments": "",
+          "sourceRow": 85
+        },
+        {
+          "quantity": 8,
+          "name": "SET DE MATERIAL PARA SUTURA",
+          "comments": "",
+          "sourceRow": 86
+        },
+        {
+          "quantity": 4,
+          "name": "SLIM GUIDE / SKINFOLD (CALIPER - MEDIDOR DE PLIEGUE - PLICOMETRO)",
+          "comments": "",
+          "sourceRow": 87
+        },
+        {
+          "quantity": 4,
+          "name": "TABLA DE CLAP FICHA DE MONITOREO DE GANANCIA DE PESO",
+          "comments": "",
+          "sourceRow": 88
+        },
+        {
+          "quantity": 4,
+          "name": "TABLA DE CRECIMIENTO DE EDAD UTERINA SEGUN EDAD GESTACIONAL",
+          "comments": "",
+          "sourceRow": 89
+        },
+        {
+          "quantity": 4,
+          "name": "TABLA DE VALORACION NUTRICIONAL ANTROPOMETRICO SEGUN IMC",
+          "comments": "",
+          "sourceRow": 90
+        },
+        {
+          "quantity": 6,
+          "name": "TALLIMETRO MOVIL DE MADERA",
+          "comments": "",
+          "sourceRow": 91
+        },
+        {
+          "quantity": 8,
+          "name": "TENSIOMETRO DIGITAL",
+          "comments": "",
+          "sourceRow": 92
+        },
+        {
+          "quantity": 4,
+          "name": "CAMILLA CUCHARA",
+          "comments": "",
+          "sourceRow": 93
+        },
+        {
+          "quantity": 4,
+          "name": "CAMILLA DE PRIMEROS AUXILIOS",
+          "comments": "",
+          "sourceRow": 94
+        },
+        {
+          "quantity": 1,
+          "name": "COCHE HOSPITALARIO",
+          "comments": "",
+          "sourceRow": 95
+        },
+        {
+          "quantity": 8,
+          "name": "COLCHONETA",
+          "comments": "",
+          "sourceRow": 96
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 97
+        },
+        {
+          "quantity": 4,
+          "name": "ESCALERA DE PASOS",
+          "comments": "",
+          "sourceRow": 98
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MUEBLES ALTOS Y BAJOS",
+          "comments": "",
+          "sourceRow": 99
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 100
+        },
+        {
+          "quantity": 3,
+          "name": "LAMPARA DE CUELLO DE GANSO",
+          "comments": "",
+          "sourceRow": 101
+        },
+        {
+          "quantity": 8,
+          "name": "MESA - TRABAJO",
+          "comments": "",
+          "sourceRow": 102
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 103
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 104
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 105
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 106
+        },
+        {
+          "quantity": 40,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 107
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA DE RUEDAS",
+          "comments": "",
+          "sourceRow": 108
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01LA19",
+      "name": "",
+      "nameConfirmed": false,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Laboratorio / sala",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01LA19",
+      "entries": [
+        {
+          "quantity": 4,
+          "name": "AGITADOR DE TUBOS (VORTEX)",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "AUTOCLAVE HORIZONTAL",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "AUTOCLAVE VERTICAL",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 1,
+          "name": "BALANZA ANALITICA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 2,
+          "name": "BALANZA DE PRECISION",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "BAÑO MARIA",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "CAMPANA DE EXTRACCION DE VAHOS",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "CENTRIFUGA",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "CENTRIFUGA DE VIALES MICROSPIN",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 1,
+          "name": "ESPECTROFOTOMETRO",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 1,
+          "name": "ESTEREOSCOPIO BINOCULAR",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 1,
+          "name": "ESTUFA",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 1,
+          "name": "FUENTE DE ALIMENTACION",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 1,
+          "name": "HR-2025 HIGH RESOLUTION ELECTROPHORESIS DNA START UP KIT",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 2,
+          "name": "INCUBADORA",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 4,
+          "name": "KIT DE MODELOS MOLECULARES DE QUIMICA ORGANICA",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 15,
+          "name": "MICROSCOPIO",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 1,
+          "name": "MICROSCOPIO CON CAMARA PARA DOCENTE",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 4,
+          "name": "PLANCHA DE CALENTAMIENTO",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 4,
+          "name": "PLANCHA DE CALENTAMIENTO Y AGITADOR",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 2,
+          "name": "POTENCIOMETRO",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 1,
+          "name": "TRANSILUMINADOR + SISTEMA DOCUMENTADOR DE ALTA RESOLUCION",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 10,
+          "name": "CRONOMETRO",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 2,
+          "name": "DESECADOR DE VIDRIO",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 4,
+          "name": "DISPENSADOR DE PAPEL TOALLA",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 4,
+          "name": "GRADILLA PARA PIPETAS",
+          "comments": "",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE DISPENSADORES DE LIQUIDOS",
+          "comments": "",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE FIOLAS",
+          "comments": "",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE FIOLAS AMBAR",
+          "comments": "",
+          "sourceRow": 36
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE FRASCOS DE VIDRIO AMBAR TAPA ROSCA AUTOCLAVABLE",
+          "comments": "",
+          "sourceRow": 37
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE FRASCOS DE VIDRIO CON TAPA AUTOCLAVABLE",
+          "comments": "",
+          "sourceRow": 38
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE MICROPIPETAS",
+          "comments": "",
+          "sourceRow": 39
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PLACAS PETRI",
+          "comments": "",
+          "sourceRow": 40
+        },
+        {
+          "quantity": 2,
+          "name": "MANTA IGNIFUGA",
+          "comments": "",
+          "sourceRow": 41
+        },
+        {
+          "quantity": 8,
+          "name": "MECHERO BUNSEN CON MANGUERA ESPECIAL",
+          "comments": "",
+          "sourceRow": 42
+        },
+        {
+          "quantity": 4,
+          "name": "TENSIOMETRO DIGITAL",
+          "comments": "",
+          "sourceRow": 43
+        },
+        {
+          "quantity": 2,
+          "name": "COCHE DE TRASLADO DE MATERIALES",
+          "comments": "",
+          "sourceRow": 44
+        },
+        {
+          "quantity": 1,
+          "name": "DUCHA LAVAOJOS",
+          "comments": "",
+          "sourceRow": 45
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 46
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 47
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 48
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 49
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 50
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 51
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 52
+        },
+        {
+          "quantity": 40,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 53
+        },
+        {
+          "quantity": 1,
+          "name": "TV",
+          "comments": "",
+          "sourceRow": 54
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01TA01",
+      "name": "TALLER DE ARQUITECTURA",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Taller",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01TA01",
+      "entries": [
+        {
+          "quantity": 3,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 40,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 40,
+          "name": "TABLERO DE DISEÑO",
+          "comments": "",
+          "sourceRow": 17
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01TA02",
+      "name": "TALLER DE PINTURA Y ESCULTURA",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Taller",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01TA02",
+      "entries": [
+        {
+          "quantity": 36,
+          "name": "TORNO PARA ARCILLA",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 36,
+          "name": "VASO",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 3,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 36,
+          "name": "CABALLETE",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 18,
+          "name": "ESCRITORIO / MESA - ALUMNO",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 36,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 20
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01TA03",
+      "name": "TALLER DE CONSTRUCCIÓN",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Taller",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01TA03",
+      "entries": [
+        {
+          "quantity": 1,
+          "name": "BALANZA DE PRECISION",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "COMPRESOR DE AIRE",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "SIERRA INGLETEADORA COMPUESTA",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 5,
+          "name": "CINTA METRICA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 5,
+          "name": "CUÑA DE MEDICION GRADUADA",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "EMBUDO DE VIDRIO VASTAGO CORTO",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "EMBUDO DE VIDRIO VASTAGO LARGO",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 3,
+          "name": "ESPATULA DE METAL",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 5,
+          "name": "MATRAZ LE CHATELIER",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 4,
+          "name": "MOLDE RECTANGULAR METALICO GRANDE",
+          "comments": "",
+          "sourceRow": 17
+        },
+        {
+          "quantity": 4,
+          "name": "MOLDE RECTANGULAR METALICO PEQUEÑO",
+          "comments": "",
+          "sourceRow": 18
+        },
+        {
+          "quantity": 5,
+          "name": "NIVEL DE ALUMINIO",
+          "comments": "",
+          "sourceRow": 19
+        },
+        {
+          "quantity": 3,
+          "name": "PROBETA GRADUADA",
+          "comments": "",
+          "sourceRow": 20
+        },
+        {
+          "quantity": 1,
+          "name": "ROTOMARTILLO",
+          "comments": "",
+          "sourceRow": 21
+        },
+        {
+          "quantity": 1,
+          "name": "TALADRO",
+          "comments": "",
+          "sourceRow": 22
+        },
+        {
+          "quantity": 2,
+          "name": "TAMIZ N° 200",
+          "comments": "",
+          "sourceRow": 23
+        },
+        {
+          "quantity": 3,
+          "name": "TERMOMETRO DIGITAL PARA CONCRETO (TERMOCUPLA)",
+          "comments": "",
+          "sourceRow": 24
+        },
+        {
+          "quantity": 1,
+          "name": "VARILLA DE ACERO LISO",
+          "comments": "",
+          "sourceRow": 25
+        },
+        {
+          "quantity": 3,
+          "name": "VERNIER (PIE DE REY)",
+          "comments": "",
+          "sourceRow": 26
+        },
+        {
+          "quantity": 5,
+          "name": "WINCHA",
+          "comments": "",
+          "sourceRow": 27
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 28
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 29
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 30
+        },
+        {
+          "quantity": 4,
+          "name": "MESA - TRABAJO",
+          "comments": "",
+          "sourceRow": 31
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 32
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 33
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 34
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 35
+        },
+        {
+          "quantity": 20,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 36
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    },
+    {
+      "code": "F08L01TA04",
+      "name": "TALLER DE ARQUITECTURA",
+      "nameConfirmed": true,
+      "site": "Tacna",
+      "local": "F08L01 - Tacna",
+      "type": "Taller",
+      "university": "UNIVERSIDAD TECNOLÓGICA DEL PERÚ",
+      "sheet": "F08L01TA04",
+      "entries": [
+        {
+          "quantity": 3,
+          "name": "ARMARIO / ANAQUEL / REPISA / ESTANTE / VITRINA / CREDENZA / CAJONERA",
+          "comments": "",
+          "sourceRow": 8
+        },
+        {
+          "quantity": 1,
+          "name": "ECRAN",
+          "comments": "",
+          "sourceRow": 9
+        },
+        {
+          "quantity": 1,
+          "name": "ESCRITORIO / MESA - DOCENTE",
+          "comments": "",
+          "sourceRow": 10
+        },
+        {
+          "quantity": 1,
+          "name": "JUEGO DE PARLANTES MULTIMEDIA",
+          "comments": "",
+          "sourceRow": 11
+        },
+        {
+          "quantity": 1,
+          "name": "PC - DOCENTE",
+          "comments": "",
+          "sourceRow": 12
+        },
+        {
+          "quantity": 1,
+          "name": "PIZARRA",
+          "comments": "",
+          "sourceRow": 13
+        },
+        {
+          "quantity": 1,
+          "name": "PROYECTOR",
+          "comments": "",
+          "sourceRow": 14
+        },
+        {
+          "quantity": 1,
+          "name": "SILLA - DOCENTE",
+          "comments": "",
+          "sourceRow": 15
+        },
+        {
+          "quantity": 40,
+          "name": "SILLA / BANCA - ALUMNO",
+          "comments": "",
+          "sourceRow": 16
+        },
+        {
+          "quantity": 40,
+          "name": "TABLERO DE DISEÑO",
+          "comments": "",
+          "sourceRow": 17
+        }
+      ],
+      "notes": [
+        "Nota:\n(*) El llenado de este formato  se repetirá para todos los laboratorios o talleres de enseñanza declarados por la universidad en el formato de licenciamiento C6.\n(1) Ingresar el código de laboratorio o taller según formato  de licenciamiento  C6. \n(2) Colocar el número total por tipo de equipo.\n(3) Colocar la denominación con que se conoce al equipo.\n(4) En este casillero se registra información relevante que la universidad considera debe precisar para tener en cuenta al momento de la evaluación.",
+        "NOMBRE Y FIRMA DEL REPRESENTANTE LEGAL\nJUAN ANTONIO TRELLES CASTILLO",
+        "DECLARO BAJO JURAMENTO LA VERACIDAD DE LA INFORMACIÓN Y DOCUMENTACIÓN PRESENTADA PARA LA REVISIÓN DOCUMENTARIA EN EL PROCEDIMIENTO DE LICENCIAMIENTO DE ESTA UNIVERSIDAD; CASO CONTRARIO, ASUMO LA RESPONSABILIDAD ADMINISTRATIVA O PENAL QUE CORRESPONDA."
+      ]
+    }
+  ]
+}

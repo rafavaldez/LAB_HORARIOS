@@ -1,6 +1,6 @@
 # Cronograma de laboratorios · UTP
 
-Sitio estático compatible con GitHub Pages. **Inicio** reúne los documentos frecuentes para verlos o descargarlos; **Cronograma** lee directamente el Excel mediante JavaScript. No hay Python, base de datos, servidor de aplicación, pasos de conversión ni botón para subir archivos.
+Sitio estático compatible con GitHub Pages. **Inicio** reúne los documentos frecuentes, los inventarios C7 y los avisos de clases; **Cronograma** lee directamente el Excel mediante JavaScript. No hay Python, base de datos, servidor de aplicación ni botón para subir archivos. El catálogo C7 se prepara una vez a partir de sus dos Excel y se publica como datos estáticos.
 
 ## Avisos antes de cada clase
 
@@ -17,6 +17,16 @@ Cuando reemplaces el Excel, cada compañero deberá volver a descargar e importa
 3. Guarda y espera a que GitHub termine la publicación. Abre la dirección que muestra Pages.
 
 Todos los recursos usan rutas relativas: funciona tanto en `usuario.github.io/` como en `usuario.github.io/nombre-del-repositorio/`.
+
+## C7 por ambiente en Inicio
+
+Selecciona un ambiente por su nombre y código y pulsa **Ver C7**. La ventana muestra todas sus cantidades, equipos y comentarios; permite buscar un equipo y consultar las notas del formato original. Los ambientes con el mismo nombre se distinguen por su código SUNEDU.
+
+El catálogo contiene las 23 hojas del C7 suministrado (1 037 registros). El consolidado se utiliza únicamente para cruzar los nombres por código de la sede Tacna; las cantidades proceden siempre del C7. F08L01LA14–F08L01LA19 no aparecen en el consolidado: sus inventarios están disponibles con **Nombre por confirmar**.
+
+Para actualizar el catálogo, ejecuta localmente `node tools/importar-c7.cjs "ruta/al/C7.xlsx" "ruta/al/CONSOLIDADO.xlsx"` y publica el nuevo `data/c7.json`. Comprueba la extracción con `node tools/verificar-c7.cjs "ruta/al/C7.xlsx"`. Estos pasos son de preparación: GitHub Pages solo lee el JSON, sin procesos de servidor. El importador rechaza códigos duplicados, nombres contradictorios y estructuras inesperadas antes de reemplazar el catálogo. Si confirmas nombres ausentes, vuelve a generarlo con un consolidado que los incluya.
+
+Los archivos Excel completos no se necesitan en el sitio; `data/c7.json` conserva únicamente el inventario de Tacna y sus nombres, con referencia a la hoja y fila de origen.
 
 ## Añadir documentos a Inicio
 
@@ -41,12 +51,13 @@ La consulta evita la caché del navegador. La nueva versión debe haber terminad
 
 El lector comprueba cada hora escrita dentro de una clase contra su posición vertical en la columna **HORA** y el tamaño de la celda combinada. La grilla usa divisiones de 15 minutos; diferencias pequeñas de alineación son normales. Cuando una hora difiere en más de 45 minutos, la clase aparece en la posición que indica la grilla con una nota que muestra ambos horarios. El sitio la marca como **hora por confirmar** y la excluye de los avisos. Corrige el texto o mueve la celda en el Excel original y vuelve a publicarlo para quitar la advertencia.
 
-En el archivo del 29 de septiembre de 2026 se detectaron diez discrepancias. Por ejemplo, `W08!I37` dice `08:30–10:00` dentro de la celda, pero está ubicada en `14:00–15:30`. También se interpretan las celdas que comienzan con `AULA-...` como una ubicación de aula, seguida del curso y docente.
+En el archivo actualizado el 5 de octubre de 2026 se detectaron diez discrepancias. Por ejemplo, `W08!I37` dice `08:30–10:00` dentro de la celda, pero está ubicada en `14:00–15:30`. También se interpretan las celdas que comienzan con `AULA-...` como una ubicación de aula, seguida del curso y docente.
 
 ## Archivos del sitio
 
 - `index.html`, `styles.css`, `styles-extra.css`, `app.js`: interfaz, vista de lista y vista en paralelo.
 - `documents.js` y `site.js`: catálogo de documentos y navegación entre Inicio y Cronograma.
+- `c7.js`, `c7.css` y `data/c7.json`: consulta de inventarios C7 por ambiente en Inicio.
 - `documentos/`: archivos descargables que deben publicarse junto al sitio.
 - `excel.js`: interpretación de las hojas semanales.
 - `message.js`: texto para copiar con la hora peruana calculada desde el reloj del dispositivo.

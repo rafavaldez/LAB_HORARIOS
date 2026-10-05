@@ -9,6 +9,7 @@
   <link rel="icon" href="assets/utp-laboratorios-favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="styles-extra.css?v=auditoria-1">
+  <link rel="stylesheet" href="c7.css?v=1">
   <script defer src="vendor/xlsx.full.min.js"></script>
   <script defer src="excel.js?v=auditoria-1"></script>
   <script defer src="message.js?v=auditoria-1"></script>
@@ -16,6 +17,7 @@
   <script defer src="calendar.js?v=auditoria-1"></script>
   <script defer src="documents.js"></script>
   <script defer src="site.js"></script>
+  <script defer src="c7.js?v=1"></script>
   <script defer src="app.js?v=avisos-por-dia-1"></script>
 </head>
 <body>
@@ -35,13 +37,27 @@
       <section id="inicio" class="home-page" aria-labelledby="homeTitle">
         <div class="hero home-hero">
           <div class="hero-photo" aria-hidden="true"></div>
-          <div class="hero-copy"><p class="eyebrow">UTP · Acceso rápido</p><h1 id="homeTitle">Recursos de Laboratorio</h1><p class="hero-description">Documentos frecuentes y avisos de clases, al alcance de todos.</p></div>
+          <div class="hero-copy"><p class="eyebrow">UTP · Acceso rápido</p><h1 id="homeTitle">Recursos de Laboratorio</h1><p class="hero-description">Documentos, inventarios y avisos de clases, al alcance de todos.</p></div>
           <a href="#cronograma" class="primary-button home-schedule-link"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg>Ver cronograma</a>
         </div>
         <div class="home-content">
           <section class="document-section card" aria-labelledby="documentsTitle">
             <div class="document-section-heading"><div><p class="eyebrow">Biblioteca de formatos</p><h2 id="documentsTitle">Documentos frecuentes</h2><p>Abre un documento para revisarlo o descárgalo para usarlo cuando lo necesites.</p></div><span id="documentCount" class="document-count"></span></div>
             <div id="documentList" class="document-grid"></div>
+          </section>
+          <section class="c7-section card" aria-labelledby="c7Title">
+            <div class="document-section-heading"><div><p class="eyebrow">Equipamiento · Sede Tacna</p><h2 id="c7Title">C7 por ambiente</h2><p>Encuentra el inventario de cada laboratorio, sala o taller.</p></div><span id="c7Count" class="document-count">C7</span></div>
+            <div class="c7-controls">
+              <div class="field"><label for="c7EnvironmentSearch">Buscar ambiente</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"/></svg><input id="c7EnvironmentSearch" type="search" placeholder="Nombre o código" disabled></div></div>
+              <div class="field"><label for="c7Environment">Seleccionar ambiente</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#building"/></svg><select id="c7Environment" disabled><option>Leyendo inventarios…</option></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
+            </div>
+            <div id="c7Preview" class="c7-preview" hidden>
+              <span class="c7-emblem" aria-hidden="true">C7</span>
+              <div class="c7-preview-copy"><span id="c7Type" class="document-category"></span><h3 id="c7SelectedName"></h3><p id="c7SelectedCode"></p><div id="c7SelectedInfo" class="c7-tags"></div></div>
+              <button id="c7Open" class="primary-button" type="button" disabled><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#file"/></svg>Ver C7</button>
+            </div>
+            <p id="c7Status" class="c7-status" role="status">Consultando los inventarios publicados…</p>
+            <button id="c7Retry" class="today-button" type="button" hidden>Reintentar</button>
           </section>
           <section class="reminder-section card" aria-labelledby="remindersTitle">
             <div class="reminder-heading"><span class="reminder-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#clock"/></svg></span><div><p class="eyebrow">Avisos de clases</p><h2 id="remindersTitle">Lleva el cronograma a tu calendario</h2><p>Prepara dos avisos por clase: <strong>30 minutos</strong> y <strong>15 minutos</strong> antes de comenzar.</p></div></div>
@@ -110,6 +126,19 @@
     <div class="dialog-heading"><h2 id="eventDialogTitle">Detalle de la clase</h2><button id="closeEventDialog" class="icon-button" aria-label="Cerrar detalle"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></button></div>
     <p id="eventDialogDetails"></p>
     <button id="dialogCopyBtn" class="primary-button" type="button"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#copy"/></svg><span>Copiar texto</span></button>
+  </dialog>
+  <dialog id="c7Dialog" class="c7-dialog" aria-labelledby="c7DialogTitle">
+    <div class="c7-dialog-heading"><div><p class="eyebrow">Formato C7 · Inventario de equipos</p><h2 id="c7DialogTitle"></h2><p id="c7DialogMeta"></p></div><button id="c7Close" class="icon-button" type="button" aria-label="Cerrar inventario C7"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></button></div>
+    <div class="c7-dialog-body">
+      <div class="c7-form-heading"><span class="c7-form-label">Equipos de laboratorios y talleres de enseñanza</span><p id="c7University"></p></div>
+      <p id="c7NameNotice" class="c7-name-notice" hidden>El nombre de este ambiente no figura en el consolidado. Se identifica por su código.</p>
+      <div class="c7-table-controls"><label class="c7-equipment-search" for="c7EquipmentSearch"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"/></svg><span class="sr-only">Buscar equipo o comentario</span><input id="c7EquipmentSearch" type="search" placeholder="Buscar equipo o comentario" autocomplete="off"></label><span id="c7RecordCount" role="status"></span></div>
+      <table class="c7-table"><caption class="sr-only">Equipos del ambiente seleccionado</caption><thead><tr><th scope="col">N.º de equipos</th><th scope="col">Nombre del equipo</th><th scope="col">Comentarios</th></tr></thead><tbody id="c7Rows"></tbody></table>
+      <p id="c7NoEquipment" class="c7-empty" hidden>No hay equipos que coincidan con tu búsqueda.</p>
+      <p class="c7-quantity-note">Las cantidades y los comentarios se conservan tal como aparecen en el C7. El guion «-» indica una cantidad no especificada en el archivo.</p>
+      <details class="c7-original-notes"><summary>Notas del formato original</summary><div id="c7Notes"></div></details>
+      <p id="c7Source" class="c7-source"></p>
+    </div>
   </dialog>
   <noscript><p class="error-box">Activa JavaScript para leer el Excel y consultar los horarios.</p></noscript>
 </body>
