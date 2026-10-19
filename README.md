@@ -51,7 +51,7 @@ La consulta evita la caché del navegador. La nueva versión debe haber terminad
 
 El lector comprueba cada hora escrita dentro de una clase contra su posición vertical en la columna **HORA** y el tamaño de la celda combinada. La grilla usa divisiones de 15 minutos; diferencias pequeñas de alineación son normales. Cuando una hora difiere en más de 45 minutos, la clase aparece en la posición que indica la grilla con una nota que muestra ambos horarios. El sitio la marca como **hora por confirmar** y la excluye de los avisos. Corrige el texto o mueve la celda en el Excel original y vuelve a publicarlo para quitar la advertencia.
 
-En el archivo actualizado el 5 de octubre de 2026 se detectaron diez discrepancias. Por ejemplo, `W08!I37` dice `08:30–10:00` dentro de la celda, pero está ubicada en `14:00–15:30`. También se interpretan las celdas que comienzan con `AULA-...` como una ubicación de aula, seguida del curso y docente.
+En el archivo actualizado el 19 de octubre de 2026 se mantienen diez discrepancias. La actualización agrega cinco clases de Física para CCSS (20 y 22 de octubre), para un total de 535 clases. Por ejemplo, `W08!I37` dice `08:30–10:00` dentro de la celda, pero está ubicada en `14:00–15:30`. También se interpretan las celdas que comienzan con `AULA-...` como una ubicación de aula, seguida del curso y docente.
 
 ## Archivos del sitio
 
