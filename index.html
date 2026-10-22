@@ -4,19 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#c90032">
-  <meta name="description" content="Consulta el cronograma de laboratorios y descarga documentos frecuentes.">
+  <meta name="description" content="Consulta el cronograma de laboratorios, encuentra guías de cursos y accede a documentos frecuentes.">
   <title>Laboratorios UTP · Inicio</title>
   <link rel="icon" href="assets/utp-laboratorios-favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="styles-extra.css?v=auditoria-1">
   <link rel="stylesheet" href="c7.css?v=1">
+  <link rel="stylesheet" href="guides.css?v=1">
   <script defer src="vendor/xlsx.full.min.js"></script>
   <script defer src="excel.js?v=auditoria-1"></script>
   <script defer src="message.js?v=auditoria-1"></script>
   <script defer src="timeline.js"></script>
   <script defer src="calendar.js?v=auditoria-1"></script>
   <script defer src="documents.js"></script>
-  <script defer src="site.js"></script>
+  <script defer src="site.js?v=guias-1"></script>
+  <script defer src="guides-data.js?v=1"></script>
+  <script defer src="guides.js?v=1"></script>
   <script defer src="c7.js?v=1"></script>
   <script defer src="app.js?v=avisos-por-dia-1"></script>
 </head>
@@ -29,9 +32,9 @@
       <nav id="mainNav" class="main-nav" aria-label="Navegación principal">
         <a href="#inicio" data-page="inicio" class="active" aria-current="page"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#home"/></svg>Inicio</a>
         <a href="#cronograma" data-page="cronograma"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg>Cronograma</a>
-        <button type="button" class="help-trigger"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#help"/></svg>Ayuda</button>
+        <a href="#guias" data-page="guias"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#file"/></svg>Guías</a>
       </nav>
-      <button class="icon-button help-trigger header-help" aria-label="Ayuda sobre el cronograma"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#help"/></svg></button>
+      <button class="icon-button help-trigger header-help" aria-label="Ayuda del sitio"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#help"/></svg></button>
     </header>
     <main id="mainContent">
       <section id="inicio" class="home-page" aria-labelledby="homeTitle">
@@ -111,6 +114,37 @@
         <footer class="page-footer"><span>Laboratorios · Consulta de horarios</span><span id="sourceInfo">Datos del Excel publicado</span></footer>
       </div>
       </div>
+      <section id="guias" class="guides-page" aria-labelledby="guidesTitle" hidden>
+        <div class="guides-hero">
+          <div class="guides-hero-copy"><p class="eyebrow">UTP · Biblioteca de guías</p><h1 id="guidesTitle">Tu guía, a una búsqueda.</h1><p>Encuentra el material de tu curso, consulta sus semanas y abre el documento que necesitas.</p><div class="guides-summary"><span><strong id="guideTotal">—</strong> documentos</span><span><strong id="guideCourseTotal">—</strong> cursos</span><span class="guides-season">Agosto 2026</span></div></div>
+          <div class="guides-hero-art" aria-hidden="true"><span class="guide-art-sheet back"></span><span class="guide-art-sheet front"><svg class="icon"><use href="assets/icons.svg#file"/></svg><b>GUÍAS</b><i></i><i></i><i></i></span><span class="guide-art-search"><svg class="icon"><use href="assets/icons.svg#search"/></svg></span></div>
+        </div>
+        <div class="guides-content">
+          <section class="guides-filters card" aria-label="Buscar y filtrar guías">
+            <fieldset id="guideControls" disabled>
+              <label for="guideSearch" class="guide-search-label">¿Qué documento estás buscando?</label>
+              <div class="guide-search-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"/></svg><input id="guideSearch" type="search" placeholder="Curso, código o tema: por ejemplo, física o Newton" autocomplete="off"></div>
+              <div class="guide-filter-grid">
+                <div class="field"><label for="guideWeek">Semana</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><select id="guideWeek"><option value="">Todas las semanas</option></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
+                <div class="field"><label for="guideModality">Modalidad</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#people"/></svg><select id="guideModality"><option value="">Todas las modalidades</option></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
+                <div class="field"><label for="guideType">Tipo de documento</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#file"/></svg><select id="guideType"><option value="">Todos los tipos</option></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
+              </div>
+              <div class="guide-active-filters"><div id="guideChips" class="guide-chips" hidden></div><button id="guideClear" class="guide-clear" type="button" hidden>Limpiar filtros</button></div>
+            </fieldset>
+            <p class="guide-search-tip">Busca por palabras, incluso sin tildes. Al elegir una semana también se incluyen las guías que abarcan varias semanas.</p>
+          </section>
+          <div class="guide-loading"><p id="guideLoadStatus" role="status">El catálogo estará disponible al abrir esta pestaña.</p><button id="guideRetry" class="today-button" type="button" hidden>Volver a intentar</button></div>
+          <section id="guideResultsSection" class="guide-results-section" aria-labelledby="guideResultsHeading" hidden>
+            <div class="guide-results-toolbar"><div id="guideResultsHeading" tabindex="-1"><h2 id="guideResultCount" role="status" aria-live="polite"></h2><p id="guideRange"></p></div><label class="guide-sort">Ordenar por<select id="guideSort" disabled><option value="course">Curso: A–Z</option><option value="week">Semana</option></select></label></div>
+            <div id="guideResults" class="guide-grid"></div>
+            <div id="guideEmpty" class="guide-empty card" hidden><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"/></svg><h3>No encontramos ese documento</h3><p>Prueba con menos palabras o quita algún filtro para ampliar la búsqueda.</p><button id="guideEmptyClear" class="today-button" type="button">Limpiar búsqueda</button></div>
+            <nav id="guidePagination" class="guide-pagination" aria-label="Páginas del catálogo" hidden><button id="guidePrevious" type="button"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#left"/></svg>Anterior</button><span id="guidePageInfo" role="status"></span><button id="guideNext" type="button">Siguiente<svg class="icon" aria-hidden="true"><use href="assets/icons.svg#right"/></svg></button></nav>
+          </section>
+          <aside class="guide-source-note"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#help"/></svg><p>Los documentos se consultan en UTP o Google Drive; algunos pueden requerir acceso. Los materiales de UTP + Class se identifican tal como aparecen en el catálogo.</p></aside>
+          <details class="guide-scope"><summary>¿Qué áreas incluye este catálogo?</summary><p>Selección por DDA: Administración, Contabilidad y Economía; Arquitectura; Ciencias; Ciencias de la Salud; Derecho; Humanidades; Ingenierías Civil y Mecánicas; Ingenierías de las TI; Ingenierías Industriales; Psicología y Educación.</p><p>Se incluyen los grupos DDA completos y las áreas compartidas de Ciencias y Humanidades. La selección no equivale a una lista exclusiva de cursos de cada carrera.</p></details>
+          <footer class="page-footer"><span>Catálogo de guías · Agosto 2026<br>Filtrado por DDA el 21/10/2026</span><a href="https://datastudio.google.com/u/0/reporting/1001215f-77e0-41d3-be57-2d1993c97caf/page/IaobB" target="_blank" rel="noopener noreferrer">Ver fuente original ↗</a></footer>
+        </div>
+      </section>
     </main>
   </div>
   <dialog id="helpDialog" aria-labelledby="helpTitle">
@@ -120,6 +154,7 @@
     <p>Cambia entre <strong>Lista</strong> y <strong>En paralelo</strong> para ver las clases por ambiente y hora. En la lista, pulsa <strong>Copiar</strong> en una clase. En la vista en paralelo, pulsa la clase y luego <strong>Copiar texto</strong>. La hora del mensaje se toma del reloj del dispositivo y se expresa en horario de Perú.</p>
     <p><strong>Actualizar horarios</strong> consulta nuevamente el archivo publicado. No necesitas cargar ningún documento.</p>
     <p>En <strong>Inicio</strong> puedes descargar un calendario .ics con dos avisos por clase, a 30 y 15 minutos. Impórtalo en tu app de calendario y activa sus notificaciones. Si cambia el Excel, vuelve a descargarlo e importarlo.</p>
+    <p>En <strong>Guías</strong>, busca un curso, código o tema y combina los filtros. Pulsa <strong>Ver guía</strong> para abrir el visor. Para guardar un PDF de UTP, usa la descarga de su visor; en Google Drive puedes usar <strong>Descargar archivo</strong>. Si el documento no aparece, pulsa <strong>Abrir original</strong>.</p>
     <p>Las fechas marcadas como calculadas se deducen del inicio del ciclo porque faltan en la hoja correspondiente.</p>
   </dialog>
   <dialog id="eventDialog" aria-labelledby="eventDialogTitle">
@@ -140,6 +175,13 @@
       <p id="c7Source" class="c7-source"></p>
     </div>
   </dialog>
-  <noscript><p class="error-box">Activa JavaScript para leer el Excel y consultar los horarios.</p></noscript>
+  <dialog id="guideViewer" class="guide-viewer" aria-labelledby="guideViewerTitle">
+    <div class="guide-viewer-heading"><div><p class="eyebrow">Biblioteca de guías</p><h2 id="guideViewerTitle"></h2><p id="guideViewerMeta"></p></div><button id="guideViewerClose" class="icon-button" type="button" aria-label="Cerrar documento"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></button></div>
+    <div class="guide-viewer-tools"><a id="guideOriginal" class="document-preview" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#external"/></svg>Abrir original</a><a id="guideDownload" class="document-download" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#download"/></svg><span id="guideDownloadLabel">Descargar</span></a></div>
+    <p id="guideViewerNote" class="guide-viewer-note"></p>
+    <iframe id="guideFrame" title="Documento de la guía" referrerpolicy="no-referrer" allow="fullscreen"></iframe>
+    <p id="guideFrameStatus" class="guide-frame-status" role="status"></p>
+  </dialog>
+  <noscript><p class="error-box">Activa JavaScript para consultar los horarios y las guías.</p></noscript>
 </body>
 </html>

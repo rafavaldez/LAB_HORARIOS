@@ -18,7 +18,19 @@ Cuando reemplaces el Excel, cada compañero deberá volver a descargar e importa
 
 Todos los recursos usan rutas relativas: funciona tanto en `usuario.github.io/` como en `usuario.github.io/nombre-del-repositorio/`.
 
-## C7 por ambiente en Inicio
+## Guías de cursos
+
+La pestaña **Guías** consulta `data/guias.csv` y permite buscar por curso, código o tema del título del documento, sin distinguir tildes. Incluye filtros por modalidad, tipo y semana; los intervalos como «10 a 12» y las listas como «13, 15» se interpretan conservando las semanas indicadas. Muestra 12 resultados por página y permite ordenar por curso o semana.
+
+El catálogo de agosto de 2026 se filtró el 21/10/2026 **por DDA en el reporte original**, según la selección autorizada por el usuario. De los 1 924 registros completos se conservaron **1 431 registros de 356 cursos**: 1 421 enlaces y 10 materiales que el original identifica como «Disponible en UTP + Class». Estos últimos conservan esa indicación y no ofrecen enlaces inventados. DDA y Ambiente no están en las columnas exportadas y no se deducen del nombre del curso.
+
+Se conservaron las DDA de Administración, Contabilidad y Economía; Arquitectura; Ciencias; Ciencias de la Salud; Derecho; Humanidades; Ingenierías Civil y Mecánicas; Ingenierías de las TI; Ingenierías Industriales; Psicología y Educación. Se excluyeron Odontología, Medicina, Ingenierías Electrónicas y Comunicación. Ciencias y Humanidades se mantienen para los cursos compartidos. Es una selección de grupos DDA completos, no una correspondencia exacta con las mallas de las 17 carreras solicitadas: una DDA como Civil y Mecánicas incluye ambas áreas. `data/guias-filtro.json` documenta la selección, la fecha y los conteos comprobados.
+
+**Ver guía** abre un visor dentro del sitio, con acceso al original. **Descargar** abre el mismo visor con indicaciones: los PDF de UTP se guardan desde la barra de su visor o abriendo el PDF en otra pestaña; Drive ofrece un enlace de descarga sujeto a sus permisos y confirmaciones. El navegador no permite forzar desde GitHub Pages la descarga de un PDF de otro dominio usando solo el atributo `download`. Si el navegador no admite PDF incrustados, el sitio conserva **Abrir original**. Los documentos siguen alojados en sus repositorios, con sus permisos vigentes; no se almacenan credenciales ni se utiliza un proxy.
+
+Para actualizar, aplica en el reporte original la selección de DDA indicada en `data/guias-filtro.json`, deja vacíos los demás filtros y exporta la tabla completa como **CSV**. Reemplaza `data/guias.csv`, verifica los nuevos conteos y actualiza la fecha y los conteos en `data/guias-filtro.json`; después ejecuta `node tools/verificar-guias.cjs`. Conserva las siete cabeceras originales. Si cambia la temporada o la fecha de consulta, actualiza también esos textos en `index.html`. Las guías se cargan al entrar en la pestaña; su carga no bloquea los horarios. La copia completa anterior permanece en la descarga original; el catálogo que consulta la web contiene únicamente la selección por DDA.
+
+## Inventarios C7
 
 Selecciona un ambiente por su nombre y código y pulsa **Ver C7**. La ventana muestra todas sus cantidades, equipos y comentarios; permite buscar un equipo y consultar las notas del formato original. Los ambientes con el mismo nombre se distinguen por su código SUNEDU.
 

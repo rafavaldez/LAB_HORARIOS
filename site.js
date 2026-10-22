@@ -41,21 +41,22 @@
     $('documentList').append(card);
   }
 
-  let currentPage = location.hash === '#cronograma' ? 'cronograma' : 'inicio';
+  const pages = ['inicio', 'cronograma', 'guias'];
+  let currentPage = pages.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'inicio';
   const updatePage = () => {
     const route = location.hash.slice(1);
-    if (route === 'inicio' || route === 'cronograma') currentPage = route;
-    $('inicio').hidden = currentPage !== 'inicio';
-    $('cronograma').hidden = currentPage !== 'cronograma';
+    if (pages.includes(route)) currentPage = route;
+    for (const page of pages) $(page).hidden = currentPage !== page;
     document.querySelectorAll('[data-page]').forEach(link => {
       const active = link.dataset.page === currentPage;
       link.classList.toggle('active', active);
       if (active) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     });
-    document.title = currentPage === 'inicio' ? 'Laboratorios UTP · Inicio' : 'Cronograma de Laboratorios · UTP';
-    if (route === 'inicio' || route === 'cronograma') requestAnimationFrame(() => scrollTo(0, 0));
+    document.title = { inicio: 'Laboratorios UTP · Inicio', cronograma: 'Cronograma de Laboratorios · UTP', guias: 'Guías de Laboratorio · UTP' }[currentPage];
+    if (pages.includes(route)) requestAnimationFrame(() => scrollTo(0, 0));
   };
   window.addEventListener('hashchange', updatePage);
+  window.addEventListener('load', () => { if (pages.includes(location.hash.slice(1))) scrollTo({ top: 0, behavior: 'instant' }); });
   updatePage();
 })();

@@ -1,0 +1,31 @@
+{
+  "criterion": "DDA",
+  "exportedOn": "2026-10-21",
+  "source": "https://datastudio.google.com/u/0/reporting/1001215f-77e0-41d3-be57-2d1993c97caf/page/IaobB",
+  "sourceRecords": 1924,
+  "records": 1431,
+  "courses": 356,
+  "linkedRecords": 1421,
+  "classroomOnlyRecords": 10,
+  "withoutWeek": 185,
+  "includedDdas": [
+    "DDA ADMINISTRACION, CONTABILIDAD Y ECONOMIA",
+    "DDA ARQUITECTURA",
+    "DDA CIENCIAS",
+    "DDA CIENCIAS DE LA SALUD",
+    "DDA DERECHO",
+    "DDA HUMANIDADES",
+    "DDA INGENIERIAS CIVIL Y MECANICAS",
+    "DDA INGENIERIAS DE LAS TI",
+    "DDA INGENIERIAS INDUSTRIALES",
+    "DDA PSICOLOGIA Y EDUCACION"
+  ],
+  "excludedDdas": [
+    "ODONTOLOGÍA",
+    "DECANA MEDICINA",
+    "DDA INGENIERIAS ELECTRONICAS",
+    "DDA COMUNICACION"
+  ],
+  "method": "Exportación CSV desde el reporte con las cuatro DDA excluidas y los demás filtros sin aplicar. El conteo de la tabla filtrada fue 1431. Se mantuvieron las siete columnas del original.",
+  "limitation": "Selección por grupos DDA completos, autorizada por el usuario. No es un cruce exacto de cursos con las mallas de las 17 carreras. Ciencias y Humanidades se conservan como áreas compartidas."
+}
