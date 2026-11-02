@@ -12,7 +12,10 @@ const source = fs.readFileSync(path.join(__dirname, '../data/actual/GUIAS X SEMA
 const real = parseWorkbook(source, XLSX);
 assert.ok(real.weeks.length > 0);
 const conflicts = real.events.filter(event => event.timeConflict);
-assert.equal(conflicts.length, 10);
+assert.equal(conflicts.length, 11);
+const novemberConflict = real.events.find(event => event.sourceCell === 'W13!AB15');
+assert.equal(novemberConflict.date, '2026-11-08');
+assert.deepEqual([novemberConflict.start, novemberConflict.end, novemberConflict.timeConflict.textStart, novemberConflict.timeConflict.textEnd], ['08:15', '09:45', '09:45', '11:15']);
 const geology = real.events.find(event => event.sourceCell === 'W08!I37');
 assert.deepEqual([geology.start, geology.end, geology.timeConflict.textStart, geology.timeConflict.textEnd], ['14:00', '15:30', '08:30', '10:00']);
 assert.equal(real.events.find(event => event.sourceCell === 'W02!H16').timeConflict, undefined);
@@ -59,6 +62,7 @@ const calendar = createCalendar(real.events, { now: new Date('2026-09-27T12:00:0
 assert.equal(calendar.count, real.events.filter(event => !event.timeConflict && peruToUtc(event.date, event.start) > new Date('2026-09-27T12:00:00Z')).length);
 assert.equal(calendar.excluded, real.events.filter(event => event.timeConflict && peruToUtc(event.date, event.start) > new Date('2026-09-27T12:00:00Z')).length);
 assert.ok(!calendar.content.includes('20260929-W08-I37-1400@laboratorios-utp.local'));
+assert.ok(!calendar.content.includes('20261108-W13-AB15-0815@laboratorios-utp.local'));
 assert.equal((calendar.content.match(/BEGIN:VEVENT/g) || []).length, calendar.count);
 assert.equal((calendar.content.match(/TRIGGER:-PT30M/g) || []).length, calendar.count);
 assert.equal((calendar.content.match(/TRIGGER:-PT15M/g) || []).length, calendar.count);
