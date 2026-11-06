@@ -50,6 +50,7 @@
     const room = detail[0]?.match(/^AULA\s*-\s*(.+)$/i);
     if (room) detail.shift();
     const first = detail[0] || '';
+    if (!first) return null;
     const code = first.match(/^([A-Z0-9]+)\s*-\s*(.+)$/i);
     const second = detail[1] || '';
     const teacher = second.match(/^([A-Z0-9]+)\s*-\s*(.+)$/i);
@@ -97,7 +98,8 @@
       for (let col = 0; col < grid[header].length; col++) {
         const index = DAYS.indexOf(normalize(grid[header][col]));
         if (index >= 0) { currentDay = index; starts.set(index, col); }
-        if (currentDay >= 0 && String(environments[col] ?? '').trim()) columns.push({ col, day: currentDay, environment: String(environments[col]).trim() });
+        const environment = String(environments[col] ?? '').trim();
+        if (currentDay >= 0 && environment && !['HORA', 'AMBIENTE'].includes(normalize(environment))) columns.push({ col, day: currentDay, environment });
       }
       if (!columns.length) { warnings.push(`${name}: no se encontraron ambientes.`); continue; }
       const dateRow = grid.slice(0, header).find(row => row.some(value => {
