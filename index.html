@@ -11,17 +11,19 @@
   <link rel="stylesheet" href="styles-extra.css?v=auditoria-1">
   <link rel="stylesheet" href="c7.css?v=1">
   <link rel="stylesheet" href="guides.css?v=1">
+  <link rel="stylesheet" href="week-view.css?v=turnos-1">
   <script defer src="vendor/xlsx.full.min.js"></script>
   <script defer src="excel.js?v=columnas-auxiliares-1"></script>
   <script defer src="message.js?v=auditoria-1"></script>
-  <script defer src="timeline.js"></script>
+  <script defer src="timeline.js?v=turnos-1"></script>
   <script defer src="calendar.js?v=auditoria-1"></script>
   <script defer src="documents.js"></script>
   <script defer src="site.js?v=guias-1"></script>
-  <script defer src="guides-data.js?v=1"></script>
-  <script defer src="guides.js?v=1"></script>
+  <script defer src="guides-data.js?v=referencias-1"></script>
+  <script defer src="guides.js?v=referencias-1"></script>
   <script defer src="c7.js?v=1"></script>
-  <script defer src="app.js?v=avisos-por-dia-1"></script>
+  <script defer src="week-view.js?v=turnos-1"></script>
+  <script defer src="app.js?v=turnos-1"></script>
 </head>
 <body>
   <a class="skip-link" href="#mainContent">Ir al contenido</a>
@@ -76,24 +78,24 @@
       <section class="hero" aria-labelledby="pageTitle">
         <div class="hero-photo" aria-hidden="true"></div>
         <div class="hero-copy"><p class="eyebrow">UTP · Consulta rápida</p><h1 id="pageTitle">Cronograma de Laboratorios</h1><p class="hero-description">Consulta las clases por fecha, semana, día y ambiente.<br class="desktop-only"> Todos los horarios del Excel, en un solo lugar.</p></div>
-        <button id="refreshBtn" class="primary-button" type="button"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#refresh"/></svg><span>Actualizar horarios</span></button>
+        <button id="openWeekBtn" class="primary-button" type="button" disabled><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><span>Ver semana</span></button>
       </section>
       <div class="page-content">
         <section class="filters card" aria-label="Filtros del cronograma">
           <fieldset id="filterFields" disabled>
-            <div class="field"><label for="dateInput">Fecha</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><input id="dateInput" type="date" required></div></div>
+            <div class="field daily-filter"><label for="dateInput">Fecha</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><input id="dateInput" type="date" required></div></div>
             <div class="field"><label for="weekSelect">Semana</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><select id="weekSelect"></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
-            <div class="field"><label for="daySelect">Día</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#sun"/></svg><select id="daySelect"></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
+            <div class="field daily-filter"><label for="daySelect">Día</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#sun"/></svg><select id="daySelect"></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
             <div class="field"><label for="envSelect">Ambiente</label><div class="input-wrap"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#layers"/></svg><select id="envSelect"><option value="">Todos</option></select><svg class="icon select-arrow" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></div></div>
             <div class="date-actions"><button id="prevDay" class="icon-button" aria-label="Día anterior"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#left"/></svg></button><button id="todayBtn" class="today-button">Hoy</button><button id="nextDay" class="icon-button" aria-label="Día siguiente"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#right"/></svg></button></div>
           </fieldset>
         </section>
-        <p id="loadStatus" class="load-status" role="status">Consultando el Excel publicado…</p>
+        <div class="schedule-load-row"><p id="loadStatus" class="load-status" role="status">Consultando el Excel publicado…</p><button id="refreshBtn" class="schedule-reload" type="button" title="Volver a leer el archivo de horarios publicado"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#refresh"/></svg>Recargar Excel</button></div>
         <p id="anomalyBanner" class="anomaly-banner" role="status" hidden></p>
         <div id="errorBox" class="error-box" role="alert" hidden></div>
         <section class="schedule card" aria-labelledby="dateTitle" aria-busy="true">
           <div class="date-heading"><span class="date-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg></span><div class="date-copy"><h2 id="dateTitle">Cargando cronograma…</h2><p id="dateSub">Los horarios aparecerán aquí.</p></div><span class="week-badge"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg><span id="weekBadge">Semana —</span></span></div>
-          <div class="stats" aria-label="Resumen del día">
+          <div id="scheduleStats" class="stats" aria-label="Resumen del día">
             <div class="stat stat-red"><span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#layers"/></svg></span><div><strong id="statClasses">—</strong><span>clases<span class="desktop-only"> programadas</span></span></div></div>
             <div class="stat stat-slate"><span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#building"/></svg></span><div><strong id="statEnvs">—</strong><span>ambientes<span class="desktop-only"> en uso</span></span></div></div>
             <div class="stat stat-green"><span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#clock"/></svg></span><div><strong id="statHours">—</strong><span>horas<span class="desktop-only"> programadas</span></span></div></div>
@@ -102,12 +104,18 @@
             <div class="view-switch" role="group" aria-label="Modo de visualización">
               <button id="listViewBtn" type="button" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#list"/></svg>Lista</button>
               <button id="parallelViewBtn" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#grid"/></svg>En paralelo</button>
+              <button id="weekViewBtn" type="button" aria-pressed="false" disabled><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"/></svg>Semana</button>
             </div>
             <div id="parallelHint" class="parallel-hint" hidden><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#overlap"/></svg><div><strong>Vista para clases simultáneas</strong><span>Visualiza las clases que se dictan en paralelo por ambiente.</span></div></div>
           </div>
           <div class="search-row"><span id="resultCount">Programación del día</span><div class="search-box"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"/></svg><input id="searchInput" type="search" placeholder="Buscar curso o docente" aria-label="Buscar curso o docente" disabled></div></div>
+          <div id="shiftLegend" class="shift-legend" role="group" aria-label="Turnos del horario" hidden>
+            <span><i class="shift-swatch shift-swatch-morning" aria-hidden="true"></i><strong>Mañana</strong> <span>07:30–13:30</span></span>
+            <span><i class="shift-swatch shift-swatch-afternoon" aria-hidden="true"></i><strong>Tarde</strong> <span>13:30–22:30</span></span>
+          </div>
           <div id="results" class="results" aria-live="polite"></div>
           <div id="parallelView" class="parallel-view" aria-live="polite" hidden></div>
+          <section id="weekView" class="week-view" aria-label="Horario de la semana" hidden></section>
           <span id="copyStatus" class="sr-only" role="status"></span>
           <p id="dataWarnings" class="data-warnings" hidden></p>
         </section>
@@ -151,8 +159,9 @@
     <div class="dialog-heading"><h2 id="helpTitle">Consulta tu cronograma</h2><button id="closeHelp" class="icon-button" aria-label="Cerrar ayuda"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></button></div>
     <p>Elige una fecha o combina semana y día. Puedes filtrar por ambiente y buscar un curso o docente.</p>
     <p>Pulsa el nombre de un ambiente para desplegar o cerrar sus clases. El botón <strong>Hoy</strong> vuelve a la fecha actual.</p>
-    <p>Cambia entre <strong>Lista</strong> y <strong>En paralelo</strong> para ver las clases por ambiente y hora. En la lista, pulsa <strong>Copiar</strong> en una clase. En la vista en paralelo, pulsa la clase y luego <strong>Copiar texto</strong>. La hora del mensaje se toma del reloj del dispositivo y se expresa en horario de Perú.</p>
-    <p><strong>Actualizar horarios</strong> consulta nuevamente el archivo publicado. No necesitas cargar ningún documento.</p>
+    <p><strong>Lista</strong> y <strong>En paralelo</strong> muestran un día. <strong>Semana</strong> muestra los siete días con sus fechas y una escala horaria común. En celular, toca un día o desliza el tablero para recorrer la semana.</p>
+    <p>Abre una clase para copiar su texto o consultar las guías que coinciden por curso y semana. Las guías son referenciales: confirma con el docente cuál se usará. La hora del texto copiado se toma del reloj del dispositivo y se expresa en horario de Perú.</p>
+    <p><strong>Recargar Excel</strong> vuelve a consultar el archivo publicado. Úsalo si el horario acaba de cambiar o si falló la carga.</p>
     <p>En <strong>Inicio</strong> puedes descargar un calendario .ics con dos avisos por clase, a 30 y 15 minutos. Impórtalo en tu app de calendario y activa sus notificaciones. Si cambia el Excel, vuelve a descargarlo e importarlo.</p>
     <p>En <strong>Guías</strong>, busca un curso, código o tema y combina los filtros. Pulsa <strong>Ver guía</strong> para abrir el visor. Para guardar un PDF de UTP, usa la descarga de su visor; en Google Drive puedes usar <strong>Descargar archivo</strong>. Si el documento no aparece, pulsa <strong>Abrir original</strong>.</p>
     <p>Las fechas marcadas como calculadas se deducen del inicio del ciclo porque faltan en la hoja correspondiente.</p>
@@ -160,7 +169,14 @@
   <dialog id="eventDialog" aria-labelledby="eventDialogTitle">
     <div class="dialog-heading"><h2 id="eventDialogTitle">Detalle de la clase</h2><button id="closeEventDialog" class="icon-button" aria-label="Cerrar detalle"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></button></div>
     <p id="eventDialogDetails"></p>
+    <p id="eventDialogWarning" class="event-detail-warning" hidden></p>
     <button id="dialogCopyBtn" class="primary-button" type="button"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#copy"/></svg><span>Copiar texto</span></button>
+    <section class="event-references" aria-labelledby="eventReferencesTitle">
+      <h3 id="eventReferencesTitle"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#file"/></svg>Guías referenciales</h3>
+      <p id="eventReferenceStatus" role="status"></p>
+      <div id="eventReferences"></div>
+      <button id="retryEventReferences" class="today-button" type="button" hidden>Reintentar</button>
+    </section>
   </dialog>
   <dialog id="c7Dialog" class="c7-dialog" aria-labelledby="c7DialogTitle">
     <div class="c7-dialog-heading"><div><p class="eyebrow">Formato C7 · Inventario de equipos</p><h2 id="c7DialogTitle"></h2><p id="c7DialogMeta"></p></div><button id="c7Close" class="icon-button" type="button" aria-label="Cerrar inventario C7"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></button></div>
@@ -176,7 +192,7 @@
     </div>
   </dialog>
   <dialog id="guideViewer" class="guide-viewer" aria-labelledby="guideViewerTitle">
-    <div class="guide-viewer-heading"><div><p class="eyebrow">Biblioteca de guías</p><h2 id="guideViewerTitle"></h2><p id="guideViewerMeta"></p></div><button id="guideViewerClose" class="icon-button" type="button" aria-label="Cerrar documento"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></button></div>
+    <div class="guide-viewer-heading"><div><p id="guideViewerCategory" class="eyebrow">Biblioteca de guías</p><h2 id="guideViewerTitle"></h2><p id="guideViewerMeta"></p></div><button id="guideViewerClose" class="icon-button" type="button" aria-label="Cerrar documento"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></button></div>
     <div class="guide-viewer-tools"><a id="guideOriginal" class="document-preview" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#external"/></svg>Abrir original</a><a id="guideDownload" class="document-download" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#download"/></svg><span id="guideDownloadLabel">Descargar</span></a></div>
     <p id="guideViewerNote" class="guide-viewer-note"></p>
     <iframe id="guideFrame" title="Documento de la guía" referrerpolicy="no-referrer" allow="fullscreen"></iframe>

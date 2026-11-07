@@ -1,0 +1,56 @@
+.schedule-load-row{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:5px 0}
+.schedule-reload{display:inline-flex;align-items:center;gap:5px;border:0;background:transparent;color:#586c87;padding:7px 5px;border-radius:6px;font-size:11px;white-space:nowrap}
+.schedule-reload:hover{background:#edf1f7;color:#213a5c}.schedule-reload .icon{width:13px;height:13px}.schedule-reload[aria-busy=true] .icon{animation:spin 1s linear infinite}
+.view-switch{grid-template-columns:repeat(3,minmax(0,1fr));min-width:0}.view-switch button{gap:7px;white-space:nowrap}
+.view-row:has(#parallelHint[hidden]){grid-template-columns:minmax(0,460px)}
+[data-view=week] .daily-filter{display:none}
+[data-view=week] .filters fieldset{grid-template-columns:1fr 1fr auto}
+.week-view{--week-time-width:52px;--week-day-min:126px;--week-lane-width:76px;--timeline-hour-height:75px;min-width:0}
+.week-toolbar{margin:0 0 12px}.week-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.week-day-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:0;min-height:45px;border:1px solid #e1e6ee;border-radius:9px;background:#f8fafc;color:#465975;padding:5px 2px;font-size:11px;line-height:1.15}
+.week-day-button strong,.week-column-head h3{text-transform:capitalize}.week-day-button span{font-variant-numeric:tabular-nums}.week-day-button:hover{background:#f0f3f8}.week-day-button[aria-pressed=true]{background:#fcecf1;color:#a9002b;border-color:#efc4d1}.week-day-button[data-today] strong::after{content:'';display:inline-block;width:5px;height:5px;vertical-align:middle;margin-left:4px;border-radius:50%;background:#bd0030}
+.week-hint{font-size:11px;color:#53637c;margin:8px 0 0;line-height:1.4}
+.week-board{overflow:auto;overscroll-behavior-inline:contain;border:1px solid #dce4ee;border-radius:11px;scrollbar-width:thin;background:#fff;max-width:100%;max-height:min(72vh,760px)}
+.week-grid{display:grid;width:100%}
+.week-column{min-width:0}.week-column-head{position:sticky;top:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:66px;padding:8px 4px;border-right:1px solid #dde5ef;border-bottom:1px solid #dce4ee;background:#f1f5fa;color:#243954;font-variant-numeric:tabular-nums;line-height:1.1;text-align:center}
+.week-column-head h3{font-size:11px;margin:0}.week-column-head strong{font-size:16px}.week-column-head span{font-size:10px;color:#526682}.week-column.is-selected .week-column-head{background:#fceef2;color:#a9002b}.week-column.is-selected .week-column-head span{color:#8f3452}
+.week-clock{position:sticky;left:0;z-index:3;background:#f7f9fc;box-shadow:3px 0 6px #26354a0c}.week-clock-head{font-size:11px;font-weight:750}
+.week-track{position:relative;height:calc(var(--week-hours) * var(--timeline-hour-height));border-right:1px solid #e4e9f0}
+.week-no-classes{font-size:11px;color:#65758c;text-align:center;margin:14px 6px 0}
+.week-grid.is-empty .week-track{height:70px;background-image:none}
+.week-event{position:absolute;display:flex;flex-direction:column;align-items:flex-start;gap:3px;overflow:hidden;text-align:left;padding:6px 6px 5px;min-height:0;min-width:0;border:0;border-left:3px solid var(--group-color);border-radius:6px;background:var(--event-tint);color:#18273e;box-shadow:0 1px 3px #24395422}
+.week-event:hover{filter:brightness(.97)}.week-event:focus-visible{outline-offset:-2px;z-index:1}.week-event-time{color:var(--group-color);font-size:10px;font-weight:800;line-height:1.15;letter-spacing:-.18px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.week-event-course{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;overflow-wrap:anywhere;font-size:10px;line-height:1.23;flex:none}
+.week-event-place{display:flex;align-items:center;gap:3px;color:#40516a;font-size:10px;line-height:1.15;max-width:100%}.week-event-place span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.week-event-place .icon{width:11px;height:11px}
+.week-event.has-time-conflict{outline:1px dashed #ae6c1a;outline-offset:-1px}.week-event-conflict{color:#814c10;font-size:9px;font-weight:700;line-height:1.1}
+.event-detail-button{display:block;text-align:left;border:0;background:none;padding:0;border-radius:3px}.event-detail-button:hover{text-decoration:underline;text-underline-offset:2px;color:#ad002d}
+#eventDialog .event-detail-warning{margin:0 0 12px;color:#81520c;background:#fff6e5;border-radius:8px;padding:9px 11px;font-size:12px}
+.event-references{margin-top:18px;padding-top:14px;border-top:1px solid #e4e9f1}.event-references h3{display:flex;align-items:center;gap:7px;margin:0;font-size:14px}.event-references h3 .icon{width:17px;height:17px;color:#b90030}
+#eventDialog #eventReferenceStatus{font-size:12px;margin:7px 0 10px}#eventReferences{display:grid;gap:8px}
+.event-reference{display:grid;gap:5px;border:1px solid #e2e7ee;border-radius:9px;background:#f7f9fc;padding:11px 12px}.event-reference strong{font-size:13px;line-height:1.4;color:#263952}.event-reference>span{font-size:11px;line-height:1.4;color:#536780}
+.event-reference-open{display:inline-flex;justify-content:center;align-items:center;gap:7px;width:fit-content;min-height:36px;margin-top:4px;padding:7px 11px;border:1px solid #edc9d4;border-radius:7px;background:#fff2f6;color:#a9002d;font-size:12px;font-weight:750}.event-reference-open:hover{background:#fbe5ed}.event-reference-open .icon{width:14px;height:14px}.event-references .today-button{min-height:35px}
+@media(min-width:601px){.week-event.is-overlapping{padding-inline:4px}}
+@media(max-width:800px){.view-row:has(#parallelHint[hidden]){grid-template-columns:1fr}.week-view{--week-day-min:210px}[data-view=week] .filters fieldset{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){
+  .week-view{--week-time-width:43px;--week-day-min:230px;--week-lane-width:86px;--timeline-hour-height:70px}.week-days{gap:3px}.week-day-button{min-height:43px;font-size:9px;border-radius:7px}.week-day-button strong{font-size:10px}.week-day-button[data-today] strong::after{margin-left:2px;width:4px;height:4px}.week-hint{font-size:10px}
+  .week-event{padding:6px 7px}.week-event-course{font-size:11px}.week-event-time{font-size:10px}.week-event-place{font-size:10px}.week-column-head{min-height:61px}.week-column-head strong{font-size:15px}.week-clock-head{font-size:10px}
+  .view-switch button{gap:4px}.view-switch .icon{width:13px;height:13px}.schedule-reload{font-size:10px}.event-reference-open{width:100%;min-height:40px}
+}
+
+/* La leyenda y el tablero comparten los colores de ambos turnos. */
+.schedule{--shift-morning:#fcfaf4;--shift-afternoon:#eaf0f6;--shift-line:#8191a7}
+.shift-legend{display:flex;flex-wrap:wrap;align-items:center;gap:5px 9px;margin:0 0 12px;color:#3f506a;font-size:11px;line-height:1.2}
+.shift-legend>span{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border:1px solid #e2e7ee;border-radius:6px;white-space:nowrap}
+.shift-swatch{width:12px;height:12px;border:1px solid #abb7c7;border-radius:3px;flex:none}.shift-swatch-morning{background:var(--shift-morning)}.shift-swatch-afternoon{background:var(--shift-afternoon)}
+.shift-grid .shift-track{
+  background-image:linear-gradient(to bottom,#7186a324 1px,transparent 1px),linear-gradient(to bottom,#fff 0 var(--morning-start),var(--shift-morning) var(--morning-start) var(--afternoon-start),var(--shift-afternoon) var(--afternoon-start) var(--afternoon-end),#fff var(--afternoon-end) 100%);
+  background-size:100% var(--timeline-hour-height),100% 100%;
+  background-position:0 var(--timeline-hour-offset),0 0;
+  background-repeat:repeat-y,no-repeat;
+}
+.shift-grid[data-shift-divider] .shift-track::before{content:'';position:absolute;left:0;right:0;top:var(--afternoon-start);border-top:1px solid var(--shift-line);pointer-events:none}
+.timeline-tick{position:absolute;left:50%;transform:translate(-50%,-50%);color:#465a76;font-size:10px;line-height:1.2;font-variant-numeric:tabular-nums;white-space:nowrap}
+.timeline-tick.tick-start{transform:translateX(-50%);margin-top:4px}
+.timeline-tick.tick-end{transform:translate(-50%,-100%);margin-top:-4px}
+.timeline-tick.tick-shift{padding:2px 4px;border:1px solid #b1bdcd;border-radius:5px;background:#f7f9fc;color:#2c4362;font-weight:800}
+@media(max-width:600px){.shift-legend{gap:4px 6px;font-size:10px;margin-bottom:9px}.shift-legend>span{padding:4px 6px;gap:4px}.shift-swatch{width:10px;height:10px}.timeline-tick{font-size:9px}.timeline-tick.tick-shift{padding:2px 3px}}

@@ -3,7 +3,7 @@
   const SOURCE = 'data/actual/GUIAS X SEMANA Y HORARIOS.xlsx';
   const { parseWorkbook, normalize, addDays, minute } = window.HorariosExcel;
   const { buildMessage } = window.HorariosMessage;
-  const { bounds, lanes } = window.HorariosTimeline;
+  const { bounds, lanes, renderTimeScale } = window.HorariosTimeline;
   const { createCalendar } = window.HorariosCalendar;
   const $ = id => document.getElementById(id);
   const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
@@ -23,19 +23,29 @@
     SOFTWARE: ['Software', 'purple', 'laptop'], GESELL: ['Sala Gesell', 'amber', 'people'],
     SME: ['SME', 'teal', 'people'], GEOLOGIA: ['Geología', 'amber', 'layers'], BIBLIOTECA: ['Biblioteca', 'slate', 'building'],
   }[normalize(value)] || [value, 'slate', 'building']);
-  const state = { data: null, weeks: new Map(), dates: new Map(), events: new Map(), loading: false, view: 'list', selectedEvent: null };
+  const state = { data: null, weeks: new Map(), dates: new Map(), events: new Map(), loading: false, view: 'list', selectedEvent: null, referenceRequest: 0 };
   function option(value, label) { const node = el('option', label); node.value = value; return node; }
   function dateFormat(iso, short = false) {
     const value = new Intl.DateTimeFormat('es-PE', short ? { day: '2-digit', month: '2-digit', year: 'numeric' } : { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(parseDate(iso));
     return value.charAt(0).toUpperCase() + value.slice(1);
   }
-  function setDate(value) {
+  function setDate(value, repaint = true) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(value) || Number.isNaN(parseDate(value).valueOf())) return;
     $('dateInput').value = value;
     const week = state.dates.get(value);
     $('weekSelect').value = week ? String(week.number) : '';
     $('daySelect').value = String(week ? week.dates.indexOf(value) : weekday(value));
-    render();
+    if (repaint) render(true);
+  }
+  function adjacentWeek(direction) {
+    const date = $('dateInput').value;
+    const weeks = [...state.weeks.values()];
+    return direction < 0 ? weeks.findLast(week => week.dates.at(-1) < date) : weeks.find(week => week.dates[0] > date);
+  }
+  function navigate(direction) {
+    if (state.view !== 'week') { setDate(addDays($('dateInput').value, direction)); return; }
+    const week = adjacentWeek(direction);
+    if (week) setDate(week.dates[Number($('daySelect').value)]);
   }
   async function copyClass(event, button) {
     const week = state.weeks.get(event.week)?.sheet || `W${pad(event.week)}`;
@@ -72,23 +82,69 @@
     button.onclick = () => copyClass(event, button);
     return button;
   }
+  async function loadEventReferences(event) {
+    const request = ++state.referenceRequest;
+    const status = $('eventReferenceStatus'), choices = $('eventReferences');
+    const current = () => request === state.referenceRequest && $('eventDialog').open;
+    status.textContent = 'Buscando guías para esta semana…';
+    choices.replaceChildren(); $('retryEventReferences').hidden = true;
+    try {
+      const guides = await window.HorariosGuideViewer.references(event);
+      if (!current()) return;
+      status.textContent = guides.length ? 'Referencia del catálogo. Confirma con el docente cuál se usará.' : `No hay una guía del catálogo que coincida con este curso en la semana ${event.week}.`;
+      for (const guide of guides) {
+        const row = el('article', undefined, 'event-reference');
+        const title = [guide.number === '-' ? guide.type : guide.number, guide.title].filter(Boolean).join(' · ');
+        row.append(el('strong', title), el('span', [guide.modality, `Semana ${guide.week}`].filter(Boolean).join(' · ')));
+        if (guide.links) {
+          const button = el('button', undefined, 'event-reference-open'); button.type = 'button';
+          button.append(icon('external'), el('span', 'Ver guía referencial'));
+          button.setAttribute('aria-label', `Ver guía referencial: ${title}${guide.modality ? `, ${guide.modality}` : ''}`);
+          button.onclick = () => window.HorariosGuideViewer.openReference(guide, event.week);
+          row.append(button);
+        } else row.append(el('span', guide.sourceLink || 'Documento sin enlace en el catálogo.'));
+        choices.append(row);
+      }
+    } catch {
+      if (!current()) return;
+      status.textContent = 'No se pudo consultar el catálogo de guías.';
+      $('retryEventReferences').hidden = false;
+    }
+  }
+  function openEvent(event) {
+    state.selectedEvent = event;
+    const environment = environmentStyle(event.environment)[0];
+    $('eventDialogTitle').textContent = event.course;
+    $('eventDialogDetails').textContent = [dateFormat(event.date), `${event.start} – ${event.end}`, `Semana ${event.week}`, event.room || environment, event.teacher || 'Docente no consignado'].join(' · ');
+    $('eventDialogWarning').hidden = !event.timeConflict;
+    $('eventDialogWarning').textContent = event.timeConflict ? `Hora por confirmar: el texto del Excel indica ${event.timeConflict.textStart}–${event.timeConflict.textEnd}; la celda está ubicada en ${event.start}–${event.end}.` : '';
+    $('eventDialog').showModal();
+    loadEventReferences(event);
+  }
   function renderEmpty(title, message, clear = false) {
     const panel = el('div', undefined, 'empty');
     panel.append(icon('calendar'), el('h3', title), el('p', message));
     if (clear) { const button = el('button', 'Limpiar filtros', 'today-button'); button.onclick = () => { $('searchInput').value = ''; $('envSelect').value = ''; render(); }; panel.append(button); }
-    $(state.view === 'parallel' ? 'parallelView' : 'results').append(panel);
+    $({ list: 'results', parallel: 'parallelView', week: 'weekView' }[state.view]).append(panel);
   }
-  function render() {
+  function render(alignWeek = false) {
     if (!state.data) return;
+    const weekly = state.view === 'week';
     const date = $('dateInput').value;
     const week = state.dates.get(date);
-    const all = state.events.get(date) || [];
+    const all = weekly ? (week?.dates.flatMap(day => state.events.get(day) || []) || []) : state.events.get(date) || [];
     const query = normalize($('searchInput').value);
     const environment = $('envSelect').value;
     const items = all.filter(e => (!environment || e.environment === environment) && (!query || normalize([e.course, e.teacher, e.courseCode, e.section, e.program].join(' ')).includes(query)));
-    $('dateTitle').textContent = dateFormat(date);
-    $('dateSub').textContent = week ? `Semana ${week.sheet} · ${days[weekday(date)]}${week.inferred ? ' · Fecha calculada' : ''}` : 'Esta fecha no está incluida en el archivo';
-    $('weekBadge').textContent = week ? `Semana ${week.sheet}` : 'Sin semana';
+    $('cronograma').dataset.view = state.view;
+    $('dateTitle').textContent = weekly ? week ? `Semana ${week.number}` : 'Semana no disponible' : dateFormat(date);
+    $('dateSub').textContent = week ? `${weekly ? `${dateFormat(week.dates[0], true)} al ${dateFormat(week.dates.at(-1), true)}` : `Semana ${week.sheet} · ${days[weekday(date)]}`}${week.inferred ? ' · Fecha calculada' : ''}` : 'Esta fecha no está incluida en el archivo';
+    $('weekBadge').textContent = weekly ? 'Vista semanal' : week ? `Semana ${week.sheet}` : 'Sin semana';
+    $('scheduleStats').setAttribute('aria-label', weekly ? 'Resumen de la semana' : 'Resumen del día');
+    $('prevDay').setAttribute('aria-label', weekly ? 'Semana anterior' : 'Día anterior');
+    $('nextDay').setAttribute('aria-label', weekly ? 'Semana siguiente' : 'Día siguiente');
+    $('prevDay').disabled = weekly && !adjacentWeek(-1);
+    $('nextDay').disabled = weekly && !adjacentWeek(1);
     $('statClasses').textContent = items.length;
     $('statEnvs').textContent = new Set(items.map(e => e.environment)).size;
     const minutes = items.reduce((sum, e) => sum + minute(e.end) - minute(e.start), 0);
@@ -96,17 +152,29 @@
     $('resultCount').textContent = `${items.length} ${items.length === 1 ? 'clase programada' : 'clases programadas'}`;
     const conflicts = all.filter(event => event.timeConflict).length;
     $('anomalyBanner').hidden = !conflicts;
-    $('anomalyBanner').textContent = conflicts ? `${conflicts} ${conflicts === 1 ? 'clase de este día tiene' : 'clases de este día tienen'} horas distintas entre el texto y la posición en el Excel. Se muestran según su posición, con una advertencia, y se excluyen de los avisos hasta confirmar la hora.` : '';
+    $('anomalyBanner').textContent = conflicts ? `${conflicts} ${conflicts === 1 ? 'clase tiene' : 'clases tienen'} horas distintas entre el texto y la posición en el Excel ${weekly ? 'esta semana' : 'este día'}. Se muestran según su posición y se excluyen de los avisos hasta confirmar la hora.` : '';
     const warnings = state.data.warnings.filter(w => w.startsWith('Semanas no incluidas') || (week && w.startsWith(`${week.sheet}:`) && !w.includes('tiene horas distintas')));
     $('dataWarnings').hidden = !warnings.length;
     $('dataWarnings').textContent = warnings.join(' ');
     $('results').replaceChildren();
     $('parallelView').replaceChildren();
+    const previousBoard = $('weekView').querySelector('.week-board');
+    const weekScroll = { left: previousBoard?.scrollLeft || 0, top: previousBoard?.scrollTop || 0, behavior: 'instant' };
+    $('weekView').replaceChildren();
     $('results').hidden = state.view !== 'list';
     $('parallelView').hidden = state.view !== 'parallel';
+    $('weekView').hidden = !weekly;
     $('parallelHint').hidden = state.view !== 'parallel';
+    $('shiftLegend').hidden = state.view === 'list' || !items.length;
     $('listViewBtn').setAttribute('aria-pressed', String(state.view === 'list'));
     $('parallelViewBtn').setAttribute('aria-pressed', String(state.view === 'parallel'));
+    $('weekViewBtn').setAttribute('aria-pressed', String(weekly));
+    if (weekly && week) {
+      const jump = alignWeek === true && matchMedia('(max-width: 800px)').matches;
+      const board = window.HorariosWeekView($('weekView'), { week, items, selectedDate: date, today: today(), environmentStyle, icon, openEvent, selectDate: day => setDate(day, false), scrollToSelected: jump });
+      if (alignWeek !== true) board.scrollTo(weekScroll);
+      return;
+    }
     if (!items.length) {
       renderEmpty('Sin clases para mostrar', !week ? 'Selecciona una semana disponible para consultar sus horarios.' : all.length ? 'Ninguna clase coincide con los filtros seleccionados.' : 'No hay clases registradas para este día en el Excel.', all.length > 0);
       return;
@@ -125,7 +193,10 @@
       for (const event of events) {
         const article = el('article', undefined, 'event');
         const time = el('div', undefined, 'event-time'); time.append(icon('clock'), el('span', `${event.start} – ${event.end}`));
-        const info = el('div', undefined, 'event-body'); info.append(el('div', event.course, 'event-course'));
+        const info = el('div', undefined, 'event-body');
+        const detail = el('button', event.course, 'event-course event-detail-button'); detail.type = 'button';
+        detail.setAttribute('aria-label', `Ver detalle de ${event.course}, ${event.start} a ${event.end}`);
+        detail.onclick = () => openEvent(event); info.append(detail);
         if (event.teacher) { const meta = el('div', undefined, 'event-meta'); meta.append(icon('user'), el('span', event.teacher)); info.append(meta); }
         if (event.program) info.append(el('p', event.program, 'event-program'));
         if (event.room) info.append(el('p', event.room, 'event-program'));
@@ -151,16 +222,13 @@
     grid.style.setProperty('--column-count', environments.length);
     const range = bounds(items);
     const hourHeight = window.matchMedia('(max-width: 600px)').matches ? 39 : 65;
+    grid.style.setProperty('--timeline-hour-height', `${hourHeight}px`);
     const trackHeight = (range.end - range.start) / 60 * hourHeight;
     const hours = el('div', undefined, 'parallel-hours');
     hours.append(el('div', 'Hora', 'parallel-head parallel-hour-head'));
-    const labels = el('div', undefined, 'parallel-hour-body');
+    const labels = el('div', undefined, 'parallel-hour-body timeline-axis shift-track');
     labels.style.height = `${trackHeight}px`;
-    for (let time = range.start; time <= range.end; time += 60) {
-      const label = el('span', `${pad(Math.floor(time / 60))}:00`, 'parallel-hour-label');
-      label.style.top = `${(time - range.start) / 60 * hourHeight}px`;
-      labels.append(label);
-    }
+    renderTimeScale(grid, labels, range);
     hours.append(labels); grid.append(hours);
     for (const environment of environments) {
       const [name, color, symbol] = environmentStyle(environment);
@@ -168,9 +236,8 @@
       const head = el('div', undefined, 'parallel-head');
       const heading = el('div', undefined, 'parallel-head-title'); heading.append(icon(symbol), el('strong', name));
       head.append(heading, el('span', `${items.filter(event => event.environment === environment).length} ${items.filter(event => event.environment === environment).length === 1 ? 'clase' : 'clases'}`));
-      const track = el('div', undefined, 'parallel-track');
+      const track = el('div', undefined, 'parallel-track shift-track');
       track.style.height = `${trackHeight}px`;
-      track.style.backgroundSize = `100% ${hourHeight}px`;
       for (const entry of lanes(items.filter(event => event.environment === environment))) {
         const event = entry.event;
         const card = el('button', undefined, 'parallel-event'); card.type = 'button';
@@ -182,12 +249,7 @@
         card.append(el('span', `${event.start} – ${event.end}`, 'parallel-event-time'), el('strong', event.course, 'parallel-event-course'));
         if (event.teacher) card.append(el('span', event.teacher, 'parallel-event-teacher'));
         if (event.timeConflict) { card.classList.add('has-time-conflict'); card.append(el('span', 'Revisar hora', 'parallel-conflict')); }
-        card.onclick = () => {
-          state.selectedEvent = event;
-          $('eventDialogTitle').textContent = event.course;
-          $('eventDialogDetails').textContent = `${event.start} – ${event.end} · Semana ${state.weeks.get(event.week)?.sheet || `W${pad(event.week)}`} · ${event.room || name} · ${event.teacher || 'Docente no consignado'}${event.timeConflict ? `. Hora por confirmar: el texto del Excel indica ${event.timeConflict.textStart}–${event.timeConflict.textEnd}; la celda está ubicada en ${event.start}–${event.end}.` : ''}`;
-          $('eventDialog').showModal();
-        };
+        card.onclick = () => openEvent(event);
         track.append(card);
       }
       column.append(head, track); grid.append(column);
@@ -195,9 +257,9 @@
     board.append(grid); $('parallelView').append(board);
   }
   function setView(view) {
-    if (view !== 'list' && view !== 'parallel') return;
+    if (!state.data || !['list', 'parallel', 'week'].includes(view)) return;
     state.view = view;
-    render();
+    render(true);
   }
   function reminderCalendar() {
     return createCalendar(state.data.events, {
@@ -246,6 +308,7 @@
     $('reminderEnvironment').disabled = false;
     updateReminderCount();
     $('filterFields').disabled = false; $('searchInput').disabled = false;
+    $('openWeekBtn').disabled = false; $('weekViewBtn').disabled = false;
     const dates = [...state.dates.keys()].sort();
     const initial = state.dates.has(selectedDate) ? selectedDate : state.dates.has(today()) ? today() : dates.find(date => date >= today()) || dates.at(-1);
     setDate(initial);
@@ -273,10 +336,10 @@
       $('loadStatus').textContent = `Horarios actualizados · ${new Intl.DateTimeFormat('es-PE', { hour: '2-digit', minute: '2-digit' }).format(new Date())}`;
     } catch (error) {
       $('errorBox').hidden = false;
-      $('errorBox').textContent = error.name === 'AbortError' ? 'La consulta tardó demasiado. Reintenta con Actualizar horarios.' : error.message;
+      $('errorBox').textContent = error.name === 'AbortError' ? 'La consulta tardó demasiado. Pulsa Recargar Excel para reintentar.' : error.message;
       $('loadStatus').textContent = state.data ? 'No se pudo actualizar. Se conserva la última lectura de esta sesión.' : 'No se han cargado horarios.';
       if (!state.data) { $('dateTitle').textContent = 'Cronograma no disponible'; $('dateSub').textContent = 'Revisa el mensaje y vuelve a intentar.'; }
-      if (!state.data) $('reminderCount').textContent = 'No se pudo leer el Excel. Abre Cronograma y pulsa Actualizar horarios para reintentar.';
+      if (!state.data) $('reminderCount').textContent = 'No se pudo leer el Excel. Abre Cronograma y pulsa Recargar Excel para reintentar.';
     } finally {
       clearTimeout(timeout); state.loading = false;
       $('refreshBtn').disabled = false; $('refreshBtn').setAttribute('aria-busy', 'false');
@@ -288,14 +351,17 @@
   $('weekSelect').addEventListener('change', () => { const week = state.weeks.get(Number($('weekSelect').value)); if (week) setDate(week.dates[Number($('daySelect').value)]); });
   $('daySelect').addEventListener('change', () => { const week = state.weeks.get(Number($('weekSelect').value)); const day = Number($('daySelect').value); setDate(week ? week.dates[day] : addDays($('dateInput').value, day - weekday($('dateInput').value))); });
   $('envSelect').addEventListener('change', render); $('searchInput').addEventListener('input', render);
-  $('prevDay').onclick = () => setDate(addDays($('dateInput').value, -1));
-  $('nextDay').onclick = () => setDate(addDays($('dateInput').value, 1));
+  $('prevDay').onclick = () => navigate(-1);
+  $('nextDay').onclick = () => navigate(1);
   $('todayBtn').onclick = () => setDate(today()); $('refreshBtn').onclick = loadExcel;
   $('listViewBtn').onclick = () => setView('list');
   $('parallelViewBtn').onclick = () => setView('parallel');
+  $('weekViewBtn').onclick = () => setView('week');
+  $('openWeekBtn').onclick = () => { setView('week'); $('weekViewBtn').scrollIntoView({ block: 'center' }); $('weekViewBtn').focus({ preventScroll: true }); };
   $('reminderEnvironment').addEventListener('change', updateReminderCount);
   $('downloadCalendar').onclick = downloadReminders;
   $('closeEventDialog').onclick = () => $('eventDialog').close();
+  $('retryEventReferences').onclick = () => { if (state.selectedEvent) loadEventReferences(state.selectedEvent); };
   $('dialogCopyBtn').onclick = () => { if (state.selectedEvent) copyClass(state.selectedEvent, $('dialogCopyBtn')); };
   window.matchMedia('(max-width: 600px)').addEventListener('change', () => { if (state.view === 'parallel') render(); });
   $('menuBtn').onclick = () => { const open = $('mainNav').classList.toggle('is-open'); $('menuBtn').setAttribute('aria-expanded', open); };

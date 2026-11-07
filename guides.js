@@ -1,9 +1,9 @@
 (() => {
   'use strict';
   const $ = id => document.getElementById(id);
-  const { parseCatalog, filterCatalog, sortCatalog } = window.HorariosGuides;
+  const { parseCatalog, filterCatalog, sortCatalog, referenceGuides } = window.HorariosGuides;
   const pageSize = 12, format = value => value.toLocaleString('es-PE');
-  let catalog = [], filtered = [], page = 1, loading = false, frameTimer;
+  let catalog = [], filtered = [], page = 1, loading = false, pageReady = false, catalogRequest, frameTimer;
   const el = (tag, text, css) => { const node = document.createElement(tag); if (text !== undefined) node.textContent = text; if (css) node.className = css; return node; };
   const icon = name => {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -74,10 +74,11 @@
     $('guideResultsHeading').scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     $('guideResultsHeading').focus({ preventScroll: true });
   }
-  function openGuide(guide, downloading = false) {
+  function openGuide(guide, downloading = false, referenceWeek = null) {
     if (!guide.links) return;
+    $('guideViewerCategory').textContent = referenceWeek ? `Guía referencial · Semana ${referenceWeek}` : 'Biblioteca de guías';
     $('guideViewerTitle').textContent = guide.course;
-    $('guideViewerMeta').textContent = [guide.code, guide.number !== '-' ? guide.number : guide.type, guide.weeks.length ? `Semana ${guide.week}` : '', guide.links.provider].filter(Boolean).join(' · ');
+    $('guideViewerMeta').textContent = [guide.code, guide.number !== '-' ? guide.number : guide.type, referenceWeek && guide.title, guide.weeks.length ? `Semana ${guide.week}` : '', guide.links.provider].filter(Boolean).join(' · ');
     $('guideOriginal').href = guide.links.original;
     $('guideDownload').href = guide.links.download;
     $('guideDownloadLabel').textContent = guide.links.directDownload ? 'Descargar archivo' : 'Abrir PDF para descargar';
@@ -91,18 +92,32 @@
     $('guideViewer').showModal(); $('guideViewerClose').focus({ preventScroll: true });
   }
   function closeViewer() { $('guideViewer').close(); }
+  function getCatalog() {
+    if (!catalogRequest) catalogRequest = (async () => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 20000);
+      try {
+        const url = new URL('data/guias.csv', document.baseURI); url.searchParams.set('v', String(Date.now()));
+        const response = await fetch(url, { cache: 'no-store', signal: controller.signal });
+        if (!response.ok) throw new Error('No se encontró el archivo de guías.');
+        const next = parseCatalog(await response.text());
+        if (!next.length) throw new Error('El catálogo está vacío.');
+        return next;
+      } catch (error) { catalogRequest = null; throw error; }
+      finally { clearTimeout(timeout); }
+    })();
+    return catalogRequest;
+  }
+  window.HorariosGuideViewer = {
+    references: async event => referenceGuides(await getCatalog(), event),
+    openReference: (guide, week) => openGuide(guide, false, week),
+  };
   async function loadCatalog() {
-    if (loading) return;
+    if (loading || pageReady) return;
     loading = true; $('guideRetry').hidden = true;
     $('guideLoadStatus').hidden = false; $('guideLoadStatus').textContent = 'Cargando el catálogo de guías…';
-    const controller = new AbortController(), timeout = setTimeout(() => controller.abort(), 20000);
     try {
-      const url = new URL('data/guias.csv', document.baseURI); url.searchParams.set('v', String(Date.now()));
-      const response = await fetch(url, { cache: 'no-store', signal: controller.signal });
-      if (!response.ok) throw new Error('No se encontró el archivo de guías.');
-      const next = parseCatalog(await response.text());
-      if (!next.length) throw new Error('El catálogo está vacío.');
-      catalog = next;
+      catalog = await getCatalog();
       for (const [id, key, label] of [['guideModality', 'modality', 'Todas las modalidades'], ['guideType', 'type', 'Todos los tipos']]) {
         $(id).replaceChildren(option('', label), ...[...new Set(catalog.map(g => g[key]))].sort((a, b) => a.localeCompare(b, 'es')).map(value => option(value, labels[value] || value)));
       }
@@ -113,10 +128,11 @@
       $('guideControls').disabled = false; $('guideSort').disabled = false;
       $('guideLoadStatus').hidden = true; $('guideResultsSection').hidden = false;
       update();
+      pageReady = true;
     } catch (error) {
       $('guideLoadStatus').textContent = error.name === 'AbortError' ? 'La consulta tardó demasiado. Puedes volver a intentarlo.' : 'No pudimos cargar las guías. Comprueba tu conexión y vuelve a intentarlo.';
       $('guideRetry').hidden = false;
-    } finally { clearTimeout(timeout); loading = false; }
+    } finally { loading = false; }
   }
   $('guideSearch').addEventListener('input', update);
   for (const id of ['guideModality', 'guideType', 'guideWeek', 'guideSort']) $(id).addEventListener('change', update);
@@ -131,7 +147,7 @@
     const box = $('guideViewer').getBoundingClientRect();
     if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) closeViewer();
   });
-  // Se consulta al entrar en Guías, sin retrasar el cronograma ni Inicio.
-  const enter = () => { if (location.hash === '#guias' && !catalog.length) loadCatalog(); };
+  // Se consulta al entrar en Guías o al abrir una clase por primera vez.
+  const enter = () => { if (location.hash === '#guias') loadCatalog(); };
   window.addEventListener('hashchange', enter); enter();
 })();

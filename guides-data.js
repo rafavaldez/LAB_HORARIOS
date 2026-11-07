@@ -94,5 +94,13 @@
       collator.compare(a.course, b.course) || collator.compare(a.code, b.code) ||
       (a.weeks[0] ?? 99) - (b.weeks[0] ?? 99) || collator.compare(a.number, b.number) || a.id - b.id);
   }
-  return { csvRows, weeksIn, documentLinks, parseCatalog, filterCatalog, sortCatalog };
+
+  function referenceGuides(catalog, event) {
+    const course = normalize(event.course);
+    const week = Number(event.week);
+    if (!course || !Number.isInteger(week) || week < 1) return [];
+    // Los códigos del horario identifican clases y secciones; el catálogo usa códigos de curso distintos.
+    return sortCatalog(catalog.filter(guide => normalize(guide.course) === course && guide.weeks.includes(week)));
+  }
+  return { csvRows, weeksIn, documentLinks, parseCatalog, filterCatalog, sortCatalog, referenceGuides };
 });

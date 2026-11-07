@@ -2,6 +2,14 @@
 
 Sitio estático compatible con GitHub Pages. **Inicio** reúne los documentos frecuentes, los inventarios C7 y los avisos de clases; **Cronograma** lee directamente el Excel mediante JavaScript. No hay Python, base de datos, servidor de aplicación ni botón para subir archivos. El catálogo C7 se prepara una vez a partir de sus dos Excel y se publica como datos estáticos.
 
+## Vista semanal y guías referenciales
+
+En **Cronograma**, elige **Semana** o pulsa **Ver semana** para comparar los siete días en una escala horaria común. Cada columna tiene el día y la fecha; las tarjetas indican hora, curso y ambiente. En celular, toca un día en la fila superior o desliza el tablero. Las flechas cambian de semana en esta vista; **Hoy** vuelve a la semana actual. La búsqueda y el filtro de ambiente se aplican a toda la semana.
+
+En **En paralelo** y **Semana**, el fondo distingue Mañana (07:30–13:30) de Tarde (13:30–22:30). La escala va desde el inicio de la primera clase visible hasta el fin de la última, sin agregar horas por los límites de los turnos.
+
+Pulsa una clase en cualquiera de las tres vistas para consultar su detalle, copiar el texto y abrir guías referenciales. La coincidencia se hace por nombre completo del curso (sin distinguir tildes) y semana, incluyendo rangos como «12 a 13». Si hay varias coincidencias, se muestran todas con su modalidad. Por ejemplo, Laboratorio de Química General en la semana 13 muestra **Guía N°4 · Volumen molar**. La guía es una referencia del catálogo; confirma el material con el docente.
+
 ## Avisos antes de cada clase
 
 En **Inicio**, elige un ambiente (o todos) y pulsa **Descargar avisos (.ics)**. El navegador genera un archivo de calendario a partir de las clases futuras del Excel publicado. Cada evento tiene dos alarmas `VALARM`: 30 y 15 minutos antes de su hora de inicio en Perú. Al importarlo, el calendario convierte la hora a la zona horaria del dispositivo. No se necesita cuenta, token ni servicio adicional para generar el archivo.
@@ -53,7 +61,7 @@ El primer documento es `documentos/registro-asistencia-induccion-seguridad-labor
 1. Descarga el Excel nuevo.
 2. Reemplaza en el repositorio el archivo `data/actual/GUIAS X SEMANA Y HORARIOS.xlsx`, conservando exactamente su nombre y ubicación.
 3. Confirma el cambio (commit) y espera a que termine la publicación de GitHub Pages.
-4. Abre el visor o pulsa **Actualizar horarios**. El navegador vuelve a descargar el Excel y extrae sus semanas, fechas, ambientes y clases. No tienes que modificar código ni ejecutar un script.
+4. Abre el visor o pulsa **Recargar Excel**. El navegador vuelve a descargar el Excel y extrae sus semanas, fechas, ambientes y clases. No tienes que modificar código ni ejecutar un script.
 
 El archivo nuevo debe conservar la estructura de la plantilla: hojas `W01`, `W02`, etc.; filas `SEMANA 01`, `SEMANA 02`, etc. con fechas de Excel; cabecera `HORA`, días y ambientes; clases con rangos como `08:00 - 09:30`. El año y las fechas se leen del documento. Reemplazar el Excel sustituye el período disponible; no acumula archivos de temporadas anteriores.
 

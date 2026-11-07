@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const XLSX = require('../vendor/xlsx.full.min.js');
-const { csvRows, weeksIn, documentLinks, parseCatalog, filterCatalog, sortCatalog } = require('../guides-data.js');
+const { csvRows, weeksIn, documentLinks, parseCatalog, filterCatalog, sortCatalog, referenceGuides } = require('../guides-data.js');
 const source = fs.readFileSync(path.join(__dirname, '../data/guias.csv'), 'utf8');
 const scope = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/guias-filtro.json'), 'utf8'));
 const catalog = parseCatalog(source);
@@ -46,4 +46,13 @@ assert.ok(!filterCatalog(catalog, { week: '14' }).includes(separate));
 const sorted = sortCatalog(catalog, 'week');
 assert.equal(sorted[0].weeks[0], 1);
 assert.equal(sorted.at(-1).weeks.length, 0);
+const week13Chemistry = referenceGuides(catalog, { course: 'Laboratorio de quimica general', week: 13, courseCode: '52237' });
+assert.deepEqual(week13Chemistry.map(guide => [guide.code, guide.number, guide.title]), [['100000L02Q', 'GUÍA N°4', 'VOLUMEN MOLAR']]);
+assert.ok(week13Chemistry[0].links.preview.endsWith('.pdf'));
+assert.deepEqual(referenceGuides(catalog, { course: 'Laboratorio de Química General', week: 53 }), []);
+assert.deepEqual(referenceGuides(catalog, { course: 'Laboratorio de Química', week: 13 }), []);
+assert.equal(referenceGuides([
+  week13Chemistry[0],
+  { ...week13Chemistry[0], modality: 'SEMIPRESENCIAL', id: 2 },
+], { course: 'LABORATORIO DE QUÍMICA GENERAL', week: 13 }).length, 2);
 console.log(`OK: selección por DDA: ${catalog.length} registros, ${scope.courses} cursos, ${scope.linkedRecords} enlaces y ${scope.classroomOnlyRecords} materiales de UTP + Class. Búsqueda, rangos de semanas y enlaces seguros verificados.`);
