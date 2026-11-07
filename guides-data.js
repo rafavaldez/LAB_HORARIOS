@@ -99,8 +99,15 @@
     const course = normalize(event.course);
     const week = Number(event.week);
     if (!course || !Number.isInteger(week) || week < 1) return [];
-    // Los códigos del horario identifican clases y secciones; el catálogo usa códigos de curso distintos.
-    return sortCatalog(catalog.filter(guide => normalize(guide.course) === course && guide.weeks.includes(week)));
+    // Si el catálogo distingue ambos nombres, cada curso conserva sus propias semanas.
+    const exact = catalog.filter(guide => normalize(guide.course) === course);
+    if (exact.length) return sortCatalog(exact.filter(guide => guide.weeks.includes(week)));
+
+    const withoutLabPrefix = name => name.replace(/^laboratorio(?: de)? /, '');
+    const base = withoutLabPrefix(course);
+    return sortCatalog(catalog.filter(guide =>
+      guide.weeks.includes(week) && withoutLabPrefix(normalize(guide.course)) === base
+    ));
   }
   return { csvRows, weeksIn, documentLinks, parseCatalog, filterCatalog, sortCatalog, referenceGuides };
 });

@@ -8,7 +8,7 @@ En **Cronograma**, elige **Semana** o pulsa **Ver semana** para comparar los sie
 
 En **En paralelo** y **Semana**, el fondo distingue Mañana (07:30–13:30) de Tarde (13:30–22:30). En **Semana**, ambos turnos se muestran al entrar y se pueden desmarcar por separado. Se usa la hora de inicio para asignar cada clase a un turno. La escala va desde el inicio de la primera clase visible hasta el fin de la última. En celulares, **Pantalla completa** abre el tablero en horizontal. Si el navegador no puede cambiar la orientación de la pantalla, el visor gira dentro de la página.
 
-Pulsa una clase en cualquiera de las tres vistas para consultar su detalle, copiar el texto y abrir guías referenciales. La coincidencia se hace por nombre completo del curso (sin distinguir tildes) y semana, incluyendo rangos como «12 a 13». Si hay varias coincidencias, se muestran todas con su modalidad. Por ejemplo, Laboratorio de Química General en la semana 13 muestra **Guía N°4 · Volumen molar**. La guía es una referencia del catálogo; confirma el material con el docente.
+Pulsa una clase en cualquiera de las tres vistas para consultar su detalle, copiar el texto y abrir guías referenciales. Se busca el nombre completo del curso sin distinguir tildes. Si el catálogo no contiene ese nombre, se admite una diferencia en el prefijo «Laboratorio de». La semana debe coincidir, también cuando el catálogo indica un rango como «12 a 13». Por ejemplo, Laboratorio de Física Conceptual en la semana 14 muestra **Guía N°3 · Leyes de reflexión y refracción de la luz**. Si hay varias coincidencias, se muestran todas con su modalidad.
 
 ## Avisos antes de cada clase
 

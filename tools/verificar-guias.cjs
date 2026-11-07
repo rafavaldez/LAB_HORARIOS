@@ -49,6 +49,16 @@ assert.equal(sorted.at(-1).weeks.length, 0);
 const week13Chemistry = referenceGuides(catalog, { course: 'Laboratorio de quimica general', week: 13, courseCode: '52237' });
 assert.deepEqual(week13Chemistry.map(guide => [guide.code, guide.number, guide.title]), [['100000L02Q', 'GUÍA N°4', 'VOLUMEN MOLAR']]);
 assert.ok(week13Chemistry[0].links.preview.endsWith('.pdf'));
+const conceptualPhysics = { course: 'LABORATORIO DE FISICA CONCEPTUAL', week: 14 };
+const week14Physics = referenceGuides(catalog, conceptualPhysics);
+assert.deepEqual(week14Physics.map(guide => [guide.course, guide.number, guide.title]), [
+  ['FÍSICA CONCEPTUAL', 'GUÍA N°3', 'LEYES DE REFLEXIÓN Y REFRACCIÓN DE LA LUZ'],
+]);
+assert.ok(week14Physics[0].links.preview.endsWith('.pdf'));
+assert.deepEqual(referenceGuides(catalog, { ...conceptualPhysics, week: 13 }), []);
+assert.deepEqual(referenceGuides(catalog, { course: 'Laboratorio de Física Conceptual II', week: 14 }), []);
+assert.ok(referenceGuides(catalog, { course: 'Química General', week: 8 }).length > 0);
+assert.deepEqual(referenceGuides(catalog, { course: 'Laboratorio de Química General', week: 8 }), []);
 assert.deepEqual(referenceGuides(catalog, { course: 'Laboratorio de Química General', week: 53 }), []);
 assert.deepEqual(referenceGuides(catalog, { course: 'Laboratorio de Química', week: 13 }), []);
 assert.equal(referenceGuides([
