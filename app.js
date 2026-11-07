@@ -23,7 +23,7 @@
     SOFTWARE: ['Software', 'purple', 'laptop'], GESELL: ['Sala Gesell', 'amber', 'people'],
     SME: ['SME', 'teal', 'people'], GEOLOGIA: ['Geología', 'amber', 'layers'], BIBLIOTECA: ['Biblioteca', 'slate', 'building'],
   }[normalize(value)] || [value, 'slate', 'building']);
-  const state = { data: null, weeks: new Map(), dates: new Map(), events: new Map(), loading: false, view: 'list', selectedEvent: null, referenceRequest: 0 };
+  const state = { data: null, weeks: new Map(), dates: new Map(), events: new Map(), loading: false, view: 'list', selectedEvent: null, referenceRequest: 0, weekCleanup: null };
   function option(value, label) { const node = el('option', label); node.value = value; return node; }
   function dateFormat(iso, short = false) {
     const value = new Intl.DateTimeFormat('es-PE', short ? { day: '2-digit', month: '2-digit', year: 'numeric' } : { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(parseDate(iso));
@@ -35,7 +35,7 @@
     const week = state.dates.get(value);
     $('weekSelect').value = week ? String(week.number) : '';
     $('daySelect').value = String(week ? week.dates.indexOf(value) : weekday(value));
-    if (repaint) render(true);
+    if (repaint) render();
   }
   function adjacentWeek(direction) {
     const date = $('dateInput').value;
@@ -127,7 +127,7 @@
     if (clear) { const button = el('button', 'Limpiar filtros', 'today-button'); button.onclick = () => { $('searchInput').value = ''; $('envSelect').value = ''; render(); }; panel.append(button); }
     $({ list: 'results', parallel: 'parallelView', week: 'weekView' }[state.view]).append(panel);
   }
-  function render(alignWeek = false) {
+  function render() {
     if (!state.data) return;
     const weekly = state.view === 'week';
     const date = $('dateInput').value;
@@ -158,8 +158,8 @@
     $('dataWarnings').textContent = warnings.join(' ');
     $('results').replaceChildren();
     $('parallelView').replaceChildren();
-    const previousBoard = $('weekView').querySelector('.week-board');
-    const weekScroll = { left: previousBoard?.scrollLeft || 0, top: previousBoard?.scrollTop || 0, behavior: 'instant' };
+    state.weekCleanup?.();
+    state.weekCleanup = null;
     $('weekView').replaceChildren();
     $('results').hidden = state.view !== 'list';
     $('parallelView').hidden = state.view !== 'parallel';
@@ -170,9 +170,7 @@
     $('parallelViewBtn').setAttribute('aria-pressed', String(state.view === 'parallel'));
     $('weekViewBtn').setAttribute('aria-pressed', String(weekly));
     if (weekly && week) {
-      const jump = alignWeek === true && matchMedia('(max-width: 800px)').matches;
-      const board = window.HorariosWeekView($('weekView'), { week, items, selectedDate: date, today: today(), environmentStyle, icon, openEvent, selectDate: day => setDate(day, false), scrollToSelected: jump });
-      if (alignWeek !== true) board.scrollTo(weekScroll);
+      state.weekCleanup = window.HorariosWeekView($('weekView'), { week, items, selectedDate: date, today: today(), environmentStyle, icon, openEvent, selectDate: day => setDate(day, false) });
       return;
     }
     if (!items.length) {
@@ -259,7 +257,7 @@
   function setView(view) {
     if (!state.data || !['list', 'parallel', 'week'].includes(view)) return;
     state.view = view;
-    render(true);
+    render();
   }
   function reminderCalendar() {
     return createCalendar(state.data.events, {
@@ -357,7 +355,7 @@
   $('listViewBtn').onclick = () => setView('list');
   $('parallelViewBtn').onclick = () => setView('parallel');
   $('weekViewBtn').onclick = () => setView('week');
-  $('openWeekBtn').onclick = () => { setView('week'); $('weekViewBtn').scrollIntoView({ block: 'center' }); $('weekViewBtn').focus({ preventScroll: true }); };
+  $('openWeekBtn').onclick = () => { setView('week'); $('weekViewBtn').focus({ preventScroll: true }); $('weekViewBtn').scrollIntoView({ block: 'start', behavior: 'instant' }); };
   $('reminderEnvironment').addEventListener('change', updateReminderCount);
   $('downloadCalendar').onclick = downloadReminders;
   $('closeEventDialog').onclick = () => $('eventDialog').close();

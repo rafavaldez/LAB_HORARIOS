@@ -5,21 +5,58 @@
   const shortDay = new Intl.DateTimeFormat('es-PE', { weekday: 'short' });
   const longDay = new Intl.DateTimeFormat('es-PE', { weekday: 'long' });
   const dayDate = new Intl.DateTimeFormat('es-PE', { day: '2-digit', month: '2-digit' });
+  const timeLabel = mins => [Math.floor(mins / 60), mins % 60].map(n => String(n).padStart(2, '0')).join(':');
 
-  window.HorariosWeekView = function renderWeek(container, { week, items, selectedDate, today, environmentStyle, icon, openEvent, selectDate, scrollToSelected }) {
+  window.HorariosWeekView = function renderWeek(container, { week, items, selectedDate, today, environmentStyle, icon, openEvent, selectDate }) {
     const range = bounds(items);
     const length = range.end - range.start;
     const grouped = new Map(week.dates.map(date => [date, []]));
     for (const event of items) grouped.get(event.date)?.push(event);
 
+    const inline = el('div');
+    const shell = el('div', undefined, 'week-shell');
+    const dialog = el('dialog', undefined, 'week-full');
+    dialog.setAttribute('aria-labelledby', 'weekFullscreenTitle');
+    const fullHead = el('header', undefined, 'week-full-header');
+    const fullTitle = el('h2', `Semana ${week.number}`);
+    fullTitle.id = 'weekFullscreenTitle';
+    const fullDates = week.dates.map(date => dayDate.format(new Date(`${date}T12:00:00`)));
+    const fullCopy = el('div');
+    fullCopy.append(fullTitle, el('span', `${fullDates[0]} – ${fullDates.at(-1)}`));
     const bar = el('div', undefined, 'week-toolbar');
-    const hint = el('p', 'Toca un día o desliza el tablero para recorrer la semana.', 'week-hint');
+    const tools = el('div', undefined, 'week-zoom-tools');
+    const buttons = el('div', undefined, 'week-zoom-buttons');
+    buttons.setAttribute('role', 'group');
+    buttons.setAttribute('aria-label', 'Ampliación del horario');
+    const button = (label, description) => {
+      const node = el('button', label, 'week-zoom-button');
+      node.type = 'button'; node.setAttribute('aria-label', description);
+      return node;
+    };
+    const smaller = button('−', 'Reducir horario'), larger = button('+', 'Ampliar horario');
+    smaller.classList.add('week-zoom-step'); larger.classList.add('week-zoom-step');
+    const fit = button('Ajustar', 'Ajustar a la semana completa');
+    const expand = button('Pantalla completa', 'Ver la semana en pantalla completa');
+    expand.classList.add('week-expand');
+    const close = button(undefined, 'Cerrar pantalla completa');
+    close.append(icon('close'), el('span', 'Cerrar'));
+    fullHead.append(fullCopy, close);
+    dialog.append(fullHead);
+    const level = el('span', undefined, 'week-zoom-level');
+    level.setAttribute('role', 'status');
+    const coverage = el('span', items.length ? `7 días · ${timeLabel(range.start)}–${timeLabel(range.end)}` : '7 días · Sin clases', 'week-coverage');
+    const summary = el('div', undefined, 'week-zoom-summary');
+    summary.append(coverage, level);
+    buttons.append(smaller, larger, fit);
+    tools.append(summary, buttons, expand);
+    const hint = el('p', 'Amplía con + o toca un día. En pantalla completa puedes pellizcar y arrastrar.', 'week-hint');
     const dayPicker = el('div', undefined, 'week-days');
     dayPicker.setAttribute('role', 'group'); dayPicker.setAttribute('aria-label', 'Saltar a un día de la semana');
-    bar.append(dayPicker, hint);
+    bar.append(tools, hint, dayPicker);
 
     const board = el('div', undefined, 'week-board');
-    board.tabIndex = 0; board.setAttribute('role', 'region'); board.setAttribute('aria-label', 'Clases por día y hora. Desplazamiento horizontal disponible.');
+    board.tabIndex = 0; board.setAttribute('role', 'region'); board.setAttribute('aria-label', 'Clases por día y hora. Usa + para ampliar, − para reducir y 0 para ajustar.');
+    const stage = el('div', undefined, 'week-stage');
     const grid = el('div', undefined, 'week-grid');
     grid.classList.toggle('is-empty', !items.length);
     grid.style.setProperty('--week-hours', String(length / 60));
@@ -64,22 +101,24 @@
         track.append(card);
       }
       column.append(head, track); grid.append(column); columns.push(column);
-      dayButton.onclick = () => { selectDate(date); activate(date, true); };
+      dayButton.onclick = () => { selectDate(date); activate(date); zoom.jump(column); };
     }
-    function activate(date, move) {
+    function activate(date) {
       const selected = week.dates.indexOf(date);
       columns.forEach((column, i) => { column.classList.toggle('is-selected', i === selected); dayButtons[i].setAttribute('aria-pressed', String(i === selected)); });
-      if (move && selected >= 0 && board.isConnected) {
-        const left = columns[selected].getBoundingClientRect().left - board.getBoundingClientRect().left + board.scrollLeft - clock.offsetWidth - board.clientLeft;
-        board.scrollTo({ left, behavior: 'instant' });
-      }
     }
-    grid.style.gridTemplateColumns = `var(--week-time-width) ${widths.map(width => `minmax(${width}, 1fr)`).join(' ')}`;
-    grid.style.minWidth = `calc(var(--week-time-width) + ${widths.join(' + ')})`;
-    board.append(grid);
-    container.append(bar, board);
-    activate(selectedDate, false);
-    if (scrollToSelected) requestAnimationFrame(() => activate(selectedDate, true));
-    return board;
+    grid.style.gridTemplateColumns = `var(--week-time-width) ${widths.join(' ')}`;
+    grid.style.width = `calc(var(--week-time-width) + ${widths.join(' + ')})`;
+    stage.append(grid); board.append(stage);
+    if (items.length) {
+      const legend = document.getElementById('shiftLegend').cloneNode(true);
+      legend.removeAttribute('id'); legend.hidden = false;
+      dialog.append(legend);
+    }
+    shell.append(bar, board); inline.append(shell);
+    container.append(inline, dialog);
+    const zoom = window.HorariosWeekZoom({ shell, board, stage, grid, dialog, inline, hours: items.length ? length / 60 : 0, controls: { smaller, larger, fit, expand, close, level } });
+    activate(selectedDate);
+    return zoom.destroy;
   };
 })();

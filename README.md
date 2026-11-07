@@ -4,7 +4,7 @@ Sitio estático compatible con GitHub Pages. **Inicio** reúne los documentos fr
 
 ## Vista semanal y guías referenciales
 
-En **Cronograma**, elige **Semana** o pulsa **Ver semana** para comparar los siete días en una escala horaria común. Cada columna tiene el día y la fecha; las tarjetas indican hora, curso y ambiente. En celular, toca un día en la fila superior o desliza el tablero. Las flechas cambian de semana en esta vista; **Hoy** vuelve a la semana actual. La búsqueda y el filtro de ambiente se aplican a toda la semana.
+En **Cronograma**, elige **Semana** o pulsa **Ver semana** para comparar los siete días en una escala horaria común. El tablero se ajusta para mostrar la semana completa de entrada, también al girar el teléfono. Amplía con **+**, toca un día para ir a su columna o usa **Pantalla completa** para pellizcar y arrastrar el tablero. **Ajustar** recupera la vista general. Las flechas cambian de semana y **Hoy** vuelve a la semana actual. La búsqueda y el filtro de ambiente se aplican a toda la semana.
 
 En **En paralelo** y **Semana**, el fondo distingue Mañana (07:30–13:30) de Tarde (13:30–22:30). La escala va desde el inicio de la primera clase visible hasta el fin de la última, sin agregar horas por los límites de los turnos.
 
