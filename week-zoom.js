@@ -1,21 +1,25 @@
 (() => {
   'use strict';
 
-  window.HorariosWeekZoom = function setupWeekZoom({ shell, board, stage, grid, dialog, inline, hours, controls }) {
-    const { smaller, larger, fit, expand, close, level } = controls;
-    const head = grid.querySelector('.week-clock-head');
+  window.HorariosWeekZoom = function setupWeekZoom({ shell, board, stage, grid, dialog, inline, controls }) {
+    const { smaller, larger, fit, expand, close, level, fullCopy } = controls;
+    let hours = 0, head;
     let scale = 1, fitted = 1, fitting = true, overviewHour = 75;
-    let destroyed = false;
+    let destroyed = false, sideways = false, nativeFullscreen = false;
+    const root = document.documentElement;
     const limit = 2;
     const isFull = () => dialog.open;
     const point = (x, y) => {
       const rect = board.getBoundingClientRect();
-      return { x: x - rect.left - board.clientLeft, y: y - rect.top - board.clientTop };
+      return {
+        x: (sideways ? y - rect.top : x - rect.left) - board.clientLeft,
+        y: (sideways ? rect.right - x : y - rect.top) - board.clientTop,
+      };
     };
     const center = () => ({ x: board.clientWidth / 2, y: board.clientHeight / 2 });
     const origin = () => {
       const rect = stage.getBoundingClientRect();
-      const pos = point(rect.left, rect.top);
+      const pos = point(sideways ? rect.right : rect.left, rect.top);
       return { x: pos.x + board.scrollLeft, y: pos.y + board.scrollTop };
     };
     function draw() {
@@ -24,17 +28,18 @@
       grid.style.transform = `scale(${scale})`;
       stage.style.width = `${grid.offsetWidth * scale}px`;
       stage.style.height = `${grid.offsetHeight * scale}px`;
-      const label = fitting ? 'Vista completa' : 'Vista ampliada';
+      const label = `${Math.round(scale / fitted * 100)} %`;
       if (level.textContent !== label) level.textContent = label;
       smaller.disabled = fitting;
       larger.disabled = scale >= limit;
       fit.setAttribute('aria-pressed', String(fitting));
     }
     function layout() {
-      if (!board.isConnected || !board.offsetWidth || !grid.offsetHeight) return;
+      if (!head || !board.isConnected || !board.offsetWidth || !grid.offsetHeight) return;
+      sideways = getComputedStyle(shell).transform !== 'none';
       const width = board.offsetWidth - 2;
       const cap = parseFloat(getComputedStyle(board).maxHeight) || Math.min(innerHeight * .5, 650);
-      const height = (isFull() ? board.offsetHeight : cap) - 2;
+      const height = (isFull() ? (hours ? board.offsetHeight : 140) : cap) - 2;
       if (height <= 0 || width <= 0) return;
       const widthScale = Math.min(1, width / grid.offsetWidth);
       const header = head.offsetHeight;
@@ -66,18 +71,51 @@
     larger.onclick = zoomIn;
     smaller.onclick = zoomOut;
     fit.onclick = reset;
-    expand.onclick = () => {
+    function releaseFullscreen() {
+      if (!nativeFullscreen) return;
+      nativeFullscreen = false;
+      screen.orientation?.unlock?.();
+      if (document.fullscreenElement === root) document.exitFullscreen().catch(() => {});
+    }
+    function onFullscreenChange() {
+      if (nativeFullscreen && document.fullscreenElement !== root && dialog.open) dialog.close();
+    }
+    document.addEventListener('fullscreenchange', onFullscreenChange);
+    expand.onclick = async () => {
+      expand.disabled = true;
+      // La pantalla completa nativa se abre antes del diálogo para que este quede encima.
+      if (matchMedia('(max-width: 600px), (pointer: coarse) and (max-height: 600px)').matches &&
+          root.requestFullscreen && !document.fullscreenElement) {
+        try {
+          await root.requestFullscreen();
+          nativeFullscreen = document.fullscreenElement === root;
+        } catch { /* El visor también funciona sin la pantalla completa nativa. */ }
+      }
+      if (destroyed) {
+        releaseFullscreen();
+        return;
+      }
       dialog.append(shell);
       expand.hidden = true;
+      close.hidden = false;
+      fullCopy.hidden = false;
       dialog.showModal();
       reset();
       close.focus({ preventScroll: true });
+      if (nativeFullscreen && screen.orientation?.lock) {
+        try { await screen.orientation.lock('landscape'); }
+        catch { /* En vertical, CSS gira el visor sin cambiar la orientación del dispositivo. */ }
+      }
     };
     close.onclick = () => dialog.close();
     dialog.addEventListener('close', () => {
+      releaseFullscreen();
       if (destroyed) return;
       inline.append(shell);
       expand.hidden = false;
+      expand.disabled = false;
+      close.hidden = true;
+      fullCopy.hidden = true;
       fingers.clear(); dragged = false;
       reset();
       expand.focus({ preventScroll: true });
@@ -125,13 +163,23 @@
     }, true);
     const observer = new ResizeObserver(layout);
     observer.observe(board);
-    layout();
     return {
+      refresh(visibleHours) {
+        hours = visibleHours;
+        head = grid.querySelector('.week-clock-head');
+        reset();
+      },
       jump(column) {
         if (fitting) { scale = Math.min(limit, Math.max(1, fitted * 1.4)); fitting = false; draw(); }
         board.scrollTo({ left: origin().x + column.offsetLeft * scale - Math.max(0, (board.clientWidth - column.offsetWidth * scale) / 2), top: 0, behavior: 'instant' });
       },
-      destroy() { destroyed = true; observer.disconnect(); if (dialog.open) dialog.close(); },
+      destroy() {
+        destroyed = true;
+        observer.disconnect();
+        document.removeEventListener('fullscreenchange', onFullscreenChange);
+        if (dialog.open) dialog.close();
+        releaseFullscreen();
+      },
     };
   };
 })();

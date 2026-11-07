@@ -127,6 +127,14 @@
     if (clear) { const button = el('button', 'Limpiar filtros', 'today-button'); button.onclick = () => { $('searchInput').value = ''; $('envSelect').value = ''; render(); }; panel.append(button); }
     $({ list: 'results', parallel: 'parallelView', week: 'weekView' }[state.view]).append(panel);
   }
+  const weekShifts = { morning: true, afternoon: true };
+  function updateScheduleStats(items) {
+    $('statClasses').textContent = items.length;
+    $('statEnvs').textContent = new Set(items.map(event => event.environment)).size;
+    const minutes = items.reduce((sum, event) => sum + minute(event.end) - minute(event.start), 0);
+    $('statHours').textContent = `${Math.floor(minutes / 60)} h${minutes % 60 ? ` ${minutes % 60} m` : ''}`;
+    $('resultCount').textContent = `${items.length} ${items.length === 1 ? 'clase programada' : 'clases programadas'}`;
+  }
   function render() {
     if (!state.data) return;
     const weekly = state.view === 'week';
@@ -145,11 +153,6 @@
     $('nextDay').setAttribute('aria-label', weekly ? 'Semana siguiente' : 'Día siguiente');
     $('prevDay').disabled = weekly && !adjacentWeek(-1);
     $('nextDay').disabled = weekly && !adjacentWeek(1);
-    $('statClasses').textContent = items.length;
-    $('statEnvs').textContent = new Set(items.map(e => e.environment)).size;
-    const minutes = items.reduce((sum, e) => sum + minute(e.end) - minute(e.start), 0);
-    $('statHours').textContent = `${Math.floor(minutes / 60)} h${minutes % 60 ? ` ${minutes % 60} m` : ''}`;
-    $('resultCount').textContent = `${items.length} ${items.length === 1 ? 'clase programada' : 'clases programadas'}`;
     const conflicts = all.filter(event => event.timeConflict).length;
     $('anomalyBanner').hidden = !conflicts;
     $('anomalyBanner').textContent = conflicts ? `${conflicts} ${conflicts === 1 ? 'clase tiene' : 'clases tienen'} horas distintas entre el texto y la posición en el Excel ${weekly ? 'esta semana' : 'este día'}. Se muestran según su posición y se excluyen de los avisos hasta confirmar la hora.` : '';
@@ -165,14 +168,18 @@
     $('parallelView').hidden = state.view !== 'parallel';
     $('weekView').hidden = !weekly;
     $('parallelHint').hidden = state.view !== 'parallel';
-    $('shiftLegend').hidden = state.view === 'list' || !items.length;
+    $('shiftLegend').hidden = state.view !== 'parallel' || !items.length;
     $('listViewBtn').setAttribute('aria-pressed', String(state.view === 'list'));
     $('parallelViewBtn').setAttribute('aria-pressed', String(state.view === 'parallel'));
     $('weekViewBtn').setAttribute('aria-pressed', String(weekly));
     if (weekly && week) {
-      state.weekCleanup = window.HorariosWeekView($('weekView'), { week, items, selectedDate: date, today: today(), environmentStyle, icon, openEvent, selectDate: day => setDate(day, false) });
+      state.weekCleanup = window.HorariosWeekView($('weekView'), {
+        week, items, selectedDate: date, today: today(), environmentStyle, openEvent,
+        shifts: weekShifts, onFilter: updateScheduleStats, selectDate: day => setDate(day, false)
+      });
       return;
     }
+    updateScheduleStats(items);
     if (!items.length) {
       renderEmpty('Sin clases para mostrar', !week ? 'Selecciona una semana disponible para consultar sus horarios.' : all.length ? 'Ninguna clase coincide con los filtros seleccionados.' : 'No hay clases registradas para este día en el Excel.', all.length > 0);
       return;

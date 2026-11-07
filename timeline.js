@@ -64,5 +64,5 @@
     if (cluster.length) finish();
     return result;
   }
-  return { minute, bounds, lanes, timeScale, renderTimeScale };
+  return { minute, bounds, lanes, timeScale, renderTimeScale, MORNING_START, AFTERNOON_START, AFTERNOON_END };
 });
