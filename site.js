@@ -42,7 +42,7 @@
   }
 
   const pages = ['inicio', 'cronograma', 'guias'];
-  let currentPage = pages.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'inicio';
+  let currentPage = pages.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'cronograma';
   const updatePage = () => {
     const route = location.hash.slice(1);
     if (pages.includes(route)) currentPage = route;

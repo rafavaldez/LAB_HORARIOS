@@ -1,7 +1,7 @@
 .schedule-load-row{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:5px 0}
 .schedule-reload{display:inline-flex;align-items:center;gap:5px;border:0;background:transparent;color:#586c87;padding:7px 5px;border-radius:6px;font-size:11px;white-space:nowrap}
 .schedule-reload:hover{background:#edf1f7;color:#213a5c}.schedule-reload .icon{width:13px;height:13px}.schedule-reload[aria-busy=true] .icon{animation:spin 1s linear infinite}
-.view-switch{grid-template-columns:repeat(3,minmax(0,1fr));min-width:0}.view-switch button{gap:7px;white-space:nowrap}
+.view-switch{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}.view-switch button{gap:7px;white-space:nowrap}
 .view-row:has(#parallelHint[hidden]){grid-template-columns:minmax(0,460px)}
 [data-view=week] .daily-filter{display:none}
 [data-view=week] .filters fieldset{grid-template-columns:1fr 1fr auto}

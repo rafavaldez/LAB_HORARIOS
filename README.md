@@ -4,11 +4,11 @@ Sitio estático compatible con GitHub Pages. **Inicio** reúne los documentos fr
 
 ## Vista semanal y guías referenciales
 
-En **Cronograma**, elige **Semana** o pulsa **Ver semana** para comparar los siete días en una escala horaria común. El tablero se ajusta para mostrar la semana completa de entrada, también al girar el teléfono. Amplía con **+**, toca un día para ir a su columna o usa **Pantalla completa** para pellizcar y arrastrar el tablero. **Ajustar** recupera la vista general. Las flechas cambian de semana y **Hoy** vuelve a la semana actual. La búsqueda y el filtro de ambiente se aplican a toda la semana.
+La web abre en **Cronograma**, con **En paralelo** como vista inicial. Las dos opciones disponibles son **En paralelo** y **Semana**. Elige **Semana** o pulsa **Ver semana** para comparar los siete días en una escala horaria común. El tablero se ajusta para mostrar la semana completa de entrada, también al girar el teléfono. Amplía con **+**, toca un día para ir a su columna o usa **Pantalla completa** para pellizcar y arrastrar el tablero. **Ajustar** recupera la vista general. Las flechas cambian de semana y **Hoy** vuelve a la semana actual. La búsqueda y el filtro de ambiente se aplican a toda la semana.
 
 En **En paralelo** y **Semana**, el fondo distingue Mañana (07:30–13:30) de Tarde (13:30–22:30). En **Semana**, ambos turnos se muestran al entrar y se pueden desmarcar por separado. Se usa la hora de inicio para asignar cada clase a un turno. La escala va desde el inicio de la primera clase visible hasta el fin de la última. En celulares, **Pantalla completa** abre el tablero en horizontal. Si el navegador no puede cambiar la orientación de la pantalla, el visor gira dentro de la página.
 
-Pulsa una clase en cualquiera de las tres vistas para consultar su detalle, copiar el texto y abrir guías referenciales. Se busca el nombre completo del curso sin distinguir tildes. Si el catálogo no contiene ese nombre, se admite una diferencia en el prefijo «Laboratorio de». La semana debe coincidir, también cuando el catálogo indica un rango como «12 a 13». Por ejemplo, Laboratorio de Física Conceptual en la semana 14 muestra **Guía N°3 · Leyes de reflexión y refracción de la luz**. Si hay varias coincidencias, se muestran todas con su modalidad.
+Pulsa una clase en cualquiera de las dos vistas para consultar su detalle, copiar el texto y abrir guías referenciales. Se busca el nombre completo del curso sin distinguir tildes. Si el catálogo no contiene ese nombre, se admite una diferencia en el prefijo «Laboratorio de». La semana debe coincidir, también cuando el catálogo indica un rango como «12 a 13». Por ejemplo, Laboratorio de Física Conceptual en la semana 14 muestra **Guía N°3 · Leyes de reflexión y refracción de la luz**. Si hay varias coincidencias, se muestran todas con su modalidad.
 
 ## Avisos antes de cada clase
 
@@ -75,7 +75,7 @@ El archivo actualizado el 15 de noviembre de 2026 contiene 543 clases en 17 sema
 
 ## Archivos del sitio
 
-- `index.html`, `styles.css`, `styles-extra.css`, `app.js`: interfaz, vista de lista y vista en paralelo.
+- `index.html`, `styles.css`, `styles-extra.css`, `app.js`: interfaz y vista en paralelo.
 - `documents.js` y `site.js`: catálogo de documentos y navegación entre Inicio y Cronograma.
 - `c7.js`, `c7.css` y `data/c7.json`: consulta de inventarios C7 por ambiente en Inicio.
 - `documentos/`: archivos descargables que deben publicarse junto al sitio.
