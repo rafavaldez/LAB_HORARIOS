@@ -11,13 +11,19 @@ const { createCalendar, peruToUtc } = require('../calendar.js');
 const source = fs.readFileSync(path.join(__dirname, '../data/actual/GUIAS X SEMANA Y HORARIOS.xlsx'));
 const real = parseWorkbook(source, XLSX);
 assert.ok(real.weeks.length > 0);
-assert.equal(real.events.length, 543);
+assert.equal(real.events.length, 534);
 assert.ok(real.events.every(event => event.course.trim() && !['HORA', 'AMBIENTE'].includes(event.environment.trim().toUpperCase())));
 assert.equal(real.events.find(event => event.sourceCell === 'W15!E46').course, 'ATENCIÓN OPORTUNA');
 assert.equal(real.events.find(event => event.sourceCell === 'W018!AA28').date, '2026-12-13');
 assert.ok(!real.events.some(event => event.sourceCell === 'W15!F56'));
 const conflicts = real.events.filter(event => event.timeConflict);
-assert.equal(conflicts.length, 11);
+assert.equal(conflicts.length, 12);
+assert.deepEqual(real.events.filter(event => event.week === 14 && event.course === 'TEORÍA FÍSICA PARA CCSS').map(event => event.sourceCell),
+  ['W14!H16', 'W14!H30', 'W14!H37']);
+assert.ok(!real.events.some(event => event.week === 15 && event.course === 'OBSERVACIÓN Y ENTREVISTA'));
+const novemberChemistry = real.events.find(event => event.sourceCell === 'W16!S44');
+assert.deepEqual([novemberChemistry.date, novemberChemistry.start, novemberChemistry.end, novemberChemistry.timeConflict.textStart, novemberChemistry.timeConflict.textEnd],
+  ['2026-11-27', '15:45', '17:15', '20:15', '21:45']);
 const novemberConflict = real.events.find(event => event.sourceCell === 'W13!AB15');
 assert.equal(novemberConflict.date, '2026-11-08');
 assert.deepEqual([novemberConflict.start, novemberConflict.end, novemberConflict.timeConflict.textStart, novemberConflict.timeConflict.textEnd], ['08:15', '09:45', '09:45', '11:15']);
